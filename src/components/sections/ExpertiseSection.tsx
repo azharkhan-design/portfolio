@@ -61,7 +61,7 @@ export const ExpertiseSection: React.FC = () => {
                 </span>
               </>
             }
-            subtitle="Six core capabilities honed across 15+ years and 13+ industry domains, delivering scalable enterprise products and design systems."
+            subtitle="Six core capabilities honed across 15+ years and 13+ industry domains — augmented with modern AI tooling (Claude, ChatGPT, Figma Make) for 3x velocity."
             className="mb-0"
           />
         </div>
