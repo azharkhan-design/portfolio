@@ -1,0 +1,9 @@
+const Antigravity = props => {
+  return (
+    <Canvas camera={{ position: [0, 0, 50], fov: 35 }}>
+      <AntigravityInner {...props} />
+    </Canvas>
+  );
+};
+
+export default Antigravity

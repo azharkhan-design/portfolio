@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <defs>
+    <linearGradient id="fMakeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7262" />
+      <stop offset="35%" stop-color="#F24E1E" />
+      <stop offset="70%" stop-color="#A259FF" />
+      <stop offset="100%" stop-color="#1ABCFE" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#fMakeGrad)" d="M12 2l2.2 6.1c.4 1.1 1.3 2 2.4 2.4L22.7 12l-6.1 2.2c-1.1.4-2 1.3-2.4 2.4L12 22.7l-2.2-6.1c-.4-1.1-1.3-2-2.4-2.4L1.3 12l6.1-2.2c1.1-.4 2-1.3 2.4-2.4L12 2z"/>
+</svg>
