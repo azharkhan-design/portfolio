@@ -11,7 +11,6 @@ import { LeadershipSection } from './components/sections/LeadershipSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { CaseStudyView } from './components/casestudy/CaseStudyView';
 import { AboutPageView } from './components/about/AboutPageView';
-import { ThemeToggle } from './components/ui/ThemeToggle';
 import { FloatingCVButton } from './components/ui/FloatingCVButton';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { ThemeProvider } from './context/ThemeContext';
@@ -271,7 +270,6 @@ export const PortfolioApp: React.FC = () => {
         )}
       </main>
 
-      <ThemeToggle />
       <FloatingCVButton />
       <CustomCursor />
     </div>

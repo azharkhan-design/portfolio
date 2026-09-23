@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
-type Theme = 'light' | 'dark';
+type Theme = 'dark';
 
 interface ThemeContextType {
   theme: Theme;
@@ -8,40 +8,34 @@ interface ThemeContextType {
   setTheme: (theme: Theme) => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>({
+  theme: 'dark',
+  toggleTheme: () => {},
+  setTheme: () => {},
+});
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    // Check localStorage first
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('azhar-theme') as Theme | null;
-      if (saved === 'light' || saved === 'dark') {
-        return saved;
+      const root = document.documentElement;
+      root.classList.add('dark');
+      root.classList.remove('light');
+      try {
+        localStorage.setItem('azhar-theme', 'dark');
+      } catch {
+        // ignore
       }
     }
-    return 'light'; // Default to light theme as requested
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('azhar-theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setThemeState((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
-
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-  };
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider
+      value={{
+        theme: 'dark',
+        toggleTheme: () => {},
+        setTheme: () => {},
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );

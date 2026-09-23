@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { ThemeToggle } from '../ui/ThemeToggle';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -95,12 +94,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         ))}
       </nav>
 
-      {/* Bottom info & theme switch */}
+      {/* Bottom info */}
       <div className="border-t border-subtle pt-6 flex items-center justify-between">
         <div className="text-xs text-muted font-mono">
           <span>15+ Years Experience</span>
         </div>
-        <ThemeToggle />
       </div>
     </div>
   );

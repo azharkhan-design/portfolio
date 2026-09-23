@@ -9,31 +9,32 @@
 
 @layer base {
   :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f4f4f5;
-    --bg-surface: #fafafa;
-    --bg-surface-elevated: #ffffff;
-    --bg-overlay: rgba(255, 255, 255, 0.85);
-    --bg-badge: #f4f4f5;
+    color-scheme: dark;
+    --bg-primary: #09090b;
+    --bg-secondary: #121215;
+    --bg-surface: #141417;
+    --bg-surface-elevated: #1a1a1f;
+    --bg-overlay: rgba(9, 9, 11, 0.88);
+    --bg-badge: #1f1f23;
     
-    --text-primary: #09090b;
-    --text-secondary: #52525b;
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
     --text-muted: #71717a;
-    --text-inverse: #ffffff;
+    --text-inverse: #09090b;
     
-    --border-subtle: #e4e4e7;
-    --border-default: #d4d4d8;
-    --border-strong: #18181b;
+    --border-subtle: #27272a;
+    --border-default: #3f3f46;
+    --border-strong: #f4f4f5;
     
-    --accent: #18181b;
-    --accent-hover: #27272a;
-    --accent-contrast: #ffffff;
+    --accent: #ffffff;
+    --accent-hover: #e4e4e7;
+    --accent-contrast: #09090b;
     
-    --status-available: #10b981;
+    --status-available: #34d399;
     
-    --shadow-subtle: none;
-    --shadow-card: none;
-    --shadow-elevated: 0 4px 16px -4px rgba(0, 0, 0, 0.035);
+    --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
   }
 
   .dark {
@@ -117,23 +118,6 @@
   box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
 }
 
-/* Light Theme: Eliminate harsh drop shadows across all UI elements */
-html:not(.dark) [class*="shadow-2xl"],
-html:not(.dark) [class*="shadow-xl"],
-html:not(.dark) [class*="shadow-lg"] {
-  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.035) !important;
-}
-
-html:not(.dark) [class*="shadow-md"] {
-  box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.025) !important;
-}
-
-html:not(.dark) .shadow-sm,
-html:not(.dark) .shadow-xs,
-html:not(.dark) .shadow-2xs,
-html:not(.dark) .shadow {
-  box-shadow: none !important;
-}
 
 /* FigJam-inspired Minimal Dot Grid Pattern */
 .figjam-grid {
