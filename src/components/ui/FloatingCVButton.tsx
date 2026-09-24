@@ -9,7 +9,7 @@ interface FloatingCVButtonProps {
 }
 
 export const FloatingCVButton: React.FC<FloatingCVButtonProps> = ({
-  pdfUrl = '/Resume/Azhar-CV-New.pdf',
+  pdfUrl = '/Resume/Azhar-CV.pdf',
   className = ''
 }) => {
   return (

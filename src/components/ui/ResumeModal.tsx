@@ -11,7 +11,7 @@ interface ResumeModalProps {
 export const ResumeModal: React.FC<ResumeModalProps> = ({
   isOpen,
   onClose,
-  driveUrl = ''
+  driveUrl = '/Resume/Azhar-CV.pdf'
 }) => {
   const [activeTab, setActiveTab] = useState<'summary' | 'printable'>('summary');
   const [copiedEmail, setCopiedEmail] = useState(false);
