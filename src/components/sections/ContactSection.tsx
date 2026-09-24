@@ -11,7 +11,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
     email: 'almaazkhan@gmail.com',
     linkedin: 'https://linkedin.com/in/azharkhan1',
     behance: 'https://www.behance.net/azharkhan1',
-    location: 'Noida · Gurugram · Delhi, India'
+    location: 'Delhi NCR - INDIA'
   };
 
   const handleCopyEmail = (e: React.MouseEvent) => {
@@ -26,15 +26,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
 
         {/* Section Category Header */}
-        <div className="flex items-center gap-3 mb-6 sm:mb-8">
-          <div className="flex items-center -space-x-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#FDD02D]" title="Gold" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#DD1251]" title="Crimson" />
-            <span className="w-2.5 h-2.5 rounded-full bg-[#92D0AB]" title="Mint" />
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center -space-x-1">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FDD02D]" title="Gold" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#DD1251]" title="Crimson" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#92D0AB]" title="Mint" />
+            </div>
+            <span className="text-[13px] sm:text-[14px] font-mono uppercase tracking-[0.25em] text-[#92D0AB] font-semibold">
+              GET IN TOUCH
+            </span>
           </div>
-          <span className="text-[13px] sm:text-[14px] font-mono uppercase tracking-[0.25em] text-[#92D0AB] font-semibold">
-            GET IN TOUCH
-          </span>
+
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-subtle text-xs font-mono text-secondary">
+            <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse" />
+            <span>{contactData.location}</span>
+          </div>
         </div>
 
         {/* Modern Bento Dispatch Layout */}
@@ -54,7 +61,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
               </h2>
 
               <p className="text-xs sm:text-sm text-secondary leading-relaxed max-w-2xl font-normal mb-8">
-                Available for Lead and Senior Product Design roles, design systems, and complex enterprise applications across Fintech, Healthcare, and SaaS.
+                Available for Lead and Senior Product Design roles, design systems, and complex enterprise applications across Fintech, Healthcare, and SaaS — based in <strong className="text-primary font-medium">{contactData.location}</strong> (open to Remote & Hybrid).
               </p>
             </div>
 
@@ -97,10 +104,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
             </div>
           </div>
 
-          {/* Bottom Row: 3 Connection Tiles */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          {/* Bottom Row: 4 Connection Tiles */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             
-            {/* Tile 1: LinkedIn */}
+            {/* Tile 1: Location */}
+            <div className="p-5 rounded-2xl bg-surface border border-subtle flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-white dark:bg-neutral-900 border border-subtle flex items-center justify-center text-[#92D0AB] shrink-0">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-primary">Location</div>
+                <div className="text-[11px] font-mono text-secondary truncate">{contactData.location}</div>
+              </div>
+            </div>
+
+            {/* Tile 2: LinkedIn */}
             <a
               href={contactData.linkedin}
               target="_blank"
@@ -123,7 +144,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
               </span>
             </a>
 
-            {/* Tile 2: Behance */}
+            {/* Tile 3: Behance */}
             <a
               href={contactData.behance}
               target="_blank"
@@ -146,9 +167,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
               </span>
             </a>
 
-            {/* Tile 3: Direct Correspondence Rate */}
+            {/* Tile 4: Direct Correspondence Rate */}
             <div className="p-5 rounded-2xl bg-surface border border-subtle flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-white dark:bg-neutral-900 border border-subtle flex items-center justify-center text-primary">
+              <div className="w-9 h-9 rounded-xl bg-white dark:bg-neutral-900 border border-subtle flex items-center justify-center text-primary shrink-0">
                 ⚡
               </div>
               <div>
