@@ -188,7 +188,7 @@ export const DesignSystemSection: React.FC = () => {
             {/* Typographic Scale */}
             <div className="lg:col-span-7 bg-surface p-6 sm:p-8 rounded-sm border border-subtle">
               <div className="text-xs font-mono uppercase tracking-wider text-muted mb-1">Typography Scale</div>
-              <h4 className="text-base font-semibold text-primary mb-6 font-display">Inter &amp; Plus Jakarta Sans Hierarchy</h4>
+              <h4 className="text-base font-semibold text-primary mb-6 font-display">Inter &amp; Filson Pro Hierarchy</h4>
 
               <div className="space-y-6 border-t border-subtle pt-6">
                 <div>

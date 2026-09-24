@@ -2,7 +2,63 @@
 
 @custom-variant dark (&:is(.dark, .dark *));
 
+/* Filson Pro Typography (Geometric Sans-Serif) */
+@font-face {
+  font-family: 'Filson Pro';
+  src: local('Filson Pro'), local('FilsonPro'),
+       url('/fonts/FilsonProRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: local('Filson Pro Book'), local('FilsonPro-Book'),
+       url('/fonts/FilsonProBook.woff') format('woff');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: local('Filson Pro Medium'), local('FilsonPro-Medium'),
+       url('/fonts/FilsonProMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: local('Filson Pro Bold'), local('FilsonPro-Bold'),
+       url('/fonts/FilsonProBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: local('Filson Pro Heavy'), local('FilsonPro-Heavy'),
+       url('/fonts/FilsonProHeavy.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Filson Pro';
+  src: local('Filson Pro Black'), local('FilsonPro-Black'),
+       url('/fonts/FilsonProBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
+  --font-display: 'Filson Pro', 'Plus Jakarta Sans', 'Inter', sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-cursive: 'Caveat', 'Alex Brush', cursive;
 }
@@ -91,8 +147,8 @@
 
 /* Custom Typography & Utility Classes */
 .font-display {
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
-  letter-spacing: -0.03em;
+  font-family: 'Filson Pro', 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .font-serif-italic {
