@@ -5,6 +5,7 @@ import { KineticName } from '../ui/KineticName';
 import { TypewriterText, type TypewriterSequenceItem } from '../ui/TypewriterText';
 import { LogoLoop } from '../ui/LogoLoop';
 import { AwardStamp } from '../ui/AwardStamp';
+import { HeroBackground } from '../ui/HeroBackground';
 import { useTheme } from '../../context/ThemeContext';
 
 interface HeroSectionProps {
@@ -60,8 +61,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* Subtle Background Ambient Radial Lighting */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-neutral-200/40 dark:bg-neutral-800/20 blur-[140px] rounded-full pointer-events-none -z-10" />
+      {/* Interactive Minimal Hero Background (Smooth Cursor Spotlight + Ambient Dot Grid + Micro-Particles) */}
+      <HeroBackground />
 
       {/* Floating Rotating Award Stamp (Top-Right of Hero Banner) */}
       <div className="hidden md:block absolute top-28 sm:top-32 right-6 lg:right-16 z-20">
