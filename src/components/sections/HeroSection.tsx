@@ -80,7 +80,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             <span className="text-sm">🏆</span>
             <span className="font-semibold text-primary dark:text-[#f5f5f5]">Best Design Award Winner</span>
             <span className="text-[#FDD02D] font-medium group-hover/badge:translate-x-0.5 transition-transform flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#DD1251] shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
               <span>Unlocked Awards ↗</span>
             </span>
           </button>
@@ -96,7 +96,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
           </h1>
           <span className="text-[12px] font-mono font-semibold uppercase tracking-[0.15em] text-[#92D0AB] mt-2.5 flex items-center justify-center gap-2">
             <span>Lead Product Designer</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#DD1251] shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
             <span>15+ years</span>
           </span>
         </div>
