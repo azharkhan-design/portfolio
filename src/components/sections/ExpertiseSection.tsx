@@ -56,7 +56,7 @@ export const ExpertiseSection: React.FC = () => {
             title={
               <>
                 What I bring to{' '}
-                <span className="font-serif italic font-normal text-secondary">
+                <span className="font-serif italic font-normal text-primary">
                   the table.
                 </span>
               </>

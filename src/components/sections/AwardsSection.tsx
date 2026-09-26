@@ -45,7 +45,7 @@ export const AwardsSection: React.FC = () => {
             title={
               <>
                 Industry{' '}
-                <span className="font-serif italic font-normal text-secondary">
+                <span className="font-serif italic font-normal text-primary">
                   awards.
                 </span>
               </>

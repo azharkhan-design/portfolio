@@ -198,7 +198,7 @@ export const ExperienceSection: React.FC = () => {
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary tracking-tight leading-[1.15] mb-6">
               Obsessed with making complex software feel{' '}
-              <span className="font-serif-italic font-normal text-primary">
+              <span className="font-serif italic font-normal text-primary">
                 ridiculously simple.
               </span>
             </h2>

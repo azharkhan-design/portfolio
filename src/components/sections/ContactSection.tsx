@@ -55,7 +55,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
               {/* Headline */}
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-display font-extrabold text-primary tracking-tight leading-[1.12] mb-4">
                 Have a project in mind?{' '}
-                <span className="font-serif italic font-normal text-secondary">
+                <span className="font-serif italic font-normal text-primary">
                   Let's work together.
                 </span>
               </h2>

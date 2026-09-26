@@ -134,7 +134,7 @@ export const IntroSection: React.FC = () => {
             {/* Main Headline */}
             <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-display font-bold text-primary tracking-tight leading-[1.18] mb-6">
               Designing complex systems with human clarity and{' '}
-              <span className="font-serif-italic font-normal text-[#92D0AB]">
+              <span className="font-serif italic font-normal text-primary">
                 AI-driven velocity.
               </span>
             </h2>

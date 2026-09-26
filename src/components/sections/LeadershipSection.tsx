@@ -150,7 +150,7 @@ export const LeadershipSection: React.FC = () => {
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-primary tracking-tight leading-[1.15] mb-6">
               How I think,<br />
-              <span className="font-serif italic font-normal text-secondary">
+              <span className="font-serif italic font-normal text-primary">
                 work &amp; lead.
               </span>
             </h2>

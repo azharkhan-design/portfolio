@@ -36,7 +36,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight text-primary leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-primary leading-tight">
             {title}
           </h2>
           {subtitle && (
