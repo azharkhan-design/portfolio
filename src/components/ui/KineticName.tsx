@@ -65,8 +65,7 @@ export const KineticName: React.FC<KineticNameProps> = ({
                         : 'translateY(0px) scale(1)',
                       transitionDelay: isLoaded ? '0ms' : `${entranceDelay}ms`,
                       transitionDuration: isLoaded ? '250ms' : '600ms',
-                      transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-                      color: isCursivePart && isHovered ? '#FDD02D' : undefined
+                      transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
                     }}
                   >
                     {char}
