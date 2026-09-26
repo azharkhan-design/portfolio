@@ -74,7 +74,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
         <div className="mb-3">
           <button
             onClick={() => onNavigate('awards')}
-            className="group/badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#FDD02D]/40 bg-[#FDD02D]/10 hover:bg-[#FDD02D]/20 text-xs font-mono text-primary cursor-pointer shadow-xs transition-all hover:scale-105"
+            className="group/badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FDD02D]/10 hover:bg-[#FDD02D]/20 text-xs font-mono text-primary cursor-pointer shadow-xs transition-all hover:scale-105"
             title="Click to view Award Details"
           >
             <span className="text-sm">🏆</span>
