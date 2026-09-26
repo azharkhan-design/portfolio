@@ -70,7 +70,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 my-auto py-8 flex flex-col items-center justify-center text-center">
 
-        {/* Award Winner Badge Chip */}
+        {/* Award Winner Badge Chip (Hidden for now, can be re-enabled if needed) */}
+        {/*
         <div className="mb-3">
           <button
             onClick={() => onNavigate('awards')}
@@ -85,6 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             </span>
           </button>
         </div>
+        */}
 
         {/* Big Kinetic Animated Name with Staggered Entrance */}
         <div className="mb-2 flex flex-col items-center">
