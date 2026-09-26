@@ -9,6 +9,11 @@ interface ProjectLogoItem {
 const LOGOS: ProjectLogoItem[] = [
   {
     name: 'Big Language Solutions',
+    src: '/images/projects/Logo/BigLanguage.svg',
+    className: 'h-5.5 sm:h-7 max-w-[145px] sm:max-w-[170px]',
+  },
+  {
+    name: 'Stride Learning',
     src: '/images/projects/Logo/LRN_BIG.svg',
     className: 'h-5 sm:h-6 max-w-[135px] sm:max-w-[155px]',
   },
