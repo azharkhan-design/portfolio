@@ -126,7 +126,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
               href={contactData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-surface border border-subtle hover:border-strong flex items-center justify-between group transition-all"
+              className="p-5 rounded-2xl bg-surface border border-subtle hover:border-white/20 flex items-center justify-between group transition-all duration-300"
             >
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-white dark:bg-neutral-900 border border-subtle flex items-center justify-center text-primary group-hover:text-[#0D99FF] transition-colors">
@@ -149,7 +149,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
               href={contactData.behance}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-surface border border-subtle hover:border-strong flex items-center justify-between group transition-all"
+              className="p-5 rounded-2xl bg-surface border border-subtle hover:border-white/20 flex items-center justify-between group transition-all duration-300"
             >
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-white dark:bg-neutral-900 border border-subtle flex items-center justify-center text-primary group-hover:text-[#0057ff] transition-colors">
