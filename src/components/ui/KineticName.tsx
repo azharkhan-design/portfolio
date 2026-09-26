@@ -28,17 +28,9 @@ export const KineticName: React.FC<KineticNameProps> = ({
       className={`inline-flex flex-wrap items-baseline justify-center select-none ${className}`}
     >
       {parts.map((part, partIdx) => {
-        const isCursivePart = part.toLowerCase() === 'khan';
-
         return (
           <React.Fragment key={partIdx}>
-            <span
-              className={`inline-flex items-baseline ${
-                isCursivePart
-                  ? 'font-cursive font-normal italic tracking-normal text-[1.2em] sm:text-[1.25em] text-primary'
-                  : 'font-display font-extrabold tracking-tighter'
-              }`}
-            >
+            <span className="inline-flex items-baseline font-display font-extrabold tracking-tighter">
               {part.split('').map((char, charIdx) => {
                 const globalIdx = charCounter++;
                 const isHovered = hoveredIdx === globalIdx;
