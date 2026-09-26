@@ -94,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] text-primary leading-[1.02] tracking-tighter">
             <KineticName name="Azhar.Khan" />
           </h1>
-          <span className="text-[12px] font-mono font-semibold uppercase tracking-[0.15em] text-[#FDD02D] mt-2.5 flex items-center justify-center gap-2">
+          <span className="text-[12px] font-mono font-semibold uppercase tracking-[0.15em] text-[#92D0AB] mt-2.5 flex items-center justify-center gap-2">
             <span>Lead Product Designer</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#DD1251] shrink-0" />
             <span>15+ years</span>
@@ -123,23 +123,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             </span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface hover:border-strong text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
               <span className="text-sm">🇺🇸</span>
               <span>USA</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface hover:border-strong text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
               <span className="text-sm">🇸🇦</span>
               <span>KSA</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface hover:border-strong text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
               <span className="text-sm">🇦🇪</span>
               <span>Dubai</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface hover:border-strong text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
               <span className="text-sm">🇦🇪</span>
               <span>Abu Dhabi</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface hover:border-strong text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface text-xs font-mono text-secondary hover:text-primary shadow-xs transition-all">
               <span className="text-sm">🇮🇳</span>
               <span>India</span>
             </span>
