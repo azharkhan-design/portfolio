@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AzharLogo } from '../ui/AzharLogo';
 import { MobileMenu } from './MobileMenu';
 
 interface HeaderProps {
@@ -56,11 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label="Azhar Khan Portfolio Home"
           >
             <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-              <img
-                src="/images/Logo/AzharLogo.svg"
-                alt="Azhar Khan Logo"
-                className="w-full h-full object-contain"
-              />
+              <AzharLogo className="w-full h-full object-contain" />
             </div>
           </button>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSmoothScroll } from '../../context/SmoothScroll';
+import { AzharLogo } from '../ui/AzharLogo';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -17,12 +18,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-subtle">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden p-1.5 border border-subtle bg-surface flex items-center justify-center shrink-0 shadow-xs">
-              <img
-                src="/images/Logo/AzharLogo.svg"
-                alt="Azhar Khan Logo"
-                className="w-full h-full object-contain"
-              />
+            <div
+              onClick={scrollToTop}
+              className="w-10 h-10 rounded-full overflow-hidden p-1.5 border border-subtle bg-surface flex items-center justify-center shrink-0 shadow-xs group cursor-pointer hover:border-white/20 transition-all duration-300"
+              title="Back to top"
+            >
+              <AzharLogo className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="text-xl font-display font-bold tracking-tight text-primary">

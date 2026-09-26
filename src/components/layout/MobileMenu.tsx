@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { AzharLogo } from '../ui/AzharLogo';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -44,12 +45,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
       {/* Header bar inside menu */}
       <div className="flex items-center justify-between border-b border-subtle pb-6">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full overflow-hidden p-1 border border-subtle bg-surface flex items-center justify-center shrink-0">
-            <img
-              src="/images/Logo/AzharLogo.svg"
-              alt="Azhar Khan Logo"
-              className="w-full h-full object-contain"
-            />
+          <div className="w-8 h-8 rounded-full overflow-hidden p-1 border border-subtle bg-surface flex items-center justify-center shrink-0 group">
+            <AzharLogo className="w-full h-full object-contain" />
           </div>
           <div>
             <div className="text-sm font-bold tracking-tight font-display text-primary">AZHAR KHAN</div>

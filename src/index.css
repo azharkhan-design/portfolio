@@ -472,3 +472,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 }
 
+/* Azhar Logo: Pure white resting state, brand colored on hover */
+.azhar-logo path {
+  fill: #ffffff;
+  transition: fill 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .azhar-logo .logo-gold,
+.azhar-logo:hover .logo-gold {
+  fill: #FDD02D;
+}
+
+.group:hover .azhar-logo .logo-mint,
+.azhar-logo:hover .logo-mint {
+  fill: #92D0AB;
+}
+
+.group:hover .azhar-logo .logo-crimson,
+.azhar-logo:hover .logo-crimson {
+  fill: #DD1251;
+}
+
+
