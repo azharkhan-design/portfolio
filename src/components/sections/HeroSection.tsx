@@ -92,7 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
             Hi I'am
           </span>
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] text-primary leading-[1.02] tracking-tighter">
-            <KineticName name="Azhar.Khan" />
+            <KineticName name="Azhar Khan" />
           </h1>
           <span className="text-[12px] font-mono font-semibold uppercase tracking-[0.15em] text-[#92D0AB] mt-2.5 flex items-center justify-center gap-2">
             <span>Lead Product Designer</span>

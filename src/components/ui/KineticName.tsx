@@ -6,7 +6,7 @@ interface KineticNameProps {
 }
 
 export const KineticName: React.FC<KineticNameProps> = ({
-  name = 'Azhar.Khan',
+  name = 'Azhar Khan',
   className = ''
 }) => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -20,7 +20,7 @@ export const KineticName: React.FC<KineticNameProps> = ({
     return () => clearTimeout(timer);
   }, []);
 
-  const parts = name.split('.');
+  const parts = name.split(/[. ]+/);
   let charCounter = 0;
 
   return (
@@ -75,15 +75,7 @@ export const KineticName: React.FC<KineticNameProps> = ({
             </span>
 
             {partIdx < parts.length - 1 && (
-              <span
-                className="text-[#FDD02D] mx-1 sm:mx-1.5 transition-transform duration-300 hover:scale-125 inline-block"
-                style={{
-                  opacity: isLoaded ? 1 : 0,
-                  transitionDelay: `${charCounter * 45}ms`
-                }}
-              >
-                .
-              </span>
+              <span className="inline-block w-[0.25em]" aria-hidden="true" />
             )}
           </React.Fragment>
         );
