@@ -587,7 +587,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'drive-focus',
     number: '05',
-    title: 'Drive Me',
+    title: 'Drive Focus',
     client: 'Drive Focus · US & Canada',
     location: 'United States & Canada',
     category: 'Interactive Simulation / EdTech / Mobile App',
@@ -616,6 +616,8 @@ export const PROJECTS: Project[] = [
       { label: 'Safety Validation', value: 'Peer-Reviewed Research' }
     ],
     caseStudy: {
+      externalUrl: 'https://www.behance.net/gallery/255077141/Drive-Me-Improve-your-critical-driving-skills',
+      behanceUrl: 'https://www.behance.net/gallery/255077141/Drive-Me-Improve-your-critical-driving-skills',
       overview:
         'Drive Focus is a clinically validated, interactive mobile simulation app developed in partnership with leading traffic safety scientists. It trains drivers to develop expert visual search strategies and quickly identify critical roadway hazards—such as pedestrians stepping into lanes, sudden brake lights, and intersecting vehicles.',
       industry: 'EdTech / Automotive Safety & Interactive Simulation',
@@ -768,6 +770,8 @@ export const PROJECTS: Project[] = [
       { label: 'Checkout Friction', value: '1-Tap Instant Buy' }
     ],
     caseStudy: {
+      externalUrl: 'https://www.behance.net/gallery/102259963/Ecommerce-App-UIUX-Case-Study',
+      behanceUrl: 'https://www.behance.net/gallery/102259963/Ecommerce-App-UIUX-Case-Study',
       overview:
         'ZON represents an architectural breakthrough in decentralized commerce—connecting dense urban retail networks directly with shoppers. Unlike traditional centralized warehouses, ZON taps into neighborhood store inventories in real-time, matching buyer requests with the closest, lowest-priced retailer for rapid hyper-local delivery.',
       industry: 'E-Commerce / Decentralized Retail & Hyper-Local Logistics',
