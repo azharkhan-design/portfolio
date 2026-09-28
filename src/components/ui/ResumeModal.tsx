@@ -327,7 +327,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
             </button>
 
             <a
-              href="https://linkedin.com/in/azharkhan1"
+              href="https://www.linkedin.com/in/azharkhan1/"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-full border border-subtle hover:border-strong text-secondary hover:text-primary transition-colors"

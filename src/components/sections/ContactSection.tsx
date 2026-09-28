@@ -9,7 +9,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate: _onN
 
   const contactData = {
     email: 'almaazkhan@gmail.com',
-    linkedin: 'https://linkedin.com/in/azharkhan1',
+    linkedin: 'https://www.linkedin.com/in/azharkhan1/',
     behance: 'https://www.behance.net/azharkhan1',
     location: 'Delhi NCR - INDIA'
   };
