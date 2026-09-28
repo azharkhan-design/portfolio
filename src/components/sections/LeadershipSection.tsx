@@ -125,9 +125,11 @@ export const LeadershipSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="leadership" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="leadership" className="py-20 md:py-32 relative">
       {/* Subtle Ambient Radial Lighting with the 3 Colors */}
-      <div className="absolute top-1/4 -left-24 w-96 h-96 bg-gradient-to-br from-[#92D0AB]/8 via-[#FDD02D]/5 to-[#DD1251]/4 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute top-1/4 -left-24 w-96 h-96 bg-gradient-to-br from-[#92D0AB]/8 via-[#FDD02D]/5 to-[#DD1251]/4 blur-[130px] rounded-full" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -135,7 +137,7 @@ export const LeadershipSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* Left Column: Sticky Editorial Manifesto (5 Cols) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 self-start">
             {/* Section label with 3-Color Micro Beacon */}
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center -space-x-1">
