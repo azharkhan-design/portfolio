@@ -42,6 +42,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelectProject }) 
   const gradientBackdrop = project.backdropColor || 'from-[#1e3a8a] via-[#1d4ed8] to-[#172554]';
 
   const handleCardClick = () => {
+    if (project.hideCaseStudy) return;
     if (project.externalUrl) {
       window.open(project.externalUrl, '_blank', 'noopener,noreferrer');
     } else {
@@ -60,7 +61,9 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelectProject }) 
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
         transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
-      className="group relative rounded-3xl border border-subtle bg-surface dark:bg-[#0c0d10] text-primary p-3.5 sm:p-4 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden flex flex-col justify-between"
+      className={`group relative rounded-3xl border border-subtle bg-surface dark:bg-[#0c0d10] text-primary p-3.5 sm:p-4 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col justify-between ${
+        project.hideCaseStudy ? 'cursor-default' : 'cursor-pointer'
+      }`}
     >
       {/* Top Colorful Showcase Stage with Full-Bleed Image Filling Width & Height */}
       <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.8] rounded-2xl overflow-hidden bg-surface-elevated dark:bg-neutral-950 flex items-center justify-center">
@@ -119,67 +122,69 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelectProject }) 
         <div className="flex items-center justify-between gap-3 pt-2">
           {/* Pill Tags */}
           <div className="flex flex-wrap items-center gap-2">
-            {/* Interactive View Case Study Button */}
-            {project.externalUrl ? (
-              <a
-                href={project.externalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="group/btn relative inline-flex items-center gap-2 px-4 py-2 rounded-full border border-subtle bg-white dark:bg-neutral-900/90 text-xs font-mono font-semibold hover:bg-neutral-900 dark:hover:bg-white hover:border-neutral-900 dark:hover:border-white transition-all duration-300 hover:scale-[1.04] active:scale-95 cursor-pointer overflow-hidden select-none"
-              >
-                {/* Moving Sheen Light Beam Wipe on Hover */}
+            {/* Interactive View Case Study Button (hidden if hideCaseStudy is true) */}
+            {!project.hideCaseStudy && (
+              project.externalUrl ? (
+                <a
+                  href={project.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="group/btn relative inline-flex items-center gap-2 px-4 py-2 rounded-full border border-subtle bg-white dark:bg-neutral-900/90 text-xs font-mono font-semibold hover:bg-neutral-900 dark:hover:bg-white hover:border-neutral-900 dark:hover:border-white transition-all duration-300 hover:scale-[1.04] active:scale-95 cursor-pointer overflow-hidden select-none"
+                >
+                  {/* Moving Sheen Light Beam Wipe on Hover */}
+                  <span
+                    className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/30 dark:via-black/15 to-transparent pointer-events-none"
+                    aria-hidden="true"
+                  />
+
+                  {/* Pulsing Accent Dot */}
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#92D0AB] transition-transform duration-300 group-hover/btn:scale-125 shrink-0" />
+
+                  {/* Text Label - Explicit Contrast for Light & Dark Themes */}
+                  <span className="relative z-10 tracking-tight text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black font-semibold transition-colors duration-200">
+                    View Case Study
+                  </span>
+
+                  {/* Dual Sliding Arrow Micro-Interaction */}
+                  <span className="relative z-10 w-3.5 h-3.5 overflow-hidden inline-flex items-center justify-center shrink-0 text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black transition-colors duration-200">
+                    <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform group-hover/btn:translate-x-3 group-hover/btn:-translate-y-3 group-hover/btn:opacity-0">
+                      ↗
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform -translate-x-3 translate-y-3 opacity-0 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0 group-hover/btn:opacity-100">
+                      ↗
+                    </span>
+                  </span>
+                </a>
+              ) : (
                 <span
-                  className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/30 dark:via-black/15 to-transparent pointer-events-none"
-                  aria-hidden="true"
-                />
+                  className="group/btn relative inline-flex items-center gap-2 px-4 py-2 rounded-full border border-subtle bg-white dark:bg-neutral-900/90 text-xs font-mono font-semibold hover:bg-neutral-900 dark:hover:bg-white hover:border-neutral-900 dark:hover:border-white transition-all duration-300 hover:scale-[1.04] active:scale-95 cursor-pointer overflow-hidden select-none"
+                >
+                  {/* Moving Sheen Light Beam Wipe on Hover */}
+                  <span
+                    className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/30 dark:via-black/15 to-transparent pointer-events-none"
+                    aria-hidden="true"
+                  />
 
-                {/* Pulsing Accent Dot */}
-                <span className="w-1.5 h-1.5 rounded-full bg-[#92D0AB] transition-transform duration-300 group-hover/btn:scale-125 shrink-0" />
+                  {/* Pulsing Accent Dot */}
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#92D0AB] transition-transform duration-300 group-hover/btn:scale-125 shrink-0" />
 
-                {/* Text Label - Explicit Contrast for Light & Dark Themes */}
-                <span className="relative z-10 tracking-tight text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black font-semibold transition-colors duration-200">
-                  View Case Study
-                </span>
-
-                {/* Dual Sliding Arrow Micro-Interaction */}
-                <span className="relative z-10 w-3.5 h-3.5 overflow-hidden inline-flex items-center justify-center shrink-0 text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black transition-colors duration-200">
-                  <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform group-hover/btn:translate-x-3 group-hover/btn:-translate-y-3 group-hover/btn:opacity-0">
-                    ↗
+                  {/* Text Label - Explicit Contrast for Light & Dark Themes */}
+                  <span className="relative z-10 tracking-tight text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black font-semibold transition-colors duration-200">
+                    View Case Study
                   </span>
-                  <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform -translate-x-3 translate-y-3 opacity-0 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0 group-hover/btn:opacity-100">
-                    ↗
-                  </span>
-                </span>
-              </a>
-            ) : (
-              <span
-                className="group/btn relative inline-flex items-center gap-2 px-4 py-2 rounded-full border border-subtle bg-white dark:bg-neutral-900/90 text-xs font-mono font-semibold hover:bg-neutral-900 dark:hover:bg-white hover:border-neutral-900 dark:hover:border-white transition-all duration-300 hover:scale-[1.04] active:scale-95 cursor-pointer overflow-hidden select-none"
-              >
-                {/* Moving Sheen Light Beam Wipe on Hover */}
-                <span
-                  className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 ease-out bg-gradient-to-r from-transparent via-white/30 dark:via-black/15 to-transparent pointer-events-none"
-                  aria-hidden="true"
-                />
 
-                {/* Pulsing Accent Dot */}
-                <span className="w-1.5 h-1.5 rounded-full bg-[#92D0AB] transition-transform duration-300 group-hover/btn:scale-125 shrink-0" />
-
-                {/* Text Label - Explicit Contrast for Light & Dark Themes */}
-                <span className="relative z-10 tracking-tight text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black font-semibold transition-colors duration-200">
-                  View Case Study
-                </span>
-
-                {/* Dual Sliding Arrow Micro-Interaction */}
-                <span className="relative z-10 w-3.5 h-3.5 overflow-hidden inline-flex items-center justify-center shrink-0 text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black transition-colors duration-200">
-                  <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform group-hover/btn:translate-x-3 group-hover/btn:-translate-y-3 group-hover/btn:opacity-0">
-                    ↗
-                  </span>
-                  <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform -translate-x-3 translate-y-3 opacity-0 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0 group-hover/btn:opacity-100">
-                    ↗
+                  {/* Dual Sliding Arrow Micro-Interaction */}
+                  <span className="relative z-10 w-3.5 h-3.5 overflow-hidden inline-flex items-center justify-center shrink-0 text-neutral-900 group-hover/btn:text-white dark:text-white dark:group-hover/btn:text-black transition-colors duration-200">
+                    <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform group-hover/btn:translate-x-3 group-hover/btn:-translate-y-3 group-hover/btn:opacity-0">
+                      ↗
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center text-xs transition-all duration-300 transform -translate-x-3 translate-y-3 opacity-0 group-hover/btn:translate-x-0 group-hover/btn:translate-y-0 group-hover/btn:opacity-100">
+                      ↗
+                    </span>
                   </span>
                 </span>
-              </span>
+              )
             )}
 
             {project.metrics && project.metrics[0] && (

@@ -319,6 +319,7 @@ export const PROJECTS: Project[] = [
     shortCategory: 'Agriculture-Mobile',
     backdropColor: 'from-[#15803d] via-[#166534] to-[#052e16]',
     imageUrl: '/images/projects/growers/GrowersCover.png',
+    hideCaseStudy: true,
     metrics: [
       { label: 'Farm Acreage', value: '4M+ Acres Managed' },
       { label: 'Retail Orders', value: '$120M+ GMV' },
@@ -464,6 +465,7 @@ export const PROJECTS: Project[] = [
     shortCategory: 'Web-Healthcare',
     backdropColor: 'from-[#0284c7] via-[#0369a1] to-[#0c4a6e]',
     imageUrl: '/images/projects/cura-patient/corapatientcover.png',
+    hideCaseStudy: true,
     metrics: [
       { label: 'Patients Served', value: '3.2M+ Users' },
       { label: 'Clinical Adoption', value: '450+ Clinics' },

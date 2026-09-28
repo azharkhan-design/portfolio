@@ -71,7 +71,7 @@ export const PortfolioApp: React.FC = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash.startsWith('project/')) {
         const pId = hash.replace('project/', '');
-        const exists = PROJECTS.find((p) => p.id === pId);
+        const exists = PROJECTS.find((p) => p.id === pId && !p.hideCaseStudy);
         if (exists) {
           pendingSectionRef.current = null;
           setSelectedProjectId(pId);
@@ -210,6 +210,8 @@ export const PortfolioApp: React.FC = () => {
   };
 
   const handleSelectProject = (projectId: string) => {
+    const targetProject = PROJECTS.find((p) => p.id === projectId);
+    if (targetProject?.hideCaseStudy) return;
     pendingSectionRef.current = null;
     setSelectedProjectId(projectId);
     setIsAboutView(false);

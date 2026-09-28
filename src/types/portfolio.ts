@@ -23,6 +23,7 @@ export interface Project {
   shortCategory?: string;
   imageUrl?: string;
   externalUrl?: string;
+  hideCaseStudy?: boolean;
   metrics?: { label: string; value: string }[];
   caseStudy: {
     externalUrl?: string;

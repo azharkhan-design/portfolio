@@ -22,9 +22,11 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [project.id]);
 
-  const currentIndex = allProjects.findIndex((p) => p.id === project.id);
-  const prevProject = allProjects[(currentIndex - 1 + allProjects.length) % allProjects.length];
-  const nextProject = allProjects[(currentIndex + 1) % allProjects.length];
+  const activeProjects = allProjects.filter((p) => !p.hideCaseStudy);
+  const currentIndex = activeProjects.findIndex((p) => p.id === project.id);
+  const safeIndex = currentIndex !== -1 ? currentIndex : 0;
+  const prevProject = activeProjects[(safeIndex - 1 + activeProjects.length) % activeProjects.length];
+  const nextProject = activeProjects[(safeIndex + 1) % activeProjects.length];
 
   const cs = project.caseStudy;
 
@@ -53,7 +55,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
               </a>
             )}
             <span className="text-xs font-mono text-muted uppercase tracking-wider">
-              Case Study {project.number} / {String(allProjects.length).padStart(2, '0')}
+              Case Study {project.number} / {String(activeProjects.length).padStart(2, '0')}
             </span>
           </div>
         </div>
