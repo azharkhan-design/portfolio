@@ -97,8 +97,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate }) => {
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[6rem] text-primary leading-[1.02] tracking-tighter">
             <KineticName name="Azhar Khan" />
           </h1>
-          <span className="text-[12px] font-mono font-semibold uppercase tracking-[0.15em] text-[#92D0AB] mt-2.5 flex items-center justify-center gap-2">
-            <span>Lead Product Designer</span>
+          <span className="text-sm sm:text-base md:text-lg font-mono font-semibold uppercase tracking-[0.12em] text-[#92D0AB] mt-3 flex flex-wrap items-center justify-center gap-2 text-center">
+            <span>Lead UI/UX & Product Designer</span>
             <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
             <span>15+ years</span>
           </span>
