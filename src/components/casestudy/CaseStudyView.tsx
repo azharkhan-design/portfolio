@@ -32,7 +32,7 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
     <article className="min-h-screen pt-8 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Breadcrumb / Back Link */}
-        <div className="flex items-center justify-between pb-6 border-b border-subtle mb-10">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-subtle mb-10">
           <button
             onClick={onBackToHome}
             className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-secondary hover:text-primary transition-colors cursor-pointer"
@@ -40,9 +40,22 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             <span>←</span> Back to All Projects
           </button>
 
-          <span className="text-xs font-mono text-muted uppercase tracking-wider">
-            Case Study {project.number} / {String(allProjects.length).padStart(2, '0')}
-          </span>
+          <div className="flex items-center gap-3">
+            {project.externalUrl && (
+              <a
+                href={project.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-subtle bg-surface hover:border-strong text-xs font-mono font-medium text-primary hover:bg-badge transition-all"
+              >
+                <span>View on Behance</span>
+                <span>↗</span>
+              </a>
+            )}
+            <span className="text-xs font-mono text-muted uppercase tracking-wider">
+              Case Study {project.number} / {String(allProjects.length).padStart(2, '0')}
+            </span>
+          </div>
         </div>
 
         {/* Header Hero Section */}
@@ -62,18 +75,32 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             {project.description}
           </p>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-6">
-            {project.tags.map((tag) => (
-              <Tag key={tag} size="md">
-                {tag}
-              </Tag>
-            ))}
+          {/* Tags & Action Buttons */}
+          <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <Tag key={tag} size="md">
+                  {tag}
+                </Tag>
+              ))}
+            </div>
+
+            {project.externalUrl && (
+              <a
+                href={project.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-semibold hover:scale-[1.03] active:scale-95 transition-all shadow-sm cursor-pointer"
+              >
+                <span>View Full Case Study on Behance</span>
+                <span className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+              </a>
+            )}
           </div>
         </header>
 
         {/* Project Metadata Strip */}
-        <section className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-8 border-y border-subtle mb-16 font-mono text-xs">
+        <section className={`grid grid-cols-2 ${project.externalUrl ? 'sm:grid-cols-5' : 'sm:grid-cols-4'} gap-6 py-8 border-y border-subtle mb-16 font-mono text-xs`}>
           <div>
             <span className="text-muted uppercase tracking-wider text-[10px] block mb-1">Client</span>
             <span className="font-semibold text-primary">{project.client}</span>
@@ -93,6 +120,20 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             <span className="text-muted uppercase tracking-wider text-[10px] block mb-1">Platform</span>
             <span className="font-semibold text-primary">{cs.platform}</span>
           </div>
+
+          {project.externalUrl && (
+            <div>
+              <span className="text-muted uppercase tracking-wider text-[10px] block mb-1">Live Presentation</span>
+              <a
+                href={project.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#0057ff] dark:text-[#38bdf8] hover:underline inline-flex items-center gap-1"
+              >
+                Behance ↗
+              </a>
+            </div>
+          )}
         </section>
 
         {/* Hero Product Mockup / Large Frame */}
@@ -384,6 +425,32 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
             </div>
           </div>
         </section>
+
+        {/* External Case Study Banner */}
+        {project.externalUrl && (
+          <section className="my-14 p-6 sm:p-8 rounded-2xl bg-surface border border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#92D0AB] font-semibold block mb-1">
+                Visual Deep Dive
+              </span>
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-primary tracking-tight">
+                View the complete {project.title} presentation on Behance
+              </h3>
+              <p className="text-xs sm:text-sm text-secondary mt-1 max-w-xl">
+                Explore full high-resolution mockups, complete flow diagrams, design systems, and interactive UI showcases.
+              </p>
+            </div>
+            <a
+              href={project.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-semibold hover:scale-105 active:scale-95 transition-all shadow-md shrink-0 cursor-pointer"
+            >
+              <span>Open on Behance</span>
+              <span>↗</span>
+            </a>
+          </section>
+        )}
 
         {/* Bottom Case Study Navigation */}
         <CaseStudyNav

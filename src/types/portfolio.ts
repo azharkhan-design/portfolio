@@ -25,6 +25,8 @@ export interface Project {
   externalUrl?: string;
   metrics?: { label: string; value: string }[];
   caseStudy: {
+    externalUrl?: string;
+    behanceUrl?: string;
     overview: string;
     industry: string;
     role: string;

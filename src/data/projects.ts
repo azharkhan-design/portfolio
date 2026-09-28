@@ -32,6 +32,8 @@ export const PROJECTS: Project[] = [
       { label: 'Digital Payments', value: '92% Adoption' }
     ],
     caseStudy: {
+      externalUrl: 'https://www.behance.net/gallery/216491701/Real-Estate-UI-UX-Case-Study-Mobile-App',
+      behanceUrl: 'https://www.behance.net/gallery/216491701/Real-Estate-UI-UX-Case-Study-Mobile-App',
       overview:
         'WASL is one of Dubai’s premier government-backed real estate development and asset management conglomerates, managing over 50,000 residential, commercial, and hospitality units. The goal was to build a next-generation tenant portal and enterprise leasing dashboard to digitize the entire rental lifecycle from virtual viewing to Ejari contract renewal.',
       industry: 'Real Estate Asset Management & Hospitality',
