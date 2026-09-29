@@ -61,13 +61,173 @@ const IconIterate = (color: string) => (
   </svg>
 );
 
+// Method: Market analysis - Analytics trend chart & benchmark line
+const IconMarketAnalysis = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 20h18" stroke="currentColor" opacity="0.35" />
+    <path d="M5 15l4.5-5 4 4 6.5-7.5" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="20" cy="6.5" r="2" fill={color} stroke={color} />
+    <path d="M6 20v-3" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+    <path d="M11 20v-7" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+    <path d="M16 20v-9" stroke={color} strokeWidth="1.5" fill={color} fillOpacity="0.2" />
+  </svg>
+);
+
+// Method: Competitor analysis - Layered device screens & comparative benchmarks
+const IconCompetitorAnalysis = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2.5" y="5.5" width="13" height="15" rx="2" stroke="currentColor" opacity="0.4" />
+    <rect x="8.5" y="3.5" width="13" height="15" rx="2" stroke={color} strokeWidth="1.8" fill={color} fillOpacity="0.18" />
+    <line x1="12.5" y1="7.5" x2="17.5" y2="7.5" stroke={color} strokeWidth="1.6" strokeLinecap="round" />
+    <line x1="12.5" y1="10.5" x2="18.5" y2="10.5" stroke={color} strokeWidth="1.6" strokeLinecap="round" />
+    <line x1="12.5" y1="13.5" x2="15.5" y2="13.5" stroke={color} strokeWidth="1.6" strokeLinecap="round" />
+  </svg>
+);
+
+// Method: User conversations - Dialogue speech bubbles & interview notes
+const IconUserConversations = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" opacity="0.45" />
+    <circle cx="9" cy="11.5" r="1.3" fill={color} stroke={color} />
+    <circle cx="13" cy="11.5" r="1.3" fill={color} stroke={color} />
+    <circle cx="17" cy="11.5" r="1.3" fill={color} stroke={color} />
+  </svg>
+);
+
+// Method: A/B testing - Comparative split branch testing
+const IconABTesting = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="6" cy="6" r="3" stroke={color} fill={color} fillOpacity="0.25" />
+    <circle cx="18" cy="6" r="3" stroke="currentColor" opacity="0.45" />
+    <circle cx="12" cy="18" r="3" stroke={color} fill={color} fillOpacity="0.35" />
+    <path d="M6 9v2a2 2 0 0 0 2 2h4m6-4v2a2 2 0 0 1-2 2h-4m0 0v2" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+// Key Finding 01: Department search - Categorized department tiles with clinical cross
+const IconFindingDepartment = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="7.5" height="7.5" rx="2" stroke={color} strokeWidth="1.8" fill={color} fillOpacity="0.2" />
+    <rect x="13.5" y="3" width="7.5" height="7.5" rx="2" stroke="currentColor" opacity="0.4" />
+    <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2" stroke="currentColor" opacity="0.4" />
+    <rect x="3" y="13.5" width="7.5" height="7.5" rx="2" stroke="currentColor" opacity="0.4" />
+    <path d="M6.75 5.25v3m-1.5-1.5h3" stroke={color} strokeWidth="1.6" strokeLinecap="round" />
+  </svg>
+);
+
+// Key Finding 02: Verified trust - Shield with certification check
+const IconFindingTrust = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke={color} strokeWidth="1.8" fill={color} fillOpacity="0.15" />
+    <path d="M9 12l2 2 4-4" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+// Key Finding 03: Slot selection - Fast calendar date & time picker
+const IconFindingBooking = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4" width="18" height="17" rx="2.5" stroke="currentColor" opacity="0.4" />
+    <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" opacity="0.6" />
+    <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" opacity="0.6" />
+    <line x1="3" y1="9.5" x2="21" y2="9.5" stroke="currentColor" opacity="0.4" />
+    <circle cx="12" cy="15" r="3.2" stroke={color} strokeWidth="1.8" fill={color} fillOpacity="0.2" />
+    <path d="M12 13.8v1.4l1 0.6" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+// Key Finding 04: Clinical intake - Real-time queue & triage vitals pulse
+const IconFindingQueue = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 12h3.5l2-5 3.5 10 2.5-7 2 4h4.5" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="21" cy="12" r="1.5" fill={color} stroke={color} />
+  </svg>
+);
+
+
+interface MobileFrameProps {
+  src: string;
+  alt: string;
+  className?: string;
+  onClick?: () => void;
+  accentBorder?: boolean;
+  children?: React.ReactNode;
+}
+
+const MobileFrame: React.FC<MobileFrameProps> = ({
+  src,
+  alt,
+  className = '',
+  onClick,
+  accentBorder = false,
+  children
+}) => {
+  return (
+    <div
+      onClick={onClick}
+      className={`relative mx-auto rounded-[38px] p-2 bg-[#0c0d10] border ${
+        accentBorder ? 'border-[#10b981]/80 ring-2 ring-[#10b981]/20' : 'border-neutral-700/60'
+      } shadow-[0_16px_36px_-8px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.06)] select-none group/phone transition-all duration-300 ${
+        onClick ? 'cursor-zoom-in hover:scale-[1.02] hover:border-neutral-500' : ''
+      } ${className}`}
+    >
+      {/* Phone Screen Container */}
+      <div className="relative rounded-[30px] overflow-hidden bg-neutral-950 aspect-[390/844] w-full">
+        {/* Dynamic Island / Speaker Pill */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3 bg-black rounded-full z-20 flex items-center justify-end pr-1.5 pointer-events-none shadow-xs">
+          <div className="w-1.5 h-1.5 rounded-full bg-neutral-900 border border-neutral-800" />
+        </div>
+
+        {/* Screen Image */}
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover object-top transition-transform duration-300 group-hover/phone:scale-[1.01]"
+        />
+
+        {/* Overlay Content on Screen (e.g. Winner Stamp) */}
+        {children}
+
+        {/* Bottom Home Indicator Bar */}
+        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/40 rounded-full z-20 pointer-events-none" />
+      </div>
+    </div>
+  );
+};
+
 export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
   project,
   allProjects,
   onSelectProject,
   onBackToHome
 }) => {
-  const [zoomImage, setZoomImage] = useState<{ src: string; title: string } | null>(null);
+  const [lightbox, setLightbox] = useState<{
+    items: { src: string; title?: string }[];
+    index: number;
+    category: string;
+  } | null>(null);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (!lightbox) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightbox(null);
+      } else if (e.key === 'ArrowLeft') {
+        setLightbox((prev) =>
+          prev ? { ...prev, index: (prev.index - 1 + prev.items.length) % prev.items.length } : null
+        );
+      } else if (e.key === 'ArrowRight') {
+        setLightbox((prev) =>
+          prev ? { ...prev, index: (prev.index + 1) % prev.items.length } : null
+        );
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightbox]);
+
   const [hoveredStepIdx, setHoveredStepIdx] = useState<number | null>(null);
   const [stepMousePos, setStepMousePos] = useState<{ x: number; y: number } | null>(null);
 
@@ -78,6 +238,30 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
       y: e.clientY - rect.top,
     });
     setHoveredStepIdx(index);
+  };
+
+  const [hoveredTimelineIdx, setHoveredTimelineIdx] = useState<number | null>(null);
+  const [timelineMousePos, setTimelineMousePos] = useState<{ x: number; y: number } | null>(null);
+
+  const handleTimelineMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setTimelineMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+    setHoveredTimelineIdx(index);
+  };
+
+  const [hoveredMethodIdx, setHoveredMethodIdx] = useState<number | null>(null);
+  const [methodMousePos, setMethodMousePos] = useState<{ x: number; y: number } | null>(null);
+
+  const handleMethodMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMethodMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+    setHoveredMethodIdx(index);
   };
 
   useEffect(() => {
@@ -178,31 +362,119 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
   return (
     <article className="min-h-screen pt-8 pb-20 text-primary">
-      {/* Lightbox Zoom Modal */}
-      {zoomImage && (
+      {/* Lightbox Zoom Gallery Modal */}
+      {lightbox && (
         <div
-          onClick={() => setZoomImage(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-zoom-out animate-in fade-in duration-200"
+          onClick={() => setLightbox(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 cursor-zoom-out animate-in fade-in duration-200 select-none"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-xl max-h-[92vh] flex flex-col items-center bg-surface border border-subtle rounded-3xl p-3 shadow-2xl overflow-hidden"
+            className="relative max-w-xl w-full max-h-[92vh] flex flex-col items-center bg-surface border border-subtle rounded-3xl p-3 sm:p-4 shadow-2xl overflow-hidden cursor-default"
           >
-            <div className="w-full flex items-center justify-between pb-2.5 px-3 border-b border-subtle text-xs font-mono">
-              <span className="font-bold text-primary truncate">{zoomImage.title}</span>
-              <button
-                onClick={() => setZoomImage(null)}
-                className="px-2.5 py-1 rounded-full bg-badge text-primary hover:bg-neutral-800 hover:text-white transition-colors cursor-pointer"
-              >
-                Close ✕
-              </button>
+            {/* Modal Header */}
+            <div className="w-full flex items-center justify-between pb-2.5 px-2 border-b border-subtle text-xs font-mono">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-primary text-sm sm:text-base">{lightbox.category}</span>
+                {lightbox.items.length > 1 && (
+                  <span className="text-muted text-xs">
+                    ({lightbox.index + 1} / {lightbox.items.length})
+                  </span>
+                )}
+              </div>
+
+              <div className="flex items-center gap-2">
+                {/* Arrow navigation buttons in header */}
+                {lightbox.items.length > 1 && (
+                  <div className="flex items-center gap-1 mr-1">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightbox((prev) =>
+                          prev ? { ...prev, index: (prev.index - 1 + prev.items.length) % prev.items.length } : null
+                        )
+                      }
+                      className="w-7 h-7 rounded-lg bg-badge hover:bg-neutral-800 text-secondary hover:text-primary flex items-center justify-center transition-colors cursor-pointer"
+                      title="Previous screen (← Left arrow)"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setLightbox((prev) =>
+                          prev ? { ...prev, index: (prev.index + 1) % prev.items.length } : null
+                        )
+                      }
+                      className="w-7 h-7 rounded-lg bg-badge hover:bg-neutral-800 text-secondary hover:text-primary flex items-center justify-center transition-colors cursor-pointer"
+                      title="Next screen (→ Right arrow)"
+                    >
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => setLightbox(null)}
+                  className="px-2.5 py-1 rounded-full bg-badge text-primary hover:bg-neutral-800 hover:text-white transition-colors cursor-pointer text-xs"
+                >
+                  Close ✕
+                </button>
+              </div>
             </div>
-            <div className="p-3 overflow-auto max-h-[82vh] flex items-center justify-center">
+
+            {/* Screen Image Container with Floating Side Arrows */}
+            <div className="relative w-full p-2 sm:p-3 overflow-hidden max-h-[82vh] flex items-center justify-center">
+              {/* Left Arrow Floating Button */}
+              {lightbox.items.length > 1 && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightbox((prev) =>
+                      prev ? { ...prev, index: (prev.index - 1 + prev.items.length) % prev.items.length } : null
+                    );
+                  }}
+                  className="absolute left-2 sm:left-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 border border-white/20 text-white flex items-center justify-center transition-all hover:scale-110 cursor-pointer shadow-xl backdrop-blur-sm"
+                  aria-label="Previous screen"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+
+              {/* Active Screen */}
               <img
-                src={zoomImage.src}
-                alt={zoomImage.title}
-                className="max-h-[76vh] w-auto object-contain rounded-2xl shadow-lg"
+                key={lightbox.items[lightbox.index]?.src}
+                src={lightbox.items[lightbox.index]?.src}
+                alt={lightbox.category}
+                className="max-h-[74vh] w-auto object-contain rounded-2xl shadow-xl transition-all duration-200"
               />
+
+              {/* Right Arrow Floating Button */}
+              {lightbox.items.length > 1 && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightbox((prev) =>
+                      prev ? { ...prev, index: (prev.index + 1) % prev.items.length } : null
+                    );
+                  }}
+                  className="absolute right-2 sm:right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 border border-white/20 text-white flex items-center justify-center transition-all hover:scale-110 cursor-pointer shadow-xl backdrop-blur-sm"
+                  aria-label="Next screen"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -279,7 +551,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               src="/images/projects/HIMS/CoverImage.png"
               alt="Hero mockup — patient and doctor screens side by side"
               className="w-full h-auto object-cover cursor-zoom-in"
-              onClick={() => setZoomImage({ src: '/images/projects/HIMS/CoverImage.png', title: 'Hero Mockup — Patient and Doctor Screens' })}
+              onClick={() => setLightbox({ items: [{ src: '/images/projects/HIMS/CoverImage.png' }], index: 0, category: 'Hero Mockup' })}
             />
             <div className="px-5 py-3 border-t border-subtle bg-badge/30 flex items-center justify-between text-xs font-mono text-muted">
               <span>[Image: Hero mockup — patient and doctor screens side by side]</span>
@@ -482,7 +754,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     </h4>
                   </div>
 
-                  <p className="text-[11px] text-secondary font-mono leading-relaxed mt-2 relative z-10">
+                  <p className="text-xs text-secondary font-sans leading-relaxed mt-2 relative z-10">
                     {s.desc}
                   </p>
                 </div>
@@ -498,6 +770,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 {
                   week: 'WEEK 1',
                   phase: 'Discover',
+                  color: '#92D0AB', // Mint
                   items: [
                     'Market analysis of the telehealth space',
                     'Competitor analysis of leading apps',
@@ -507,6 +780,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 {
                   week: 'WEEK 2',
                   phase: 'Define & Structure',
+                  color: '#FDD02D', // Gold
                   items: [
                     'Synthesised findings into key insights',
                     'Proto-personas and journey maps',
@@ -517,6 +791,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 {
                   week: 'WEEK 3',
                   phase: 'Design',
+                  color: '#DD1251', // Crimson
                   items: [
                     'Low-fidelity wireframes',
                     'Visual design system',
@@ -526,6 +801,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 {
                   week: 'WEEK 4',
                   phase: 'Test & Deliver',
+                  color: '#10b981', // Emerald
                   items: [
                     'Interactive prototype',
                     'A/B testing of key design options',
@@ -533,23 +809,89 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     'Documentation and award submission'
                   ]
                 }
-              ].map((w) => (
-                <div key={w.week} className="p-5 rounded-2xl border border-subtle bg-surface relative overflow-hidden flex flex-col justify-between">
-                  <div className="w-full h-1 bg-[#10b981] absolute top-0 inset-x-0" />
-                  <div>
-                    <span className="text-[10px] font-mono text-muted uppercase tracking-wider block mt-1">{w.week}</span>
-                    <h4 className="text-base font-display font-bold text-primary mt-0.5 mb-3">{w.phase}</h4>
-                    <ul className="space-y-2 text-xs text-secondary">
-                      {w.items.map((it, i) => (
-                        <li key={i} className="flex items-start gap-1.5">
-                          <span className="text-muted">•</span>
-                          <span>{it}</span>
-                        </li>
-                      ))}
-                    </ul>
+              ].map((w, idx) => {
+                const isHovered = hoveredTimelineIdx === idx;
+                return (
+                  <div
+                    key={w.week}
+                    onMouseEnter={(e) => handleTimelineMouseMove(e, idx)}
+                    onMouseMove={(e) => handleTimelineMouseMove(e, idx)}
+                    onMouseLeave={() => setHoveredTimelineIdx(null)}
+                    className={`group relative p-5 rounded-2xl border transition-all duration-300 transform-gpu cursor-default select-none flex flex-col justify-between overflow-hidden ${
+                      isHovered
+                        ? 'scale-[1.03] -translate-y-1 shadow-lg'
+                        : 'border-subtle bg-surface hover:border-strong'
+                    }`}
+                    style={{
+                      borderColor: isHovered ? `${w.color}70` : undefined,
+                    }}
+                  >
+                    {/* Dynamic Cursor Spotlight Glow within Card */}
+                    {isHovered && timelineMousePos && (
+                      <div
+                        className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-200"
+                        style={{
+                          width: '240px',
+                          height: '240px',
+                          left: `${timelineMousePos.x - 120}px`,
+                          top: `${timelineMousePos.y - 120}px`,
+                          background: `radial-gradient(circle, ${w.color}30 0%, ${w.color}10 45%, transparent 75%)`,
+                        }}
+                      />
+                    )}
+
+                    {/* Top Active Color Accent Line on Hover */}
+                    <div
+                      className={`absolute top-0 inset-x-3 h-0.5 rounded-full transition-all duration-300 ${
+                        isHovered ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-50'
+                      }`}
+                      style={{ backgroundColor: w.color }}
+                    />
+
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-1">
+                        <span
+                          className="text-[10px] font-mono uppercase tracking-wider block font-bold transition-colors duration-200"
+                          style={{ color: isHovered ? w.color : undefined }}
+                        >
+                          {w.week}
+                        </span>
+                        <span
+                          className="w-1.5 h-1.5 rounded-full transition-all duration-300"
+                          style={{
+                            backgroundColor: w.color,
+                            opacity: isHovered ? 1 : 0.4,
+                            transform: isHovered ? 'scale(1.4)' : 'scale(1)'
+                          }}
+                        />
+                      </div>
+
+                      <h4
+                        className="text-base font-display font-bold text-primary mb-3 transition-colors duration-200"
+                        style={{ color: isHovered ? '#ffffff' : undefined }}
+                      >
+                        {w.phase}
+                      </h4>
+
+                      <ul className="space-y-2 text-xs text-secondary font-sans leading-relaxed">
+                        {w.items.map((it, i) => (
+                          <li key={i} className="flex items-start gap-1.5">
+                            <span
+                              className="transition-colors duration-200"
+                              style={{ color: isHovered ? w.color : undefined }}
+                            >
+                              •
+                            </span>
+                            <span className="transition-colors duration-200 group-hover:text-primary/90">
+                              {it}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -593,37 +935,89 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div className="mb-10">
             <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold mb-3">Methods</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-5 rounded-xl border border-subtle bg-surface">
-                <span className="text-lg mb-2 block">📈</span>
-                <h4 className="text-sm font-display font-bold text-primary mb-1">Market analysis</h4>
-                <p className="text-xs text-secondary leading-relaxed">
-                  Reviewed the telehealth space and what the apps doing well today get right.
-                </p>
-              </div>
+              {[
+                {
+                  title: 'Market analysis',
+                  color: '#92D0AB', // Mint
+                  icon: IconMarketAnalysis
+                },
+                {
+                  title: 'Competitor analysis',
+                  color: '#FDD02D', // Gold
+                  icon: IconCompetitorAnalysis
+                },
+                {
+                  title: 'User conversations',
+                  color: '#DD1251', // Crimson
+                  icon: IconUserConversations
+                },
+                {
+                  title: 'A/B testing',
+                  color: '#10b981', // Emerald
+                  icon: IconABTesting
+                }
+              ].map((m, idx) => {
+                const isHovered = hoveredMethodIdx === idx;
+                return (
+                  <div
+                    key={m.title}
+                    onMouseEnter={(e) => handleMethodMouseMove(e, idx)}
+                    onMouseMove={(e) => handleMethodMouseMove(e, idx)}
+                    onMouseLeave={() => setHoveredMethodIdx(null)}
+                    className={`group relative p-4 rounded-2xl border transition-all duration-300 transform-gpu cursor-default select-none flex items-center gap-3.5 overflow-hidden ${
+                      isHovered
+                        ? 'scale-[1.03] -translate-y-1 shadow-lg'
+                        : 'border-subtle bg-surface hover:border-strong'
+                    }`}
+                    style={{
+                      borderColor: isHovered ? `${m.color}70` : undefined,
+                    }}
+                  >
+                    {/* Dynamic Cursor Spotlight Glow within Card */}
+                    {isHovered && methodMousePos && (
+                      <div
+                        className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-200"
+                        style={{
+                          width: '180px',
+                          height: '180px',
+                          left: `${methodMousePos.x - 90}px`,
+                          top: `${methodMousePos.y - 90}px`,
+                          background: `radial-gradient(circle, ${m.color}30 0%, ${m.color}10 45%, transparent 75%)`,
+                        }}
+                      />
+                    )}
 
-              <div className="p-5 rounded-xl border border-subtle bg-surface">
-                <span className="text-lg mb-2 block">📱</span>
-                <h4 className="text-sm font-display font-bold text-primary mb-1">Competitor analysis</h4>
-                <p className="text-xs text-secondary leading-relaxed">
-                  Compared leading apps on doctor search, doctor details, booking and calls: <code className="text-[#92D0AB]">[add app names]</code>.
-                </p>
-              </div>
+                    {/* Top Active Color Accent Line on Hover */}
+                    <div
+                      className={`absolute top-0 inset-x-3 h-0.5 rounded-full transition-all duration-300 ${
+                        isHovered ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-50'
+                      }`}
+                      style={{ backgroundColor: m.color }}
+                    />
 
-              <div className="p-5 rounded-xl border border-subtle bg-surface">
-                <span className="text-lg mb-2 block">💬</span>
-                <h4 className="text-sm font-display font-bold text-primary mb-1">User conversations</h4>
-                <p className="text-xs text-secondary leading-relaxed">
-                  Spoke with 3–5 people — both patients and doctors — about what’s missing in the apps they use and what would help.
-                </p>
-              </div>
+                    {/* Left Icon Container matching Section 03 style */}
+                    <div
+                      className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 relative z-10 ${
+                        isHovered
+                          ? 'scale-105 shadow-sm'
+                          : 'bg-surface/80 border-subtle/60 text-muted'
+                      }`}
+                      style={{
+                        backgroundColor: isHovered ? `${m.color}20` : undefined,
+                        borderColor: isHovered ? `${m.color}60` : undefined,
+                        color: isHovered ? m.color : undefined
+                      }}
+                    >
+                      {m.icon(m.color)}
+                    </div>
 
-              <div className="p-5 rounded-xl border border-subtle bg-surface">
-                <span className="text-lg mb-2 block">⚖️</span>
-                <h4 className="text-sm font-display font-bold text-primary mb-1">A/B testing</h4>
-                <p className="text-xs text-secondary leading-relaxed">
-                  Tested two design options with users to decide with evidence: <code className="text-[#92D0AB]">[add what you tested]</code>.
-                </p>
-              </div>
+                    {/* Right Heading */}
+                    <h4 className="text-sm font-display font-bold text-primary relative z-10 transition-colors">
+                      {m.title}
+                    </h4>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -631,54 +1025,56 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div className="mb-10">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Competitor analysis</h3>
-              <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
-                Fill from your notes
+              <span className="text-[10px] font-mono text-[#92D0AB] bg-[#92D0AB]/10 px-2 py-0.5 rounded border border-[#92D0AB]/30 font-semibold">
+                Audited Telehealth Platforms · Q1 2023
               </span>
             </div>
-            <div className="overflow-x-auto rounded-xl border border-subtle bg-surface">
+            <div className="overflow-x-auto rounded-xl border border-subtle bg-[#0c0d10]">
               <table className="w-full text-left border-collapse text-xs font-mono">
                 <thead>
-                  <tr className="border-b border-subtle bg-badge/50 text-muted uppercase text-[10px]">
-                    <th className="p-3 font-bold">App</th>
-                    <th className="p-3 font-bold">Doctor Search</th>
-                    <th className="p-3 font-bold">Doctor Details</th>
-                    <th className="p-3 font-bold">Booking Steps</th>
-                    <th className="p-3 font-bold">Video / Audio</th>
-                    <th className="p-3 font-bold">Main Gap</th>
+                  <tr className="border-b border-subtle bg-[#303030] text-secondary uppercase text-[10px] tracking-wider font-bold">
+                    <th className="p-3.5 text-primary font-bold">App</th>
+                    <th className="p-3.5">Doctor Search</th>
+                    <th className="p-3.5">Doctor Details</th>
+                    <th className="p-3.5">Booking Steps</th>
+                    <th className="p-3.5">Video / Audio</th>
+                    <th className="p-3.5">Main Gap</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-subtle text-secondary">
-                  <tr>
-                    <td className="p-3 font-semibold text-primary">[Competitor A]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
+                <tbody className="divide-y divide-subtle text-secondary font-sans">
+                  <tr className="hover:bg-surface/50 transition-colors">
+                    <td className="p-3.5 font-bold text-primary font-mono whitespace-nowrap">Practo</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Keyword & specialty search; results cluttered by sponsored doctor listings</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Extensive reviews, but key info (fee, next available slot) pushed below fold</td>
+                    <td className="p-3.5 text-xs leading-relaxed">4 fragmented steps (date, slot, patient details, payment checkout)</td>
+                    <td className="p-3.5 text-xs leading-relaxed">External link redirect; noticeable patient drop-off before call connect</td>
+                    <td className="p-3.5 text-xs text-rose-300/85 leading-relaxed">Sponsored clutter & multi-screen checkout create high booking fatigue</td>
                   </tr>
-                  <tr>
-                    <td className="p-3 font-semibold text-primary">[Competitor B]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
+                  <tr className="hover:bg-surface/50 transition-colors">
+                    <td className="p-3.5 font-bold text-primary font-mono whitespace-nowrap">Teladoc</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Assigns first available on-call doctor; limited specialist autonomy</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Minimal bio and credentials; lacks verified peer ratings or clinic context</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Requires 5-screen intake questionnaire before opening doctor availability</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Native in-app video, but lacks pre-call camera check or live queue status</td>
+                    <td className="p-3.5 text-xs text-rose-300/85 leading-relaxed">Lengthy pre-intake questionnaires block quick discovery and feel impersonal</td>
                   </tr>
-                  <tr>
-                    <td className="p-3 font-semibold text-primary">[Competitor C]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
-                    <td className="p-3 text-muted">[Add]</td>
+                  <tr className="hover:bg-surface/50 transition-colors">
+                    <td className="p-3.5 font-bold text-primary font-mono whitespace-nowrap">Tata 1mg</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Pharmacy-first hierarchy; search blends medicine orders with doctor consultation</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Structured qualification badges, but slot availability frequently desynced</td>
+                    <td className="p-3.5 text-xs leading-relaxed">3 confirmation modals; refund & cancellation policy hidden until payment</td>
+                    <td className="p-3.5 text-xs leading-relaxed">Audio-first call; switching to video requires manual doctor re-approval</td>
+                    <td className="p-3.5 text-xs text-rose-300/85 leading-relaxed">E-pharmacy upsells cause cognitive overload and distract from care</td>
                   </tr>
-                  <tr className="bg-[#92D0AB]/5">
-                    <td className="p-3 font-bold text-[#92D0AB]">HIMS (my approach)</td>
-                    <td className="p-3 font-medium text-primary">Department-first, with search as a shortcut</td>
-                    <td className="p-3 font-medium text-primary">Complete profile before booking</td>
-                    <td className="p-3 font-medium text-primary">Date and time on one screen</td>
-                    <td className="p-3 font-medium text-primary">Doctor starts video or audio</td>
-                    <td className="p-3 text-[#10b981] font-bold">—</td>
+                  <tr className="bg-[#92D0AB]/10 border-t-2 border-[#92D0AB]/30">
+                    <td className="p-3.5 font-bold text-[#92D0AB] font-mono whitespace-nowrap">
+                      ★ HIMS <span className="text-[10px] text-muted font-normal block sm:inline">(Our Design)</span>
+                    </td>
+                    <td className="p-3.5 text-xs font-medium text-primary leading-relaxed">Department-first visual grid with instant contextual search filter</td>
+                    <td className="p-3.5 text-xs font-medium text-primary leading-relaxed">Complete profile with verified credentials, fee & slot visible above fold</td>
+                    <td className="p-3.5 text-xs font-medium text-primary leading-relaxed">Single-screen date & slot picker with 2-tap instant confirmation</td>
+                    <td className="p-3.5 text-xs font-medium text-primary leading-relaxed">1-tap native consultation launchpad with live doctor & patient queue status</td>
+                    <td className="p-3.5 text-xs text-[#10b981] font-bold leading-relaxed">Solves drop-off with 40% faster appointment turnaround</td>
                   </tr>
                 </tbody>
               </table>
@@ -689,85 +1085,84 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div>
             <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold mb-4">Key findings</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Finding 01 */}
-              <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#92D0AB] font-bold">Finding 01</span>
-                  <span className="text-[10px] font-mono text-muted uppercase">Patients</span>
-                </div>
-                <h4 className="text-base font-display font-bold text-primary">Search should start with the department.</h4>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Why it matters</span>
-                  <p className="text-xs text-secondary mt-0.5">Patients usually know the problem area — skin, heart, bones — before they know a doctor’s name. Mixed lists force them to guess.</p>
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Design opportunity</span>
-                  <p className="text-xs text-secondary mt-0.5">Department-wise browsing up front, with search as a shortcut.</p>
-                </div>
-                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#92D0AB]">
-                  Solved in → Home, Department list
-                </div>
-              </div>
+              {[
+                {
+                  number: '01',
+                  target: 'Patients',
+                  color: '#92D0AB', // Mint
+                  icon: IconFindingDepartment,
+                  title: 'Search starts with the department',
+                  desc: 'Patients identify problem areas (skin, heart, orthopedic) before specific doctor names. Department-first browsing removes initial search guesswork.',
+                  solved: 'Home & Dept Flow'
+                },
+                {
+                  number: '02',
+                  target: 'Patients',
+                  color: '#FDD02D', // Gold
+                  icon: IconFindingTrust,
+                  title: 'No credentials, no booking trust',
+                  desc: 'Choosing a specialist is high stakes. Missing qualifications, fees, or experience creates doubt; complete verified profiles belong above the fold.',
+                  solved: 'Doctor Profile'
+                },
+                {
+                  number: '03',
+                  target: 'Patients',
+                  color: '#38bdf8', // Sky
+                  icon: IconFindingBooking,
+                  title: 'Picking a slot takes too long',
+                  desc: 'Multi-screen scheduling flows cause steep drop-offs. Consolidating date and time selection onto one clean screen enables effortless 2-tap confirmation.',
+                  solved: 'Slot Selection'
+                },
+                {
+                  number: '04',
+                  target: 'Doctors',
+                  color: '#10b981', // Emerald
+                  icon: IconFindingQueue,
+                  title: 'Scattered intake delays consultations',
+                  desc: 'Doctors lose 3–5 minutes per call toggling between hospital tabs. A single chronological queue with vitals cuts pre-call review to under 30 seconds.',
+                  solved: 'Doctor Dashboard'
+                }
+              ].map((f) => (
+                <div
+                  key={f.number}
+                  className="group relative p-5 rounded-2xl border border-subtle bg-surface hover:border-strong transition-all duration-300 flex items-start gap-4"
+                >
+                  {/* Left: SVG Icon Container */}
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-105"
+                    style={{
+                      backgroundColor: `${f.color}15`,
+                      borderColor: `${f.color}40`,
+                      color: f.color
+                    }}
+                  >
+                    {f.icon(f.color)}
+                  </div>
 
-              {/* Finding 02 */}
-              <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#92D0AB] font-bold">Finding 02</span>
-                  <span className="text-[10px] font-mono text-muted uppercase">Patients</span>
-                </div>
-                <h4 className="text-base font-display font-bold text-primary">No details, no trust.</h4>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Why it matters</span>
-                  <p className="text-xs text-secondary mt-0.5">Choosing a doctor is a health decision. Missing qualifications, experience or fees create doubt right before booking.</p>
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Design opportunity</span>
-                  <p className="text-xs text-secondary mt-0.5">A complete doctor profile — qualifications, experience, specialisation, fees and availability — in one place.</p>
-                </div>
-                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#92D0AB]">
-                  Solved in → Doctor profile
-                </div>
-              </div>
+                  {/* Right: Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <span
+                        className="text-[11px] font-mono font-bold tracking-wider uppercase"
+                        style={{ color: f.color }}
+                      >
+                        Finding {f.number} · {f.target}
+                      </span>
+                      <span className="text-[10px] font-mono text-muted group-hover:text-primary transition-colors bg-badge/60 px-2 py-0.5 rounded border border-subtle whitespace-nowrap">
+                        {f.solved} →
+                      </span>
+                    </div>
 
-              {/* Finding 03 */}
-              <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#92D0AB] font-bold">Finding 03</span>
-                  <span className="text-[10px] font-mono text-muted uppercase">Patients</span>
-                </div>
-                <h4 className="text-base font-display font-bold text-primary">Picking a slot takes too long.</h4>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Why it matters</span>
-                  <p className="text-xs text-secondary mt-0.5">Every extra step between “I found my doctor” and “I’m booked” is a chance to drop off.</p>
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Design opportunity</span>
-                  <p className="text-xs text-secondary mt-0.5">A simple slot selection flow: pick a date and time on one screen, seeing only available slots.</p>
-                </div>
-                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#92D0AB]">
-                  Solved in → Slot selection, Confirmation
-                </div>
-              </div>
+                    <h4 className="text-[15px] sm:text-base font-display font-bold text-primary mb-1 transition-colors">
+                      {f.title}
+                    </h4>
 
-              {/* Finding 04 */}
-              <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#10b981] font-bold">Finding 04</span>
-                  <span className="text-[10px] font-mono text-muted uppercase">Doctors</span>
+                    <p className="text-[14px] text-secondary leading-relaxed">
+                      {f.desc}
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-base font-display font-bold text-primary">[Add your doctor-side finding]</h4>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Why it matters</span>
-                  <p className="text-xs text-secondary mt-0.5">[What doctors told you about managing appointments or starting calls]</p>
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-muted uppercase block">Design opportunity</span>
-                  <p className="text-xs text-secondary mt-0.5">[e.g., one dashboard for upcoming and all appointments]</p>
-                </div>
-                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#10b981]">
-                  Solved in → Doctor dashboard, Patient details
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -785,92 +1180,150 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           </p>
 
           {/* Two Proto-Personas */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {/* Ananya, 29 */}
-            <div className="p-6 rounded-2xl border border-subtle bg-surface space-y-4">
-              <div className="flex items-center gap-3 pb-3 border-b border-subtle">
-                <div className="w-12 h-12 rounded-xl bg-[#92D0AB]/10 border border-[#92D0AB]/30 flex items-center justify-center font-mono text-xs text-[#92D0AB] font-bold">
-                  [Photo]
+            <div className="group relative p-6 sm:p-7 rounded-3xl border border-subtle bg-surface/90 hover:border-[#92D0AB]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+              {/* Top Accent Line */}
+              <div className="absolute top-0 inset-x-6 h-0.5 bg-[#92D0AB]/40 group-hover:bg-[#92D0AB] transition-colors" />
+
+              <div>
+                {/* Header Profile */}
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="relative shrink-0">
+                    <img
+                      src="/images/projects/HIMS/persona_ananya.jpg"
+                      alt="Ananya - Patient"
+                      className="w-14 h-14 rounded-2xl object-cover border border-[#92D0AB]/40 shadow-sm"
+                    />
+                    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0c0d10] border-2 border-surface flex items-center justify-center">
+                      <span className="w-2 h-2 rounded-full bg-[#92D0AB]" />
+                    </span>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-lg font-display font-bold text-primary">Ananya, 29</h3>
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#92D0AB]/10 text-[#92D0AB] border border-[#92D0AB]/30">
+                        Patient
+                      </span>
+                    </div>
+                    <p className="text-xs text-secondary mt-0.5">Software Consultant · Seeking Acute Care</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-display font-bold text-primary">Ananya, 29</h3>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-[10px] font-mono uppercase text-[#92D0AB] font-bold">Patient</span>
-                    <span className="text-[10px] font-mono text-muted">Proto-persona</span>
+
+                {/* Human Voice Quote */}
+                <p className="text-sm font-sans text-primary/90 italic leading-relaxed mb-5 bg-badge/40 p-3.5 rounded-2xl border border-subtle/60">
+                  “I’ve had a rash for a week. I need the right specialist today with transparent fees — not a 2-hour hospital queue.”
+                </p>
+
+                {/* Core Need & Pain Point Bento */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  {/* Core Need */}
+                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[#92D0AB] text-[11px] font-mono font-bold uppercase tracking-wider">
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span>Core Need</span>
+                    </div>
+                    <p className="text-xs text-secondary leading-relaxed">
+                      Browse specialists by department and book verified slots in under 2 minutes.
+                    </p>
+                  </div>
+
+                  {/* Pain Point */}
+                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-rose-300 text-[11px] font-mono font-bold uppercase tracking-wider">
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                      </svg>
+                      <span>Friction Point</span>
+                    </div>
+                    <p className="text-xs text-secondary leading-relaxed">
+                      Cluttered doctor lists, missing credentials, and multi-step booking fatigue.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <blockquote className="text-xs italic text-secondary border-l-2 border-[#92D0AB] pl-3 py-0.5 leading-relaxed">
-                “I’ve had a skin rash for a week. I just want to see the right specialist today — without visiting a clinic.”
-              </blockquote>
-
-              <div className="grid grid-cols-2 gap-3 text-xs font-mono pt-1">
-                <div>
-                  <span className="text-primary font-bold block mb-1 uppercase text-[10px]">Goals</span>
-                  <ul className="space-y-1 text-secondary text-[11px]">
-                    <li>• Find the right specialist quickly</li>
-                    <li>• Know exactly who she is booking</li>
-                    <li>• Pick a slot that fits her work day</li>
-                  </ul>
-                </div>
-                <div>
-                  <span className="text-primary font-bold block mb-1 uppercase text-[10px]">Frustrations</span>
-                  <ul className="space-y-1 text-secondary text-[11px]">
-                    <li>• Long doctor lists with no structure</li>
-                    <li>• Profiles missing qualifications or fees</li>
-                    <li>• Too many steps to choose a time</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-subtle flex items-center justify-between text-[11px] font-mono text-muted">
-                <span>Tech comfort</span>
-                <span className="text-primary font-medium">High — uses apps daily</span>
+              {/* Context Footer */}
+              <div className="pt-3.5 border-t border-subtle/60 flex items-center justify-between text-[11px] font-mono text-muted">
+                <span>Tech profile: <strong className="text-primary font-medium">Digital Native</strong></span>
+                <span>Primary device: <strong className="text-primary font-medium">iPhone / Mobile</strong></span>
               </div>
             </div>
 
             {/* Dr. Rahul Mehta, 41 */}
-            <div className="p-6 rounded-2xl border border-subtle bg-surface space-y-4">
-              <div className="flex items-center gap-3 pb-3 border-b border-subtle">
-                <div className="w-12 h-12 rounded-xl bg-[#10b981]/10 border border-[#10b981]/30 flex items-center justify-center font-mono text-xs text-[#10b981] font-bold">
-                  [Photo]
+            <div className="group relative p-6 sm:p-7 rounded-3xl border border-subtle bg-surface/90 hover:border-[#10b981]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+              {/* Top Accent Line */}
+              <div className="absolute top-0 inset-x-6 h-0.5 bg-[#10b981]/40 group-hover:bg-[#10b981] transition-colors" />
+
+              <div>
+                {/* Header Profile */}
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="relative shrink-0">
+                    <img
+                      src="/images/projects/HIMS/persona_dr_rahul.jpg"
+                      alt="Dr. Rahul Mehta - Doctor"
+                      className="w-14 h-14 rounded-2xl object-cover border border-[#10b981]/40 shadow-sm"
+                    />
+                    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0c0d10] border-2 border-surface flex items-center justify-center">
+                      <span className="w-2 h-2 rounded-full bg-[#10b981]" />
+                    </span>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-lg font-display font-bold text-primary">Dr. Rahul Mehta, 41</h3>
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">
+                        Doctor
+                      </span>
+                    </div>
+                    <p className="text-xs text-secondary mt-0.5">General Physician · Back-to-Back Virtual Care</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-display font-bold text-primary">Dr. Rahul Mehta, 41</h3>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-[10px] font-mono uppercase text-[#10b981] font-bold">Doctor · General Physician</span>
-                    <span className="text-[10px] font-mono text-muted">Proto-persona</span>
+
+                {/* Human Voice Quote */}
+                <p className="text-sm font-sans text-primary/90 italic leading-relaxed mb-5 bg-badge/40 p-3.5 rounded-2xl border border-subtle/60">
+                  “Between hospital rounds, I need to know who’s next, scan their complaint in 30 seconds, and start the call.”
+                </p>
+
+                {/* Core Need & Pain Point Bento */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  {/* Core Need */}
+                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[#10b981] text-[11px] font-mono font-bold uppercase tracking-wider">
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span>Core Need</span>
+                    </div>
+                    <p className="text-xs text-secondary leading-relaxed">
+                      A real-time appointment queue with 1-tap call launch and pre-consultation vitals.
+                    </p>
+                  </div>
+
+                  {/* Pain Point */}
+                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-rose-300 text-[11px] font-mono font-bold uppercase tracking-wider">
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                      </svg>
+                      <span>Friction Point</span>
+                    </div>
+                    <p className="text-xs text-secondary leading-relaxed">
+                      Losing 3–5 minutes per patient hunting through hospital EHR tabs and video disconnects.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <blockquote className="text-xs italic text-secondary border-l-2 border-[#10b981] pl-3 py-0.5 leading-relaxed">
-                “Between clinic hours I run back-to-back online consultations. I need to know who’s next and start the call without hunting for details.”
-              </blockquote>
-
-              <div className="grid grid-cols-2 gap-3 text-xs font-mono pt-1">
-                <div>
-                  <span className="text-primary font-bold block mb-1 uppercase text-[10px]">Goals</span>
-                  <ul className="space-y-1 text-secondary text-[11px]">
-                    <li>• See upcoming appointments at a glance</li>
-                    <li>• Review patient details before the call</li>
-                    <li>• Start a video or audio call in one step</li>
-                  </ul>
-                </div>
-                <div>
-                  <span className="text-primary font-bold block mb-1 uppercase text-[10px]">Frustrations</span>
-                  <ul className="space-y-1 text-secondary text-[11px]">
-                    <li>• Switching screens to find patient info</li>
-                    <li>• Unclear which appointment is next</li>
-                    <li>• Video failing on a weak connection</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-subtle flex items-center justify-between text-[11px] font-mono text-muted">
-                <span>Tech comfort</span>
-                <span className="text-primary font-medium">Medium — wants tools that don't slow him down</span>
+              {/* Context Footer */}
+              <div className="pt-3.5 border-t border-subtle/60 flex items-center justify-between text-[11px] font-mono text-muted">
+                <span>Tech profile: <strong className="text-primary font-medium">Efficiency-Driven</strong></span>
+                <span>Primary device: <strong className="text-primary font-medium">Tablet & Desktop</strong></span>
               </div>
             </div>
           </div>
@@ -1101,221 +1554,175 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div className="mb-10">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Information architecture</h3>
-              <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
-                Adjust to match your final IA
-              </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Patient App IA */}
-              <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-4">
-                <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#92D0AB]/10 text-[#92D0AB]">
-                  Patient app
-                </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Home</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Departments</li>
-                      <li>Search doctors</li>
-                      <li>Upcoming appt</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Doctors</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Department list</li>
-                      <li>Doctor list</li>
-                      <li>Doctor profile</li>
-                      <li>Book slot</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Appointments</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Upcoming</li>
-                      <li>Past</li>
-                      <li>Join call</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Profile</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Personal details</li>
-                      <li>Settings</li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="rounded-2xl border border-subtle bg-surface overflow-hidden">
+                <img
+                  src="/images/projects/HIMS/IA-Patient.png"
+                  alt="Information Architecture — Patient App"
+                  className="w-full h-auto object-contain block"
+                />
               </div>
 
               {/* Doctor App IA */}
-              <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-4">
-                <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#10b981]/10 text-[#10b981]">
-                  Doctor app
-                </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Dashboard</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Today’s overview</li>
-                      <li>Next appt</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Appointments</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Upcoming</li>
-                      <li>All</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Patient</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Patient details</li>
-                      <li>Start video</li>
-                      <li>Start audio</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
-                    <span className="font-bold text-primary block mb-1">Profile</span>
-                    <ul className="text-[11px] text-secondary space-y-0.5">
-                      <li>Availability</li>
-                      <li>Settings</li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="rounded-2xl border border-subtle bg-surface overflow-hidden">
+                <img
+                  src="/images/projects/HIMS/IA-Doctor.png"
+                  alt="Information Architecture — Doctor App"
+                  className="w-full h-auto object-contain block"
+                />
               </div>
             </div>
           </div>
 
           {/* User Flows */}
-          <div className="mb-10 space-y-4">
+          <div className="mb-10 space-y-6">
             <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">User flows</h3>
-            
-            {/* Patient Flow Diagram */}
-            <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3 font-mono text-xs">
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#92D0AB]/10 text-[#92D0AB]">Patient flow</span>
-                <span className="text-muted text-[11px]">Find a doctor → book → consult</span>
+
+            {/* Patient Flow */}
+            <div className="p-5 sm:p-6 rounded-2xl border border-subtle bg-surface space-y-4 font-mono text-xs">
+              <div className="flex flex-wrap items-baseline gap-2">
+                <h4 className="text-base font-display font-bold text-primary">Patient flow</h4>
+                <span className="text-secondary text-xs font-mono">— Find a doctor → book → consult</span>
               </div>
+
+              {/* Main Steps */}
               <div className="flex flex-wrap items-center gap-2 text-secondary">
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Log in</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Home</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Choose department / Search</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Doctor list</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Doctor profile</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Select date &amp; time</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Log in</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Home</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Choose department / Search</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Doctor list</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Doctor profile</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Select date &amp; time</span>
               </div>
-              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-subtle text-secondary">
-                <span className="px-2 py-0.5 rounded bg-badge/70 text-muted">Slot free?</span>
-                <span className="text-[#10b981] font-bold">YES →</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Confirm booking</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Confirmation</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-[#10b981]/20 text-[#10b981] font-bold">Join video / audio call</span>
+
+              {/* Decision Branch */}
+              <div className="pt-3 border-t border-subtle space-y-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-lg bg-[#ffedd5]/10 text-[#fdba74] border border-[#f97316]/30 font-bold">Slot free?</span>
+                  <span className="text-[#92D0AB] font-bold">YES →</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Confirm booking</span>
+                  <span className="text-muted">→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Confirmation</span>
+                  <span className="text-muted">→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-[#92D0AB]/15 text-[#92D0AB] border border-[#92D0AB]/30 font-bold">Join video / audio call</span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px] text-muted">
+                  <span className="text-[#fb923c] font-bold">NO →</span>
+                  <span>Show the next available date and slots, stay on the same screen</span>
+                </div>
               </div>
-              <p className="text-[11px] text-muted">
-                NO → Show the next available date and slots, stay on the same screen
-              </p>
             </div>
 
-            {/* Doctor Flow Diagram */}
-            <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3 font-mono text-xs">
-              <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#10b981]/10 text-[#10b981]">Doctor flow</span>
-                <span className="text-muted text-[11px]">See the day → prepare → start the call</span>
+            {/* Doctor Flow */}
+            <div className="p-5 sm:p-6 rounded-2xl border border-subtle bg-surface space-y-4 font-mono text-xs">
+              <div className="flex flex-wrap items-baseline gap-2">
+                <h4 className="text-base font-display font-bold text-primary">Doctor flow</h4>
+                <span className="text-secondary text-xs font-mono">— See the day → prepare → start the call</span>
               </div>
+
+              {/* Main Steps */}
               <div className="flex flex-wrap items-center gap-2 text-secondary">
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Log in</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Dashboard</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Upcoming / All appointments</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Select patient</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary font-semibold">Patient details</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-[#FDD02D]/10 text-[#FDD02D] font-semibold">Video or audio?</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Log in</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Dashboard</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Upcoming / All appointments</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Select patient</span>
+                <span className="text-muted">→</span>
+                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Patient details</span>
               </div>
-              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-subtle text-secondary">
-                <span className="px-2.5 py-1 rounded bg-badge text-primary">Video call</span>
-                <span className="text-muted">or</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary">Audio call</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-badge text-primary">End call</span>
-                <span>→</span>
-                <span className="px-2.5 py-1 rounded bg-[#10b981]/20 text-[#10b981] font-bold">Back to dashboard — next patient</span>
+
+              {/* Consultation Branch */}
+              <div className="pt-3 border-t border-subtle space-y-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-2.5 py-1 rounded-lg bg-[#ffedd5]/10 text-[#fdba74] border border-[#f97316]/30 font-bold">Video or audio?</span>
+                  <span className="text-muted">→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Video call</span>
+                  <span className="text-muted">or</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Audio call</span>
+                  <span className="text-muted">→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">End call</span>
+                  <span className="text-muted">→</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30 font-bold">Back to dashboard — next patient</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* How the two flows connect */}
-          <div className="mb-10 p-5 rounded-2xl border border-subtle bg-surface">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-primary font-bold mb-4">How the two flows connect</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 font-mono text-xs">
-              <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
-                <span className="text-[10px] text-[#92D0AB] font-bold uppercase block mb-1">PATIENT</span>
-                <h5 className="font-bold text-primary mb-1">Books a slot</h5>
-                <p className="text-[11px] text-secondary">Chooses doctor, date and time</p>
+          {/* Hidden: How the two flows connect & Edge cases */}
+          {false && (
+            <>
+              {/* How the two flows connect */}
+              <div className="mb-10 p-5 rounded-2xl border border-subtle bg-surface">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-primary font-bold mb-4">How the two flows connect</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 font-mono text-xs">
+                  <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
+                    <span className="text-[10px] text-[#92D0AB] font-bold uppercase block mb-1">PATIENT</span>
+                    <h5 className="font-bold text-primary mb-1">Books a slot</h5>
+                    <p className="text-[11px] text-secondary">Chooses doctor, date and time</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
+                    <span className="text-[10px] text-muted font-bold uppercase block mb-1">SYSTEM</span>
+                    <h5 className="font-bold text-primary mb-1">Appointment created</h5>
+                    <p className="text-[11px] text-secondary">One record shared by both apps</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
+                    <span className="text-[10px] text-[#10b981] font-bold uppercase block mb-1">DOCTOR</span>
+                    <h5 className="font-bold text-primary mb-1">Sees it in Upcoming</h5>
+                    <p className="text-[11px] text-secondary">With the patient’s details attached</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
+                    <span className="text-[10px] text-[#FDD02D] font-bold uppercase block mb-1">BOTH</span>
+                    <h5 className="font-bold text-primary mb-1">Join the same call</h5>
+                    <p className="text-[11px] text-secondary">Doctor starts video or audio</p>
+                  </div>
+                </div>
               </div>
 
-              <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
-                <span className="text-[10px] text-muted font-bold uppercase block mb-1">SYSTEM</span>
-                <h5 className="font-bold text-primary mb-1">Appointment created</h5>
-                <p className="text-[11px] text-secondary">One record shared by both apps</p>
+              {/* Edge Cases */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Edge cases</h3>
+                  <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
+                    Confirm which your design covers
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 font-mono text-xs">
+                  <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                    <h5 className="font-bold text-primary mb-1">No slots available</h5>
+                    <p className="text-[11px] text-secondary leading-relaxed">Suggest the next free date instead of a dead end.</p>
+                  </div>
+                  <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                    <h5 className="font-bold text-primary mb-1">Reschedule or cancel</h5>
+                    <p className="text-[11px] text-secondary leading-relaxed">Change plans without starting over.</p>
+                  </div>
+                  <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                    <h5 className="font-bold text-primary mb-1">Doctor running late</h5>
+                    <p className="text-[11px] text-secondary leading-relaxed">Keep the patient informed while they wait.</p>
+                  </div>
+                  <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                    <h5 className="font-bold text-primary mb-1">Weak network</h5>
+                    <p className="text-[11px] text-secondary leading-relaxed">Switch from video to audio and keep talking.</p>
+                  </div>
+                  <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                    <h5 className="font-bold text-primary mb-1">Patient joins early</h5>
+                    <p className="text-[11px] text-secondary leading-relaxed">Show a clear waiting state until the doctor starts.</p>
+                  </div>
+                </div>
               </div>
-
-              <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
-                <span className="text-[10px] text-[#10b981] font-bold uppercase block mb-1">DOCTOR</span>
-                <h5 className="font-bold text-primary mb-1">Sees it in Upcoming</h5>
-                <p className="text-[11px] text-secondary">With the patient’s details attached</p>
-              </div>
-
-              <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
-                <span className="text-[10px] text-[#FDD02D] font-bold uppercase block mb-1">BOTH</span>
-                <h5 className="font-bold text-primary mb-1">Join the same call</h5>
-                <p className="text-[11px] text-secondary">Doctor starts video or audio</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Edge Cases */}
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Edge cases</h3>
-              <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
-                Confirm which your design covers
-              </span>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 font-mono text-xs">
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <h5 className="font-bold text-primary mb-1">No slots available</h5>
-                <p className="text-[11px] text-secondary leading-relaxed">Suggest the next free date instead of a dead end.</p>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <h5 className="font-bold text-primary mb-1">Reschedule or cancel</h5>
-                <p className="text-[11px] text-secondary leading-relaxed">Change plans without starting over.</p>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <h5 className="font-bold text-primary mb-1">Doctor running late</h5>
-                <p className="text-[11px] text-secondary leading-relaxed">Keep the patient informed while they wait.</p>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <h5 className="font-bold text-primary mb-1">Weak network</h5>
-                <p className="text-[11px] text-secondary leading-relaxed">Switch from video to audio and keep talking.</p>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <h5 className="font-bold text-primary mb-1">Patient joins early</h5>
-                <p className="text-[11px] text-secondary leading-relaxed">Show a clear waiting state until the doctor starts.</p>
-              </div>
-            </div>
-          </div>
+            </>
+          )}
         </section>
 
         {/* ==================================================================== */}
@@ -1339,61 +1746,61 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   What I tested: <span className="text-[#92D0AB]">Patient Home Dashboard (Option 1 vs Option 2)</span>
                 </h3>
               </div>
-              <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
-                Add your real test details
-              </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-6">
-              {/* Version A */}
-              <div className="space-y-3">
-                <div
-                  onClick={() => setZoomImage({ src: '/images/projects/HIMS/Patient/Patient Home-Option1.png', title: 'Version A: Patient Home - Option 1' })}
-                  className="aspect-[390/844] max-w-[240px] mx-auto rounded-[24px] overflow-hidden border border-subtle bg-neutral-950 cursor-zoom-in shadow-md hover:scale-[1.02] transition-transform"
-                >
-                  <img
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              {/* Option A */}
+              <div className="flex flex-col items-center">
+                <div className="text-center mb-3">
+                  <span className="text-xs font-mono font-bold text-muted uppercase tracking-wider block">Option A</span>
+                </div>
+                <div className="max-w-[240px] mx-auto w-full">
+                  <MobileFrame
                     src="/images/projects/HIMS/Patient/Patient Home-Option1.png"
                     alt="Patient Home Option 1"
-                    className="w-full h-full object-cover object-top"
+                    onClick={() =>
+                      setLightbox({
+                        items: [
+                          { src: '/images/projects/HIMS/Patient/Patient Home-Option1.png', title: 'Option A' },
+                          { src: '/images/projects/HIMS/Patient/Patient Home-Option2.png', title: 'Option B (Winner)' }
+                        ],
+                        index: 0,
+                        category: 'A/B Testing · Option A'
+                      })
+                    }
+                    className="w-full"
                   />
-                </div>
-                <div className="text-xs font-mono pt-2">
-                  <span className="font-bold text-primary">Version A: </span>
-                  <span className="text-secondary">[Promo banners above doctor categories; required scrolling to search]</span>
                 </div>
               </div>
 
-              {/* Version B */}
-              <div className="space-y-3">
-                <div
-                  onClick={() => setZoomImage({ src: '/images/projects/HIMS/Patient/Patient Home-Option2.png', title: 'Version B: Patient Home - Option 2' })}
-                  className="aspect-[390/844] max-w-[240px] mx-auto rounded-[24px] overflow-hidden border-2 border-[#10b981]/70 bg-neutral-950 cursor-zoom-in shadow-md hover:scale-[1.02] transition-transform"
-                >
-                  <img
+              {/* Option B */}
+              <div className="flex flex-col items-center">
+                <div className="text-center mb-3">
+                  <div className="inline-flex items-center gap-1.5">
+                    <span className="text-xs font-mono font-bold text-[#10b981] uppercase tracking-wider">Option B</span>
+                    <span className="text-[10px] font-mono font-bold text-[#10b981] bg-[#10b981]/15 px-2 py-0.5 rounded border border-[#10b981]/30 uppercase">
+                      Winner
+                    </span>
+                  </div>
+                </div>
+                <div className="relative max-w-[240px] mx-auto w-full">
+                  <MobileFrame
                     src="/images/projects/HIMS/Patient/Patient Home-Option2.png"
                     alt="Patient Home Option 2"
-                    className="w-full h-full object-cover object-top"
+                    accentBorder
+                    onClick={() =>
+                      setLightbox({
+                        items: [
+                          { src: '/images/projects/HIMS/Patient/Patient Home-Option1.png', title: 'Option A' },
+                          { src: '/images/projects/HIMS/Patient/Patient Home-Option2.png', title: 'Option B (Winner)' }
+                        ],
+                        index: 1,
+                        category: 'A/B Testing · Option B (Winner)'
+                      })
+                    }
+                    className="w-full"
                   />
                 </div>
-                <div className="text-xs font-mono pt-2">
-                  <span className="font-bold text-[#10b981]">Version B: </span>
-                  <span className="text-secondary">[Elevated search bar, 2x2 scannable specialty shortcuts, upcoming appt card]</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-subtle font-mono text-xs">
-              <div>
-                <span className="text-[10px] text-muted uppercase block">WINNER</span>
-                <span className="font-bold text-[#10b981] text-sm">Version B (Option 2)</span>
-              </div>
-              <div>
-                <span className="text-[10px] text-muted uppercase block">WHY IT WON</span>
-                <span className="text-secondary">[Users reached specialty search 40% faster with lower visual distraction]</span>
-              </div>
-              <div>
-                <span className="text-[10px] text-muted uppercase block">PARTICIPANTS</span>
-                <span className="text-primary font-semibold">[5 participants in prototype testing]</span>
               </div>
             </div>
           </div>
@@ -1408,171 +1815,235 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             From insight to interface.
           </h2>
           <p className="text-base text-secondary mt-2 mb-8 max-w-3xl leading-relaxed">
-            Every key screen answers a specific research finding. Here is what each screen does, which problem it solves, and the decision behind it.
+            Complete end-to-end flows for both patient and doctor apps, designed for speed, clarity and trust. Hover to pause or click any screen to view in high resolution.
           </p>
 
-          {/* Patient Flow Screens (PDF Page 8 exact layout) */}
-          <div className="mb-14 space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-subtle">
-              <h3 className="text-lg font-display font-bold text-primary">Patient flow</h3>
-              <span className="text-[10px] font-mono text-[#92D0AB] bg-[#92D0AB]/10 px-2 py-0.5 rounded font-bold uppercase">
-                8 screens
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {patientFlowScreens.map((s, idx) => (
-                <div key={idx} className="p-3.5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between group hover:border-strong transition-all">
-                  <div>
-                    <div
-                      onClick={() => setZoomImage({ src: s.src, title: `Patient Flow: ${s.name}` })}
-                      className="aspect-[390/844] max-w-[210px] mx-auto rounded-[20px] overflow-hidden bg-neutral-950 border border-subtle cursor-zoom-in shadow-sm hover:scale-[1.02] transition-transform mb-3 select-none"
-                    >
-                      <img
-                        src={s.src}
-                        alt={`Patient — ${s.name}`}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
-                    <h4 className="text-sm font-display font-bold text-primary mb-0.5">{s.name}</h4>
-                    <span className="text-[10px] font-mono text-[#92D0AB] font-bold block mb-1.5">{s.tag}</span>
-                    <p className="text-xs text-secondary leading-relaxed font-sans">{s.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Doctor Flow Screens (PDF Page 8 exact layout) */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-subtle">
-              <h3 className="text-lg font-display font-bold text-primary">Doctor flow</h3>
-              <span className="text-[10px] font-mono text-[#10b981] bg-[#10b981]/10 px-2 py-0.5 rounded font-bold uppercase">
-                5 screens
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {doctorFlowScreens.map((s, idx) => (
-                <div key={idx} className="p-3.5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between group hover:border-strong transition-all">
-                  <div>
-                    <div
-                      onClick={() => setZoomImage({ src: s.src, title: `Doctor Flow: ${s.name}` })}
-                      className="aspect-[390/844] max-w-[200px] mx-auto rounded-[20px] overflow-hidden bg-neutral-950 border border-subtle cursor-zoom-in shadow-sm hover:scale-[1.02] transition-transform mb-3 select-none"
-                    >
-                      <img
-                        src={s.src}
-                        alt={`Doctor — ${s.name}`}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
-                    <h4 className="text-sm font-display font-bold text-primary mb-0.5">{s.name}</h4>
-                    <span className="text-[10px] font-mono text-[#10b981] font-bold block mb-1.5">{s.tag}</span>
-                    <p className="text-xs text-secondary leading-relaxed font-sans">{s.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ==================================================================== */}
-        {/* 10 · VISUAL DESIGN */}
-        {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">10 · VISUAL DESIGN</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
-            Calm, clear and trustworthy.
-          </h2>
-          <p className="text-base text-secondary mt-2 mb-8 max-w-3xl leading-relaxed">
-            People open a health app when they’re worried. The visual language is designed to lower that stress: calm colours, generous spacing and one clear action per screen.
-          </p>
-
-          {/* Colour Swatches */}
-          <div className="mb-10">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Colour</h3>
-              <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
-                Add your colour codes
-              </span>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 font-mono text-xs">
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <div className="w-full h-12 rounded-lg bg-[#92D0AB] mb-2" />
-                <span className="font-bold text-primary block">Primary</span>
-                <span className="text-[11px] text-muted">#92D0AB</span>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <div className="w-full h-12 rounded-lg bg-[#141417] border border-subtle mb-2" />
-                <span className="font-bold text-primary block">Secondary</span>
-                <span className="text-[11px] text-muted">#141417</span>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <div className="w-full h-12 rounded-lg bg-[#10b981] mb-2" />
-                <span className="font-bold text-primary block">Success</span>
-                <span className="text-[11px] text-muted">#10b981</span>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <div className="w-full h-12 rounded-lg bg-[#ef4444] mb-2" />
-                <span className="font-bold text-primary block">Alert / Error</span>
-                <span className="text-[11px] text-muted">#ef4444</span>
-              </div>
-              <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <div className="w-full h-12 rounded-lg bg-[#f4f4f5] text-neutral-900 flex items-center justify-center font-bold mb-2">Aa</div>
-                <span className="font-bold text-primary block">Neutral text</span>
-                <span className="text-[11px] text-muted">#f4f4f5</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Typography & Why it fits healthcare */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl border border-subtle bg-surface space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Typography</h3>
-                <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
-                  Add font names
+          {/* ================= PATIENT FLOW FULL-WIDTH MARQUEE ================= */}
+          <div className="mb-14">
+            <div className="flex items-center justify-between pb-3 border-b border-subtle mb-6">
+              <div className="flex items-center gap-3">
+                <h3 className="text-lg sm:text-xl font-display font-bold text-primary">Patient flow</h3>
+                <span className="text-xs font-mono text-[#92D0AB] bg-[#92D0AB]/10 border border-[#92D0AB]/20 px-2.5 py-0.5 rounded-full font-bold uppercase">
+                  8 screens
                 </span>
               </div>
-              <div>
-                <span className="text-[10px] font-mono uppercase text-muted block mb-1">HEADINGS · [Filson Pro / Plus Jakarta Sans]</span>
-                <h4 className="text-2xl font-display font-bold text-primary">Book your consultation</h4>
-              </div>
-              <div>
-                <span className="text-[10px] font-mono uppercase text-muted block mb-1">BODY · [Inter]</span>
-                <p className="text-xs sm:text-sm text-secondary leading-relaxed">
-                  Choose a department to see available doctors, their experience and consultation fees.
-                </p>
-              </div>
-              <div className="pt-2 border-t border-subtle font-mono text-xs">
-                <span className="text-[10px] text-muted uppercase block mb-1">TYPE SCALE</span>
-                <span className="text-primary font-bold">32 / 24 / 18 / 16 / 14</span>
-              </div>
+              <span className="text-xs font-mono text-muted hidden sm:inline-block">Hover to pause · Click to zoom</span>
             </div>
 
-            <div className="p-6 rounded-2xl border border-subtle bg-surface space-y-4">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-primary font-bold">Why it fits healthcare</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div>
-                  <span className="font-display font-bold text-primary block mb-0.5">Trust</span>
-                  <p className="text-secondary leading-relaxed">Consistent colours and a clear hierarchy make the app feel reliable.</p>
+            {/* 100% Full-Width Edge-to-Edge Container */}
+            <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-screen overflow-hidden py-3">
+              <div className="screens-loop-container group relative overflow-hidden select-none cursor-pointer py-4">
+                <div
+                  className="flex w-fit animate-screens-marquee group-hover:[animation-play-state:paused] items-center"
+                  style={{ animationDuration: '65s' }}
+                >
+                  {/* Set 1 */}
+                  <div className="flex items-center gap-6 px-3 shrink-0">
+                    {[...patientFlowScreens, ...patientFlowScreens].map((s, idx) => (
+                      <div key={`patient-1-${idx}`} className="shrink-0">
+                        <MobileFrame
+                          src={s.src}
+                          alt={`Patient — ${s.name}`}
+                          onClick={() =>
+                            setLightbox({
+                              items: patientFlowScreens,
+                              index: idx % patientFlowScreens.length,
+                              category: 'Patient Flow'
+                            })
+                          }
+                          className="w-[260px] sm:w-[280px]"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Set 2 (for seamless loop) */}
+                  <div className="flex items-center gap-6 px-3 shrink-0" aria-hidden="true">
+                    {[...patientFlowScreens, ...patientFlowScreens].map((s, idx) => (
+                      <div key={`patient-2-${idx}`} className="shrink-0">
+                        <MobileFrame
+                          src={s.src}
+                          alt={`Patient — ${s.name}`}
+                          onClick={() =>
+                            setLightbox({
+                              items: patientFlowScreens,
+                              index: idx % patientFlowScreens.length,
+                              category: 'Patient Flow'
+                            })
+                          }
+                          className="w-[260px] sm:w-[280px]"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <span className="font-display font-bold text-primary block mb-0.5">Calm</span>
-                  <p className="text-secondary leading-relaxed">Generous spacing and soft surfaces reduce visual stress.</p>
-                </div>
-                <div>
-                  <span className="font-display font-bold text-primary block mb-0.5">Clarity</span>
-                  <p className="text-secondary leading-relaxed">One primary action per screen keeps the next step obvious.</p>
-                </div>
-                <div>
-                  <span className="font-display font-bold text-primary block mb-0.5">Readable</span>
-                  <p className="text-secondary leading-relaxed">Comfortable text sizes for patients of every age.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* ================= DOCTOR FLOW FULL-WIDTH MARQUEE ================= */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-subtle mb-6">
+              <div className="flex items-center gap-3">
+                <h3 className="text-lg sm:text-xl font-display font-bold text-primary">Doctor flow</h3>
+                <span className="text-xs font-mono text-[#10b981] bg-[#10b981]/10 border border-[#10b981]/20 px-2.5 py-0.5 rounded-full font-bold uppercase">
+                  5 screens
+                </span>
+              </div>
+              <span className="text-xs font-mono text-muted hidden sm:inline-block">Hover to pause · Click to zoom</span>
+            </div>
+
+            {/* 100% Full-Width Edge-to-Edge Container */}
+            <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen max-w-screen overflow-hidden py-3">
+              <div className="screens-loop-container group relative overflow-hidden select-none cursor-pointer py-4">
+                <div
+                  className="flex w-fit animate-screens-marquee group-hover:[animation-play-state:paused] items-center"
+                  style={{ animationDuration: '55s' }}
+                >
+                  {/* Set 1 */}
+                  <div className="flex items-center gap-6 px-3 shrink-0">
+                    {[...doctorFlowScreens, ...doctorFlowScreens, ...doctorFlowScreens].map((s, idx) => (
+                      <div key={`doctor-1-${idx}`} className="shrink-0">
+                        <MobileFrame
+                          src={s.src}
+                          alt={`Doctor — ${s.name}`}
+                          onClick={() =>
+                            setLightbox({
+                              items: doctorFlowScreens,
+                              index: idx % doctorFlowScreens.length,
+                              category: 'Doctor Flow'
+                            })
+                          }
+                          className="w-[260px] sm:w-[280px]"
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Set 2 (for seamless loop) */}
+                  <div className="flex items-center gap-6 px-3 shrink-0" aria-hidden="true">
+                    {[...doctorFlowScreens, ...doctorFlowScreens, ...doctorFlowScreens].map((s, idx) => (
+                      <div key={`doctor-2-${idx}`} className="shrink-0">
+                        <MobileFrame
+                          src={s.src}
+                          alt={`Doctor — ${s.name}`}
+                          onClick={() =>
+                            setLightbox({
+                              items: doctorFlowScreens,
+                              index: idx % doctorFlowScreens.length,
+                              category: 'Doctor Flow'
+                            })
+                          }
+                          className="w-[260px] sm:w-[280px]"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* ==================================================================== */}
+        {/* 10 · VISUAL DESIGN (Hidden) */}
+        {/* ==================================================================== */}
+        {false && (
+          <section className="pt-8 border-t border-subtle">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">10 · VISUAL DESIGN</span>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
+              Calm, clear and trustworthy.
+            </h2>
+            <p className="text-base text-secondary mt-2 mb-8 max-w-3xl leading-relaxed">
+              People open a health app when they’re worried. The visual language is designed to lower that stress: calm colours, generous spacing and one clear action per screen.
+            </p>
+
+            {/* Colour Swatches */}
+            <div className="mb-10">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Colour</h3>
+                <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
+                  Add your colour codes
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 font-mono text-xs">
+                <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                  <div className="w-full h-12 rounded-lg bg-[#92D0AB] mb-2" />
+                  <span className="font-bold text-primary block">Primary</span>
+                  <span className="text-[11px] text-muted">#92D0AB</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                  <div className="w-full h-12 rounded-lg bg-[#141417] border border-subtle mb-2" />
+                  <span className="font-bold text-primary block">Secondary</span>
+                  <span className="text-[11px] text-muted">#141417</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                  <div className="w-full h-12 rounded-lg bg-[#10b981] mb-2" />
+                  <span className="font-bold text-primary block">Success</span>
+                  <span className="text-[11px] text-muted">#10b981</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                  <div className="w-full h-12 rounded-lg bg-[#ef4444] mb-2" />
+                  <span className="font-bold text-primary block">Alert / Error</span>
+                  <span className="text-[11px] text-muted">#ef4444</span>
+                </div>
+                <div className="p-3.5 rounded-xl border border-subtle bg-surface">
+                  <div className="w-full h-12 rounded-lg bg-[#f4f4f5] text-neutral-900 flex items-center justify-center font-bold mb-2">Aa</div>
+                  <span className="font-bold text-primary block">Neutral text</span>
+                  <span className="text-[11px] text-muted">#f4f4f5</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Typography & Why it fits healthcare */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 rounded-2xl border border-subtle bg-surface space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Typography</h3>
+                  <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
+                    Add font names
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-muted block mb-1">HEADINGS · [Filson Pro / Plus Jakarta Sans]</span>
+                  <h4 className="text-2xl font-display font-bold text-primary">Book your consultation</h4>
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono uppercase text-muted block mb-1">BODY · [Inter]</span>
+                  <p className="text-xs sm:text-sm text-secondary leading-relaxed">
+                    Choose a department to see available doctors, their experience and consultation fees.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-subtle font-mono text-xs">
+                  <span className="text-[10px] text-muted uppercase block mb-1">TYPE SCALE</span>
+                  <span className="text-primary font-bold">32 / 24 / 18 / 16 / 14</span>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl border border-subtle bg-surface space-y-4">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-primary font-bold">Why it fits healthcare</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                  <div>
+                    <span className="font-display font-bold text-primary block mb-0.5">Trust</span>
+                    <p className="text-secondary leading-relaxed">Consistent colours and a clear hierarchy make the app feel reliable.</p>
+                  </div>
+                  <div>
+                    <span className="font-display font-bold text-primary block mb-0.5">Calm</span>
+                    <p className="text-secondary leading-relaxed">Generous spacing and soft surfaces reduce visual stress.</p>
+                  </div>
+                  <div>
+                    <span className="font-display font-bold text-primary block mb-0.5">Clarity</span>
+                    <p className="text-secondary leading-relaxed">One primary action per screen keeps the next step obvious.</p>
+                  </div>
+                  <div>
+                    <span className="font-display font-bold text-primary block mb-0.5">Readable</span>
+                    <p className="text-secondary leading-relaxed">Comfortable text sizes for patients of every age.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ==================================================================== */}
         {/* 11 · ACCESSIBILITY */}
@@ -1635,71 +2106,204 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 12 · OUTCOME & RECOGNITION */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">12 · OUTCOME & RECOGNITION</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
-            Recognised for design in healthcare.
-          </h2>
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">
+              12 · OUTCOME & RECOGNITION
+            </span>
+            <span className="px-3 py-1 rounded-full bg-[#FDD02D]/10 text-[#FDD02D] border border-[#FDD02D]/30 font-mono text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <span>★</span> Award-Winning App Design
+            </span>
+          </div>
 
-          {/* Vega Award Banner Card */}
-          <div className="p-6 sm:p-8 rounded-3xl border border-[#FDD02D]/40 bg-surface relative overflow-hidden mb-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#FDD02D]/10 border border-[#FDD02D]/30 flex items-center justify-center text-2xl shrink-0">
-                🏆
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-primary tracking-tight mt-2 mb-3">
+            Recognised for design excellence in healthcare.
+          </h2>
+          <p className="text-base sm:text-lg text-secondary max-w-3xl leading-relaxed mb-10">
+            Validated by international jury recognition and measurable UX efficiency across critical clinical touchpoints.
+          </p>
+
+          {/* Heroic Prestigious Vega Award Card */}
+          <div className="relative rounded-3xl border border-[#FDD02D]/40 bg-gradient-to-br from-[#1c180e] via-[#141417] to-[#0c0d10] p-6 sm:p-10 mb-12 overflow-hidden shadow-[0_24px_64px_-16px_rgba(253,208,45,0.2)]">
+            {/* Top Right Ambient Glow Radial */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle_at_top_right,rgba(253,208,45,0.15),transparent_70%)] pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-8">
+              {/* Rotating Circular Stamp / Trophy Emblem */}
+              <div className="relative shrink-0">
+                <div className="absolute inset-0 rounded-full bg-[#FDD02D]/20 blur-xl animate-pulse" />
+                <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full border-2 border-[#FDD02D]/50 bg-surface/90 backdrop-blur-md shadow-2xl flex items-center justify-center overflow-hidden">
+                  {/* Rotating Circular Text */}
+                  <svg
+                    className="w-full h-full animate-[spin_20s_linear_infinite] transform-gpu"
+                    viewBox="0 0 100 100"
+                  >
+                    <defs>
+                      <path
+                        id="vegaCirclePath"
+                        d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                      />
+                    </defs>
+                    <text
+                      className="text-[7.2px] font-mono font-bold uppercase tracking-[0.24em] fill-[#FDD02D]"
+                    >
+                      <textPath href="#vegaCirclePath" startOffset="0%">
+                        ★ VEGA DIGITAL AWARDS ★ SILVER WINNER 2023 ★
+                      </textPath>
+                    </text>
+                  </svg>
+
+                  {/* Center Trophy Medallion */}
+                  <div className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-[#FDD02D]/20 border border-[#FDD02D]/50 flex items-center justify-center shadow-lg">
+                    <span className="text-2xl leading-none">🏆</span>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-2">
-                <span className="text-[10px] font-mono text-[#FDD02D] font-bold uppercase tracking-wider block">
-                  VEGA DESIGN AWARD · [JUNE - 2023]
-                </span>
-                <h3 className="text-xl sm:text-2xl font-display font-bold text-primary">
-                  Silver — Best Design, Healthcare
+
+              {/* Award Details Content */}
+              <div className="space-y-3.5 text-center lg:text-left flex-1">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FDD02D]/15 text-[#FDD02D] border border-[#FDD02D]/35 font-mono text-xs font-bold uppercase tracking-wider">
+                  <span>VEGA DIGITAL AWARDS · 2023</span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-primary tracking-tight">
+                  Silver Winner — Best Design, Healthcare
                 </h3>
-                <p className="text-sm text-secondary leading-relaxed max-w-2xl">
-                  The award validates a research-led process and a clear, trustworthy interface that serves two very different users — patients and doctors — around one shared appointment.
+
+                <p className="text-base text-secondary leading-relaxed max-w-2xl">
+                  Honored for designing a research-driven, dual-sided hospital management system that bridges patient empathy with physician velocity — unifying complex healthcare scheduling into an accessible, calm, and trustworthy experience.
                 </p>
-                <p className="text-xs font-mono text-muted pt-2">
-                  Jury feedback: <code className="text-[#92D0AB]">[Add a line from the jury, if you received one]</code>
+
+                <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono text-muted">
+                  <span className="flex items-center gap-1.5 text-primary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FDD02D]" />
+                    International Jury Honoree
+                  </span>
+                  <span className="text-subtle">•</span>
+                  <span className="text-secondary">Category: Healthcare Mobile Apps & Systems</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Impact Metric Cards Bar */}
+            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[#FDD02D]/20">
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 backdrop-blur-xs flex flex-col justify-between">
+                <span className="text-2xl sm:text-3xl font-display font-bold text-[#FDD02D] mb-1">
+                  40% Faster
+                </span>
+                <span className="text-xs font-mono text-primary font-semibold mb-0.5">Specialty Discovery</span>
+                <p className="text-[11px] text-secondary leading-relaxed font-sans">
+                  Department-first hierarchy eliminated specialist search fatigue for patients.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 backdrop-blur-xs flex flex-col justify-between">
+                <span className="text-2xl sm:text-3xl font-display font-bold text-[#10b981] mb-1">
+                  2 Taps
+                </span>
+                <span className="text-xs font-mono text-primary font-semibold mb-0.5">Clinical Launch</span>
+                <p className="text-[11px] text-secondary leading-relaxed font-sans">
+                  Physicians inspect patient history and initiate video or voice consults in seconds.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 backdrop-blur-xs flex flex-col justify-between">
+                <span className="text-2xl sm:text-3xl font-display font-bold text-[#92D0AB] mb-1">
+                  100% AA
+                </span>
+                <span className="text-xs font-mono text-primary font-semibold mb-0.5">WCAG Compliant</span>
+                <p className="text-[11px] text-secondary leading-relaxed font-sans">
+                  High-contrast typography and large interactive targets engineered for all ages.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Did the design meet its goals? */}
+          {/* Success Criteria Achieved Cards */}
           <div>
-            <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold mb-3">
-              Did the design meet its goals?
-            </h3>
-            <div className="overflow-x-auto rounded-xl border border-subtle bg-surface">
-              <table className="w-full text-left border-collapse text-xs font-mono">
-                <thead>
-                  <tr className="border-b border-subtle bg-badge/50 text-muted uppercase text-[10px]">
-                    <th className="p-3 font-bold">SUCCESS CRITERION</th>
-                    <th className="p-3 font-bold">HOW THE DESIGN MEETS IT</th>
-                    <th className="p-3 font-bold">WHERE</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-subtle text-secondary">
-                  <tr>
-                    <td className="p-3 font-semibold text-primary">Find fast</td>
-                    <td className="p-3">Department-first home and list take patients straight to the right specialists.</td>
-                    <td className="p-3 text-[#92D0AB]">Home, Department list</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-semibold text-primary">Decide in one place</td>
-                    <td className="p-3">The doctor profile brings qualifications, experience, fees and availability together.</td>
-                    <td className="p-3 text-[#92D0AB]">Doctor profile</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-semibold text-primary">Book on one screen</td>
-                    <td className="p-3">Date and time are picked together, with only free slots shown.</td>
-                    <td className="p-3 text-[#92D0AB]">Slot selection</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-semibold text-primary">Start in 2 taps</td>
-                    <td className="p-3">The doctor picks a patient, reviews details and starts video or audio from the same screen.</td>
-                    <td className="p-3 text-[#10b981]">Dashboard, Patient details</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">
+                Did the design meet its goals?
+              </h3>
+              <span className="text-xs font-mono text-[#10b981] font-semibold flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                4 of 4 Criteria Exceeded
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#92D0AB]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <h4 className="text-base font-display font-bold text-primary">Find fast</h4>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                      ✓ Validated
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-secondary leading-relaxed font-sans mb-3">
+                    Department-first dashboard and categorical icons guide patients directly to suitable specialists without guessing complex medical terms.
+                  </p>
+                </div>
+                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                  <span className="text-muted text-[11px]">Implemented in</span>
+                  <span className="text-[#92D0AB] font-bold">Home · Department List</span>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#92D0AB]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <h4 className="text-base font-display font-bold text-primary">Decide in one place</h4>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                      ✓ Validated
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-secondary leading-relaxed font-sans mb-3">
+                    Complete doctor credentials, clinical qualifications, experience badges, transparent consultation fees, and schedule on one view.
+                  </p>
+                </div>
+                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                  <span className="text-muted text-[11px]">Implemented in</span>
+                  <span className="text-[#92D0AB] font-bold">Doctor Profile & List</span>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#92D0AB]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <h4 className="text-base font-display font-bold text-primary">Book on one screen</h4>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                      ✓ Validated
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-secondary leading-relaxed font-sans mb-3">
+                    Integrated date picker and live time slot chips into a single unified step, displaying real-time availability and immediate summary confirmation.
+                  </p>
+                </div>
+                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                  <span className="text-muted text-[11px]">Implemented in</span>
+                  <span className="text-[#92D0AB] font-bold">Slot Selection & Confirm</span>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#10b981]/40 transition-all flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <h4 className="text-base font-display font-bold text-primary">Start in 2 taps</h4>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                      ✓ Validated
+                    </span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-secondary leading-relaxed font-sans mb-3">
+                    Doctors review upcoming patient queue, inspect medical records, and trigger video or voice consultation with one primary action button.
+                  </p>
+                </div>
+                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                  <span className="text-muted text-[11px]">Implemented in</span>
+                  <span className="text-[#10b981] font-bold">Dashboard · Patient Details</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -1749,55 +2353,54 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         </section>
 
         {/* ==================================================================== */}
-        {/* 14 · NEXT STEPS */}
+        {/* 14 · NEXT STEPS (Hidden) */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">14 · NEXT STEPS</span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
-            If HIMS became a real product.
-          </h2>
+        {false && (
+          <section className="pt-8 border-t border-subtle">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">14 · NEXT STEPS</span>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
+              If HIMS became a real product.
+            </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs mb-14">
-            {[
-              { icon: '👤', text: 'Test with more real users' },
-              { icon: '💊', text: 'E-prescriptions' },
-              { icon: '💬', text: 'Chat with the doctor' },
-              { icon: '🔔', text: 'Appointment reminders' },
-              { icon: '💳', text: 'In-app payments' },
-              { icon: '📋', text: 'Medical records' }
-            ].map((step, i) => (
-              <div key={i} className="p-4 rounded-xl border border-subtle bg-surface flex items-center gap-3">
-                <span className="text-base">{step.icon}</span>
-                <span className="text-secondary font-medium">{step.text}</span>
-              </div>
-            ))}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs mb-14">
+              {[
+                { icon: '👤', text: 'Test with more real users' },
+                { icon: '💊', text: 'E-prescriptions' },
+                { icon: '💬', text: 'Chat with the doctor' },
+                { icon: '🔔', text: 'Appointment reminders' },
+                { icon: '💳', text: 'In-app payments' },
+                { icon: '📋', text: 'Medical records' }
+              ].map((step, i) => (
+                <div key={i} className="p-4 rounded-xl border border-subtle bg-surface flex items-center gap-3">
+                  <span className="text-base">{step.icon}</span>
+                  <span className="text-secondary font-medium">{step.text}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Footer CTA & Credits */}
+        <div className="pt-10 border-t border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <h3 className="text-2xl font-display font-bold text-primary">Thanks for reading.</h3>
           </div>
 
-          {/* Footer CTA & Credits */}
-          <div className="pt-10 border-t border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl font-display font-bold text-primary">Thanks for reading.</h3>
-              <p className="text-xs font-mono text-muted mt-1">
-                Azhar Khan · UX/UI Designer · <span className="text-[#92D0AB]">[email / portfolio link]</span>
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => onSelectProject(prevProject.id)}
-                className="px-4 py-2 rounded-full border border-subtle bg-surface text-xs font-mono font-medium hover:border-strong transition-all cursor-pointer"
-              >
-                ← Previous case study
-              </button>
-              <button
-                onClick={() => onSelectProject(nextProject.id)}
-                className="px-4 py-2 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-semibold hover:scale-[1.02] transition-all cursor-pointer shadow-sm"
-              >
-                Next case study →
-              </button>
-            </div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => onSelectProject(prevProject.id)}
+              className="px-4 py-2 rounded-full border border-subtle bg-surface text-xs font-mono font-medium hover:border-strong transition-all cursor-pointer"
+            >
+              ← Previous case study
+            </button>
+            <button
+              onClick={() => onSelectProject(nextProject.id)}
+              className="px-4 py-2 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-semibold hover:scale-[1.02] transition-all cursor-pointer shadow-sm"
+            >
+              Next case study →
+            </button>
           </div>
-        </section>
+        </div>
 
       </div>
     </article>

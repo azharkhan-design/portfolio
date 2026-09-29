@@ -315,6 +315,26 @@ html.lenis, html.lenis body {
   animation-play-state: paused !important;
 }
 
+/* Final Design Mobile Screens Infinite Marquee */
+@keyframes screens-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-screens-marquee {
+  animation: screens-marquee 60s linear infinite;
+  will-change: transform;
+}
+
+.screens-loop-container:hover .animate-screens-marquee,
+.animate-screens-marquee:hover {
+  animation-play-state: paused !important;
+}
+
 /* Specular Button Sheen Animation */
 @keyframes specular-sheen {
   0% {
