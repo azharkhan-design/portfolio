@@ -4,6 +4,7 @@ import { Tag } from '../ui/Tag';
 import { ProjectMockup } from '../ui/ProjectMockup';
 import { CaseStudyPlaceholder } from './CaseStudyPlaceholder';
 import { CaseStudyNav } from './CaseStudyNav';
+import { HimsCaseStudyView } from './HimsCaseStudyView';
 
 interface CaseStudyViewProps {
   project: Project;
@@ -18,6 +19,17 @@ export const CaseStudyView: React.FC<CaseStudyViewProps> = ({
   onSelectProject,
   onBackToHome
 }) => {
+  if (project.id === 'hims-medical-solution') {
+    return (
+      <HimsCaseStudyView
+        project={project}
+        allProjects={allProjects}
+        onSelectProject={onSelectProject}
+        onBackToHome={onBackToHome}
+      />
+    );
+  }
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [project.id]);
