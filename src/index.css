@@ -513,4 +513,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   fill: #DD1251;
 }
 
+/* Design Process Cards: subtle diagonal border gradient (visible only top-right & bottom-left) */
+.process-gradient-border {
+  position: relative;
+  border-radius: 1rem;
+  background: 
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.0146) 0%, transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.0105) 0%, transparent 60%),
+    rgba(255, 255, 255, 0.0058);
+}
+
+.process-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(
+    to top right,
+    rgba(255, 255, 255, 0.073) 0%,
+    rgba(255, 255, 255, 0.029) 12%,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0) 75%,
+    rgba(255, 255, 255, 0.029) 88%,
+    rgba(255, 255, 255, 0.081) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
 

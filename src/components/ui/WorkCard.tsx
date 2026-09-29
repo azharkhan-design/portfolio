@@ -67,6 +67,47 @@ export const WorkCard: React.FC<WorkCardProps> = ({ project, onSelectProject }) 
     >
       {/* Top Colorful Showcase Stage with Full-Bleed Image Filling Width & Height */}
       <div className="relative w-full aspect-[16/10] sm:aspect-[16/9.8] rounded-2xl overflow-hidden bg-surface-elevated dark:bg-neutral-950 flex items-center justify-center">
+        {/* Vega Digital Awards Badge for HIMS Project */}
+        {project.id === 'hims-medical-solution' && (
+          <div
+            className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 select-none pointer-events-none"
+            title="Vega Digital Awards Silver Winner"
+          >
+            {/* Outer Ambient Glow */}
+            <div className="absolute inset-0 rounded-full bg-[#FDD02D]/20 blur-md group-hover:bg-[#FDD02D]/35 transition-all duration-500" />
+
+            {/* Rotating Circular Stamp Container */}
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-[#FDD02D]/60 bg-[#0c0d10]/85 backdrop-blur-md shadow-2xl flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              {/* Rotating Circular Text */}
+              <svg
+                className="w-full h-full animate-[spin_20s_linear_infinite] group-hover:[animation-play-state:paused] transform-gpu"
+                viewBox="0 0 100 100"
+              >
+                <defs>
+                  <path
+                    id={`cardVegaCircle-${project.id}`}
+                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                  />
+                </defs>
+                <text
+                  className="text-[7.2px] font-mono font-bold uppercase tracking-[0.24em] fill-[#FDD02D]"
+                >
+                  <textPath href={`#cardVegaCircle-${project.id}`} startOffset="0%">
+                    ★ VEGA DIGITAL AWARDS ★ SILVER WINNER ★
+                  </textPath>
+                </text>
+              </svg>
+
+              {/* Inner Concentric Circle & Center Trophy */}
+              <div className="absolute inset-0 m-auto w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#FDD02D]/15 border border-[#FDD02D]/50 flex items-center justify-center shadow-md">
+                <span className="text-base sm:text-lg leading-none transform group-hover:scale-110 transition-transform duration-300">
+                  🏆
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
         {project.imageUrl ? (
           <div className="w-full h-full overflow-hidden relative">
             <img

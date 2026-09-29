@@ -228,41 +228,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightbox]);
 
-  const [hoveredStepIdx, setHoveredStepIdx] = useState<number | null>(null);
-  const [stepMousePos, setStepMousePos] = useState<{ x: number; y: number } | null>(null);
 
-  const handleStepMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setStepMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-    setHoveredStepIdx(index);
-  };
-
-  const [hoveredTimelineIdx, setHoveredTimelineIdx] = useState<number | null>(null);
-  const [timelineMousePos, setTimelineMousePos] = useState<{ x: number; y: number } | null>(null);
-
-  const handleTimelineMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setTimelineMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-    setHoveredTimelineIdx(index);
-  };
-
-  const [hoveredMethodIdx, setHoveredMethodIdx] = useState<number | null>(null);
-  const [methodMousePos, setMethodMousePos] = useState<{ x: number; y: number } | null>(null);
-
-  const handleMethodMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMethodMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-    setHoveredMethodIdx(index);
-  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -510,8 +476,8 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             A telehealth app that helps patients find the right doctor and book a consultation in a few taps — and gives doctors one clear dashboard to run their day of video and audio appointments.
           </p>
 
-          {/* Metadata Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl border border-subtle bg-surface font-mono text-xs">
+          {/* Metadata Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 pb-2 border-t border-white/10 font-mono text-xs">
             <div>
               <span className="text-muted uppercase tracking-wider text-[10px] block mb-1">My Role</span>
               <span className="font-semibold text-primary block">Solo UX/UI Designer</span>
@@ -546,24 +512,20 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           </div>
 
           {/* Hero Mockup Cover */}
-          <div className="mt-8 rounded-3xl overflow-hidden border border-subtle bg-surface shadow-2xl">
+          <div className="mt-8 rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
             <img
               src="/images/projects/HIMS/CoverImage.png"
               alt="Hero mockup — patient and doctor screens side by side"
               className="w-full h-auto object-cover cursor-zoom-in"
               onClick={() => setLightbox({ items: [{ src: '/images/projects/HIMS/CoverImage.png' }], index: 0, category: 'Hero Mockup' })}
             />
-            <div className="px-5 py-3 border-t border-subtle bg-badge/30 flex items-center justify-between text-xs font-mono text-muted">
-              <span>[Image: Hero mockup — patient and doctor screens side by side]</span>
-              <span className="hidden sm:inline">CLICK TO EXPAND ⊕</span>
-            </div>
           </div>
         </div>
 
         {/* ==================================================================== */}
         {/* 01 · OVERVIEW */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">01 · OVERVIEW</span>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-2">
             <div className="lg:col-span-7 space-y-4">
@@ -578,8 +540,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </p>
             </div>
 
-            <div className="lg:col-span-5 p-6 rounded-2xl border border-subtle bg-surface">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-primary font-bold mb-4">
+            <div className="lg:col-span-5 pt-6 lg:pt-0 lg:pl-8 lg:border-l border-white/10">
+              <h3 className="text-xs font-mono uppercase tracking-wider text-primary font-bold mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#92D0AB]" />
                 What I delivered
               </h3>
               <ul className="space-y-2.5 text-xs sm:text-sm text-secondary font-sans">
@@ -604,18 +567,19 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 02 · THE PROBLEM */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">02 · THE PROBLEM</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
             Booking a doctor online shouldn’t feel like solving a puzzle.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* For patients */}
-            <div className="p-6 sm:p-7 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
+            <div className="flex flex-col justify-between">
               <div>
-                <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#92D0AB]/10 text-[#92D0AB] mb-3">
-                  For patients
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-[#92D0AB] mb-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#92D0AB]" />
+                  FOR PATIENTS
                 </span>
                 <p className="text-sm sm:text-base text-secondary leading-relaxed">
                   Patients struggle to find and book the right doctor because doctors aren’t organised by department, profiles miss key details and picking a slot takes too many steps — which leads to guesswork, low trust and drop-offs before booking.
@@ -624,14 +588,15 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             </div>
 
             {/* For doctors */}
-            <div className="p-6 sm:p-7 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
+            <div className="flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#10b981]/10 text-[#10b981]">
-                    For doctors
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-[#10b981]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
+                    FOR DOCTORS
                   </span>
-                  <span className="text-[10px] font-mono text-muted border border-subtle px-2 py-0.5 rounded">
-                    Assumption — confirm
+                  <span className="text-[10px] font-mono text-muted">
+                    · Assumption
                   </span>
                 </div>
                 <p className="text-sm sm:text-base text-secondary leading-relaxed">
@@ -645,7 +610,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 03 · DESIGN PROCESS */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">03 · DESIGN PROCESS</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             A research-led process in four weeks.
@@ -654,8 +619,8 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             I followed a simple double-diamond style process — understand first, then design, then test — and planned the month so each step fed the next.
           </p>
 
-          {/* 6 Step Cards with Philosophy-style SVG icons and interactive hover */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
+          {/* 6 Step Cards with Philosophy-style SVG icons */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-12">
             {[
               {
                 title: 'Discover',
@@ -693,79 +658,33 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 color: '#FDD02D', // Gold
                 icon: IconIterate
               }
-            ].map((s, idx) => {
-              const isHovered = hoveredStepIdx === idx;
-              return (
+            ].map((s) => (
+              <div
+                key={s.title}
+                className="process-gradient-border p-5 sm:p-6 flex items-start gap-4"
+              >
                 <div
-                  key={s.title}
-                  onMouseEnter={(e) => handleStepMouseMove(e, idx)}
-                  onMouseMove={(e) => handleStepMouseMove(e, idx)}
-                  onMouseLeave={() => setHoveredStepIdx(null)}
-                  className={`group relative p-4 rounded-2xl border transition-all duration-300 transform-gpu cursor-default select-none flex flex-col justify-between overflow-hidden ${
-                    isHovered
-                      ? 'scale-[1.03] -translate-y-1 shadow-lg'
-                      : 'border-subtle bg-surface hover:border-strong'
-                  }`}
-                  style={{
-                    borderColor: isHovered ? `${s.color}70` : undefined,
-                  }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-white/10 bg-white/5"
+                  style={{ color: s.color }}
                 >
-                  {/* Dynamic Cursor Spotlight Glow within Card */}
-                  {isHovered && stepMousePos && (
-                    <div
-                      className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-200"
-                      style={{
-                        width: '180px',
-                        height: '180px',
-                        left: `${stepMousePos.x - 90}px`,
-                        top: `${stepMousePos.y - 90}px`,
-                        background: `radial-gradient(circle, ${s.color}30 0%, ${s.color}10 45%, transparent 75%)`,
-                      }}
-                    />
-                  )}
-
-                  {/* Top Active Color Accent Line on Hover */}
-                  <div
-                    className={`absolute top-0 inset-x-3 h-0.5 rounded-full transition-all duration-300 ${
-                      isHovered ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-50'
-                    }`}
-                    style={{ backgroundColor: s.color }}
-                  />
-
-                  {/* Icon Container matching Philosophy card style */}
-                  <div>
-                    <div
-                      className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 relative z-10 mb-3.5 ${
-                        isHovered
-                          ? 'scale-105 shadow-sm'
-                          : 'bg-surface/80 border-subtle/60 text-muted'
-                      }`}
-                      style={{
-                        backgroundColor: isHovered ? `${s.color}20` : undefined,
-                        borderColor: isHovered ? `${s.color}60` : undefined,
-                        color: isHovered ? s.color : undefined
-                      }}
-                    >
-                      {s.icon(s.color)}
-                    </div>
-
-                    <h4 className="text-sm font-display font-bold text-primary mb-1 relative z-10 transition-colors">
-                      {s.title}
-                    </h4>
-                  </div>
-
-                  <p className="text-xs text-secondary font-sans leading-relaxed mt-2 relative z-10">
+                  {s.icon(s.color)}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-base font-display font-bold text-primary mb-1.5">
+                    {s.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-secondary leading-relaxed">
                     {s.desc}
                   </p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
 
           {/* Project Timeline */}
           <div className="space-y-4">
             <h3 className="text-base font-display font-bold text-primary">Project timeline</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
                   week: 'WEEK 1',
@@ -809,89 +728,40 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     'Documentation and award submission'
                   ]
                 }
-              ].map((w, idx) => {
-                const isHovered = hoveredTimelineIdx === idx;
-                return (
-                  <div
-                    key={w.week}
-                    onMouseEnter={(e) => handleTimelineMouseMove(e, idx)}
-                    onMouseMove={(e) => handleTimelineMouseMove(e, idx)}
-                    onMouseLeave={() => setHoveredTimelineIdx(null)}
-                    className={`group relative p-5 rounded-2xl border transition-all duration-300 transform-gpu cursor-default select-none flex flex-col justify-between overflow-hidden ${
-                      isHovered
-                        ? 'scale-[1.03] -translate-y-1 shadow-lg'
-                        : 'border-subtle bg-surface hover:border-strong'
-                    }`}
-                    style={{
-                      borderColor: isHovered ? `${w.color}70` : undefined,
-                    }}
-                  >
-                    {/* Dynamic Cursor Spotlight Glow within Card */}
-                    {isHovered && timelineMousePos && (
-                      <div
-                        className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-200"
-                        style={{
-                          width: '240px',
-                          height: '240px',
-                          left: `${timelineMousePos.x - 120}px`,
-                          top: `${timelineMousePos.y - 120}px`,
-                          background: `radial-gradient(circle, ${w.color}30 0%, ${w.color}10 45%, transparent 75%)`,
-                        }}
-                      />
-                    )}
-
-                    {/* Top Active Color Accent Line on Hover */}
-                    <div
-                      className={`absolute top-0 inset-x-3 h-0.5 rounded-full transition-all duration-300 ${
-                        isHovered ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-50'
-                      }`}
-                      style={{ backgroundColor: w.color }}
-                    />
-
-                    <div className="relative z-10">
-                      <div className="flex items-center justify-between mb-1">
-                        <span
-                          className="text-[10px] font-mono uppercase tracking-wider block font-bold transition-colors duration-200"
-                          style={{ color: isHovered ? w.color : undefined }}
-                        >
-                          {w.week}
-                        </span>
-                        <span
-                          className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-                          style={{
-                            backgroundColor: w.color,
-                            opacity: isHovered ? 1 : 0.4,
-                            transform: isHovered ? 'scale(1.4)' : 'scale(1)'
-                          }}
-                        />
-                      </div>
-
-                      <h4
-                        className="text-base font-display font-bold text-primary mb-3 transition-colors duration-200"
-                        style={{ color: isHovered ? '#ffffff' : undefined }}
+              ].map((w) => (
+                <div
+                  key={w.week}
+                  className="process-gradient-border p-5 sm:p-6 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <span
+                        className="text-[10px] font-mono uppercase tracking-wider block font-bold"
+                        style={{ color: w.color }}
                       >
-                        {w.phase}
-                      </h4>
-
-                      <ul className="space-y-2 text-xs text-secondary font-sans leading-relaxed">
-                        {w.items.map((it, i) => (
-                          <li key={i} className="flex items-start gap-1.5">
-                            <span
-                              className="transition-colors duration-200"
-                              style={{ color: isHovered ? w.color : undefined }}
-                            >
-                              •
-                            </span>
-                            <span className="transition-colors duration-200 group-hover:text-primary/90">
-                              {it}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                        {w.week}
+                      </span>
+                      <span
+                        className="w-1.5 h-1.5 rounded-full"
+                        style={{ backgroundColor: w.color }}
+                      />
                     </div>
+
+                    <h4 className="text-base font-display font-bold text-primary mb-3">
+                      {w.phase}
+                    </h4>
+
+                    <ul className="space-y-2 text-xs text-secondary font-sans leading-relaxed">
+                      {w.items.map((it, i) => (
+                        <li key={i} className="flex items-start gap-1.5">
+                          <span style={{ color: w.color }}>•</span>
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -899,7 +769,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 04 · RESEARCH */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">04 · RESEARCH</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Listening before designing.
@@ -909,25 +779,50 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           </p>
 
           {/* Research Goals */}
-          <div className="mb-8">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold mb-3">Research goals</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
-              <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#92D0AB]">Q1</span>
-                <p className="text-secondary">How do patients currently find and choose a doctor online?</p>
-              </div>
-              <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#92D0AB]">Q2</span>
-                <p className="text-secondary">What information do patients need before they trust a booking?</p>
-              </div>
-              <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#92D0AB]">Q3</span>
-                <p className="text-secondary">Where does the booking flow slow people down or make them give up?</p>
-              </div>
-              <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#92D0AB]">Q4</span>
-                <p className="text-secondary">What do doctors need to see before starting a consultation?</p>
-              </div>
+          <div className="mb-10">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold mb-4">
+              Research goals
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                {
+                  id: 'Q1',
+                  focus: 'Patient Discovery',
+                  question: 'How do patients currently find and choose a doctor online?'
+                },
+                {
+                  id: 'Q2',
+                  focus: 'Booking Confidence',
+                  question: 'What information do patients need before they trust a booking?'
+                },
+                {
+                  id: 'Q3',
+                  focus: 'Flow Friction',
+                  question: 'Where does the booking flow slow people down or make them give up?'
+                },
+                {
+                  id: 'Q4',
+                  focus: 'Doctor Workflow',
+                  question: 'What do doctors need to see before starting a consultation?'
+                }
+              ].map((g) => (
+                <div
+                  key={g.id}
+                  className="process-gradient-border p-4 sm:p-5 flex items-start gap-4"
+                >
+                  <span className="w-8 h-8 rounded-lg bg-[#92D0AB]/10 border border-[#92D0AB]/30 text-[#92D0AB] font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                    {g.id}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[10px] font-mono font-bold text-[#92D0AB] uppercase tracking-wider block mb-1">
+                      {g.focus}
+                    </span>
+                    <p className="text-sm font-sans text-primary/90 leading-relaxed font-normal">
+                      {g.question}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -956,68 +851,22 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   color: '#10b981', // Emerald
                   icon: IconABTesting
                 }
-              ].map((m, idx) => {
-                const isHovered = hoveredMethodIdx === idx;
-                return (
+              ].map((m) => (
+                <div
+                  key={m.title}
+                  className="process-gradient-border p-4 sm:p-5 flex items-center gap-3.5"
+                >
                   <div
-                    key={m.title}
-                    onMouseEnter={(e) => handleMethodMouseMove(e, idx)}
-                    onMouseMove={(e) => handleMethodMouseMove(e, idx)}
-                    onMouseLeave={() => setHoveredMethodIdx(null)}
-                    className={`group relative p-4 rounded-2xl border transition-all duration-300 transform-gpu cursor-default select-none flex items-center gap-3.5 overflow-hidden ${
-                      isHovered
-                        ? 'scale-[1.03] -translate-y-1 shadow-lg'
-                        : 'border-subtle bg-surface hover:border-strong'
-                    }`}
-                    style={{
-                      borderColor: isHovered ? `${m.color}70` : undefined,
-                    }}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border border-white/10 bg-white/5"
+                    style={{ color: m.color }}
                   >
-                    {/* Dynamic Cursor Spotlight Glow within Card */}
-                    {isHovered && methodMousePos && (
-                      <div
-                        className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-200"
-                        style={{
-                          width: '180px',
-                          height: '180px',
-                          left: `${methodMousePos.x - 90}px`,
-                          top: `${methodMousePos.y - 90}px`,
-                          background: `radial-gradient(circle, ${m.color}30 0%, ${m.color}10 45%, transparent 75%)`,
-                        }}
-                      />
-                    )}
-
-                    {/* Top Active Color Accent Line on Hover */}
-                    <div
-                      className={`absolute top-0 inset-x-3 h-0.5 rounded-full transition-all duration-300 ${
-                        isHovered ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-50'
-                      }`}
-                      style={{ backgroundColor: m.color }}
-                    />
-
-                    {/* Left Icon Container matching Section 03 style */}
-                    <div
-                      className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 relative z-10 ${
-                        isHovered
-                          ? 'scale-105 shadow-sm'
-                          : 'bg-surface/80 border-subtle/60 text-muted'
-                      }`}
-                      style={{
-                        backgroundColor: isHovered ? `${m.color}20` : undefined,
-                        borderColor: isHovered ? `${m.color}60` : undefined,
-                        color: isHovered ? m.color : undefined
-                      }}
-                    >
-                      {m.icon(m.color)}
-                    </div>
-
-                    {/* Right Heading */}
-                    <h4 className="text-sm font-display font-bold text-primary relative z-10 transition-colors">
-                      {m.title}
-                    </h4>
+                    {m.icon(m.color)}
                   </div>
-                );
-              })}
+                  <h4 className="text-sm font-display font-bold text-primary">
+                    {m.title}
+                  </h4>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -1029,10 +878,10 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 Audited Telehealth Platforms · Q1 2023
               </span>
             </div>
-            <div className="overflow-x-auto rounded-xl border border-subtle bg-[#0c0d10]">
+            <div className="overflow-x-auto rounded-2xl border border-white/10 bg-surface/30">
               <table className="w-full text-left border-collapse text-xs font-mono">
                 <thead>
-                  <tr className="border-b border-subtle bg-[#303030] text-secondary uppercase text-[10px] tracking-wider font-bold">
+                  <tr className="border-b border-white/10 bg-[#252528] text-secondary uppercase text-[10px] tracking-wider font-bold">
                     <th className="p-3.5 text-primary font-bold">App</th>
                     <th className="p-3.5">Doctor Search</th>
                     <th className="p-3.5">Doctor Details</th>
@@ -1041,8 +890,8 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <th className="p-3.5">Main Gap</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-subtle text-secondary font-sans">
-                  <tr className="hover:bg-surface/50 transition-colors">
+                <tbody className="divide-y divide-white/5 text-secondary font-sans">
+                  <tr className="hover:bg-white/[0.02] transition-colors">
                     <td className="p-3.5 font-bold text-primary font-mono whitespace-nowrap">Practo</td>
                     <td className="p-3.5 text-xs leading-relaxed">Keyword & specialty search; results cluttered by sponsored doctor listings</td>
                     <td className="p-3.5 text-xs leading-relaxed">Extensive reviews, but key info (fee, next available slot) pushed below fold</td>
@@ -1125,11 +974,11 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               ].map((f) => (
                 <div
                   key={f.number}
-                  className="group relative p-5 rounded-2xl border border-subtle bg-surface hover:border-strong transition-all duration-300 flex items-start gap-4"
+                  className="process-gradient-border p-5 sm:p-6 flex items-start gap-4"
                 >
                   {/* Left: SVG Icon Container */}
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-105"
+                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border"
                     style={{
                       backgroundColor: `${f.color}15`,
                       borderColor: `${f.color}40`,
@@ -1148,12 +997,12 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       >
                         Finding {f.number} · {f.target}
                       </span>
-                      <span className="text-[10px] font-mono text-muted group-hover:text-primary transition-colors bg-badge/60 px-2 py-0.5 rounded border border-subtle whitespace-nowrap">
+                      <span className="text-[10px] font-mono text-muted bg-white/[0.04] px-2 py-0.5 rounded whitespace-nowrap">
                         {f.solved} →
                       </span>
                     </div>
 
-                    <h4 className="text-[15px] sm:text-base font-display font-bold text-primary mb-1 transition-colors">
+                    <h4 className="text-[15px] sm:text-base font-display font-bold text-primary mb-1">
                       {f.title}
                     </h4>
 
@@ -1170,7 +1019,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 05 · DEFINE */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">05 · DEFINE</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Who I designed for.
@@ -1180,12 +1029,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           </p>
 
           {/* Two Proto-Personas */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Ananya, 29 */}
-            <div className="group relative p-6 sm:p-7 rounded-3xl border border-subtle bg-surface/90 hover:border-[#92D0AB]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
-              {/* Top Accent Line */}
-              <div className="absolute top-0 inset-x-6 h-0.5 bg-[#92D0AB]/40 group-hover:bg-[#92D0AB] transition-colors" />
-
+            <div className="process-gradient-border p-6 sm:p-7 flex flex-col justify-between">
               <div>
                 {/* Header Profile */}
                 <div className="flex items-center gap-4 mb-5">
@@ -1195,7 +1041,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       alt="Ananya - Patient"
                       className="w-14 h-14 rounded-2xl object-cover border border-[#92D0AB]/40 shadow-sm"
                     />
-                    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0c0d10] border-2 border-surface flex items-center justify-center">
+                    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0c0d10] border-2 border-[#121316] flex items-center justify-center">
                       <span className="w-2 h-2 rounded-full bg-[#92D0AB]" />
                     </span>
                   </div>
@@ -1203,42 +1049,42 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <div className="flex items-center gap-2">
                       <h3 className="text-lg font-display font-bold text-primary">Ananya, 29</h3>
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#92D0AB]/10 text-[#92D0AB] border border-[#92D0AB]/30">
-                        Patient
+                        PATIENT
                       </span>
                     </div>
                     <p className="text-xs text-secondary mt-0.5">Software Consultant · Seeking Acute Care</p>
                   </div>
                 </div>
 
-                {/* Human Voice Quote */}
-                <p className="text-sm font-sans text-primary/90 italic leading-relaxed mb-5 bg-badge/40 p-3.5 rounded-2xl border border-subtle/60">
+                {/* Human Voice Quote (No box, no border, no padding) */}
+                <p className="text-sm font-sans text-primary/90 italic leading-relaxed mb-6">
                   “I’ve had a rash for a week. I need the right specialist today with transparent fees — not a 2-hour hospital queue.”
                 </p>
 
-                {/* Core Need & Pain Point Bento */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {/* Core Need & Friction Point (Clean, no inner boxes/borders) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Core Need */}
-                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                  <div className="space-y-2">
                     <div className="flex items-center gap-1.5 text-[#92D0AB] text-[11px] font-mono font-bold uppercase tracking-wider">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
-                      <span>Core Need</span>
+                      <span>CORE NEED</span>
                     </div>
                     <p className="text-xs text-secondary leading-relaxed">
                       Browse specialists by department and book verified slots in under 2 minutes.
                     </p>
                   </div>
 
-                  {/* Pain Point */}
-                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                  {/* Friction Point */}
+                  <div className="space-y-2">
                     <div className="flex items-center gap-1.5 text-rose-300 text-[11px] font-mono font-bold uppercase tracking-wider">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="10"/>
                         <line x1="12" y1="8" x2="12" y2="12"/>
                         <line x1="12" y1="16" x2="12.01" y2="16"/>
                       </svg>
-                      <span>Friction Point</span>
+                      <span>FRICTION POINT</span>
                     </div>
                     <p className="text-xs text-secondary leading-relaxed">
                       Cluttered doctor lists, missing credentials, and multi-step booking fatigue.
@@ -1246,19 +1092,10 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   </div>
                 </div>
               </div>
-
-              {/* Context Footer */}
-              <div className="pt-3.5 border-t border-subtle/60 flex items-center justify-between text-[11px] font-mono text-muted">
-                <span>Tech profile: <strong className="text-primary font-medium">Digital Native</strong></span>
-                <span>Primary device: <strong className="text-primary font-medium">iPhone / Mobile</strong></span>
-              </div>
             </div>
 
             {/* Dr. Rahul Mehta, 41 */}
-            <div className="group relative p-6 sm:p-7 rounded-3xl border border-subtle bg-surface/90 hover:border-[#10b981]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
-              {/* Top Accent Line */}
-              <div className="absolute top-0 inset-x-6 h-0.5 bg-[#10b981]/40 group-hover:bg-[#10b981] transition-colors" />
-
+            <div className="process-gradient-border p-6 sm:p-7 flex flex-col justify-between">
               <div>
                 {/* Header Profile */}
                 <div className="flex items-center gap-4 mb-5">
@@ -1268,7 +1105,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       alt="Dr. Rahul Mehta - Doctor"
                       className="w-14 h-14 rounded-2xl object-cover border border-[#10b981]/40 shadow-sm"
                     />
-                    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0c0d10] border-2 border-surface flex items-center justify-center">
+                    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[#0c0d10] border-2 border-[#121316] flex items-center justify-center">
                       <span className="w-2 h-2 rounded-full bg-[#10b981]" />
                     </span>
                   </div>
@@ -1276,42 +1113,42 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <div className="flex items-center gap-2">
                       <h3 className="text-lg font-display font-bold text-primary">Dr. Rahul Mehta, 41</h3>
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30">
-                        Doctor
+                        DOCTOR
                       </span>
                     </div>
                     <p className="text-xs text-secondary mt-0.5">General Physician · Back-to-Back Virtual Care</p>
                   </div>
                 </div>
 
-                {/* Human Voice Quote */}
-                <p className="text-sm font-sans text-primary/90 italic leading-relaxed mb-5 bg-badge/40 p-3.5 rounded-2xl border border-subtle/60">
+                {/* Human Voice Quote (No box, no border, no padding) */}
+                <p className="text-sm font-sans text-primary/90 italic leading-relaxed mb-6">
                   “Between hospital rounds, I need to know who’s next, scan their complaint in 30 seconds, and start the call.”
                 </p>
 
-                {/* Core Need & Pain Point Bento */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {/* Core Need & Friction Point (Clean, no inner boxes/borders) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Core Need */}
-                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                  <div className="space-y-2">
                     <div className="flex items-center gap-1.5 text-[#10b981] text-[11px] font-mono font-bold uppercase tracking-wider">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
-                      <span>Core Need</span>
+                      <span>CORE NEED</span>
                     </div>
                     <p className="text-xs text-secondary leading-relaxed">
                       A real-time appointment queue with 1-tap call launch and pre-consultation vitals.
                     </p>
                   </div>
 
-                  {/* Pain Point */}
-                  <div className="p-3.5 rounded-xl bg-badge/30 border border-subtle/50 space-y-1.5">
+                  {/* Friction Point */}
+                  <div className="space-y-2">
                     <div className="flex items-center gap-1.5 text-rose-300 text-[11px] font-mono font-bold uppercase tracking-wider">
                       <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="12" cy="12" r="10"/>
                         <line x1="12" y1="8" x2="12" y2="12"/>
                         <line x1="12" y1="16" x2="12.01" y2="16"/>
                       </svg>
-                      <span>Friction Point</span>
+                      <span>FRICTION POINT</span>
                     </div>
                     <p className="text-xs text-secondary leading-relaxed">
                       Losing 3–5 minutes per patient hunting through hospital EHR tabs and video disconnects.
@@ -1319,19 +1156,13 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   </div>
                 </div>
               </div>
-
-              {/* Context Footer */}
-              <div className="pt-3.5 border-t border-subtle/60 flex items-center justify-between text-[11px] font-mono text-muted">
-                <span>Tech profile: <strong className="text-primary font-medium">Efficiency-Driven</strong></span>
-                <span>Primary device: <strong className="text-primary font-medium">Tablet & Desktop</strong></span>
-              </div>
             </div>
           </div>
 
           {/* How Might We */}
           <div className="mb-10">
             <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold mb-3">How might we…</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { tag: 'Patient', text: '…help patients find the right specialist in seconds?' },
                 { tag: 'Patient', text: '…give patients enough doctor information to book with confidence?' },
@@ -1340,7 +1171,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 { tag: 'Doctor', text: '…let doctors prepare for a patient without leaving the flow?' },
                 { tag: 'Both', text: '…keep a consultation going when video isn’t possible?' }
               ].map((hmw, i) => (
-                <div key={i} className="p-4 rounded-xl border border-subtle bg-surface">
+                <div key={i} className="process-gradient-border p-5">
                   <span className={`text-[10px] font-mono uppercase font-bold block mb-1.5 ${
                     hmw.tag === 'Doctor' ? 'text-[#10b981]' : hmw.tag === 'Both' ? 'text-[#FDD02D]' : 'text-[#92D0AB]'
                   }`}>
@@ -1354,26 +1185,27 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
           {/* Success Criteria */}
           <div>
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-4">
               <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">Success criteria</h3>
-              <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
+              <span className="text-[11px] font-mono text-muted flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-muted/40" />
                 Design goals I set — not measured metrics
               </span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 rounded-xl border border-subtle bg-surface">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="process-gradient-border p-5">
                 <h4 className="text-sm font-display font-bold text-primary mb-1">Find fast</h4>
                 <p className="text-xs text-secondary leading-relaxed">Reach the right department and doctor in a few taps.</p>
               </div>
-              <div className="p-4 rounded-xl border border-subtle bg-surface">
+              <div className="process-gradient-border p-5">
                 <h4 className="text-sm font-display font-bold text-primary mb-1">Decide in one place</h4>
                 <p className="text-xs text-secondary leading-relaxed">Everything needed to choose a doctor lives on one profile.</p>
               </div>
-              <div className="p-4 rounded-xl border border-subtle bg-surface">
+              <div className="process-gradient-border p-5">
                 <h4 className="text-sm font-display font-bold text-primary mb-1">Book on one screen</h4>
                 <p className="text-xs text-secondary leading-relaxed">Date and time are picked together, with only free slots shown.</p>
               </div>
-              <div className="p-4 rounded-xl border border-subtle bg-surface">
+              <div className="process-gradient-border p-5">
                 <h4 className="text-sm font-display font-bold text-primary mb-1">Start in 2 taps</h4>
                 <p className="text-xs text-secondary leading-relaxed">A doctor can go from the dashboard to a live call in two taps.</p>
               </div>
@@ -1384,7 +1216,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 06 · JOURNEY MAPS */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">06 · JOURNEY MAPS</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Where the experience breaks today.
@@ -1394,145 +1226,351 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           </p>
 
           {/* Patient Journey Table */}
-          <div className="mb-10 p-5 rounded-2xl border border-subtle bg-surface overflow-x-auto space-y-4">
-            <div className="flex items-center gap-2">
+          <div className="mb-12">
+            <div className="flex items-center gap-2 mb-4">
               <h3 className="text-base font-display font-bold text-primary">Patient journey — Ananya</h3>
               <span className="text-[10px] font-mono text-[#92D0AB] bg-[#92D0AB]/10 px-2 py-0.5 rounded font-bold uppercase">Patient</span>
             </div>
 
-            <div className="min-w-[700px] text-xs font-mono">
-              <div className="grid grid-cols-7 gap-2 pb-2 border-b border-subtle text-[10px] uppercase font-bold text-muted">
-                <div>01 Feel unwell</div>
-                <div>02 Search</div>
-                <div>03 Compare</div>
-                <div>04 Book slot</div>
-                <div>05 Wait</div>
-                <div>06 Consultation</div>
-                <div>07 After</div>
-              </div>
+            {/* Journey Map Container with Cover Image Background (#85a2bc) */}
+            <div className="rounded-3xl border border-[#728fa8] bg-[#85a2bc] shadow-2xl overflow-hidden text-neutral-900">
+              <div className="overflow-x-auto">
+                <div className="min-w-[980px]">
+                  
+                  {/* Header Row: STAGE + 7 Stages */}
+                  <div className="grid grid-cols-[140px_repeat(7,1fr)] items-center border-b border-black/10 bg-black/10 py-3.5 px-5">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0a1625]">STAGE</span>
+                    {[
+                      { num: '01', name: 'FEEL UNWELL' },
+                      { num: '02', name: 'SEARCH' },
+                      { num: '03', name: 'COMPARE' },
+                      { num: '04', name: 'BOOK SLOT' },
+                      { num: '05', name: 'WAIT' },
+                      { num: '06', name: 'CONSULTATION' },
+                      { num: '07', name: 'AFTER' },
+                    ].map((st) => (
+                      <div key={st.num} className="text-[11px] font-mono font-bold tracking-wider text-[#0a1625] uppercase">
+                        <span className="text-[#0a1625]/60 font-normal mr-1">{st.num}</span>
+                        {st.name}
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="grid grid-cols-7 gap-2 py-3 border-b border-subtle text-secondary">
-                <span className="col-span-7 text-[10px] uppercase font-bold text-primary">Actions</span>
-                <div>Notices symptoms, decides to consult online</div>
-                <div>Opens app, scrolls long doctor lists</div>
-                <div>Opens profiles to compare doctors</div>
-                <div>Picks a date and a time</div>
-                <div>Gets confirmation, waits for the call</div>
-                <div>Joins video or audio call</div>
-                <div>Ends call, plans next steps</div>
-              </div>
+                  {/* Row 1: Actions */}
+                  <div className="grid grid-cols-[140px_repeat(7,1fr)] items-start border-b border-black/10 py-4 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">👆</span>
+                      <span>Actions</span>
+                    </div>
+                    {[
+                      'Notices symptoms, decides to consult online',
+                      'Opens app, scrolls long doctor lists',
+                      'Opens profiles to compare doctors',
+                      'Picks a date and a time',
+                      'Gets confirmation, waits for the call',
+                      'Joins video or audio call',
+                      'Ends call, plans next steps',
+                    ].map((action, i) => (
+                      <div key={i} className="text-xs sm:text-[13px] text-[#0f2137] font-medium leading-relaxed font-sans pr-2">
+                        {action}
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="grid grid-cols-7 gap-2 py-3 border-b border-subtle text-secondary italic">
-                <span className="col-span-7 text-[10px] uppercase font-bold text-primary not-italic">Thoughts</span>
-                <div>“Which doctor do I even need?”</div>
-                <div>“Why is everyone mixed together?”</div>
-                <div>“Is this doctor qualified? What’s the fee?”</div>
-                <div>“Which slots are actually free?”</div>
-                <div>“Did it go through? How do I join?”</div>
-                <div>“I hope the call works.”</div>
-                <div>“What do I do now?”</div>
-              </div>
+                  {/* Row 2: Thoughts (Speech Bubble Cards) */}
+                  <div className="grid grid-cols-[140px_repeat(7,1fr)] items-center border-b border-black/10 py-4 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">💭</span>
+                      <span>Thoughts</span>
+                    </div>
+                    {[
+                      '“Which doctor do I even need?”',
+                      '“Why is everyone mixed together?”',
+                      '“Is this doctor qualified? What’s the fee?”',
+                      '“Which slots are actually free?”',
+                      '“Did it go through? How do I join?”',
+                      '“I hope the call works.”',
+                      '“What do I do now?”',
+                    ].map((thought, i) => (
+                      <div key={i} className="pr-2">
+                        <div className="bg-white/90 backdrop-blur-xs rounded-xl p-2.5 border border-white/80 shadow-xs">
+                          <p className="text-[12px] text-neutral-800 italic font-sans leading-snug">
+                            {thought}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="grid grid-cols-7 gap-2 py-3 border-b border-subtle text-[11px] font-bold">
-                <span className="col-span-7 text-[10px] uppercase font-bold text-primary">Emotion</span>
-                <div className="text-[#ef4444]">Anxious</div>
-                <div className="text-[#ef4444]">Frustrated</div>
-                <div className="text-[#FDD02D]">Doubtful</div>
-                <div className="text-[#FDD02D]">Impatient</div>
-                <div className="text-[#FDD02D]">Unsure</div>
-                <div className="text-[#10b981]">Relieved</div>
-                <div className="text-[#10b981]">Cared for</div>
-              </div>
+                  {/* Row 3: Emotion (Curved Bezier Graph & Emoji Markers) */}
+                  <div className="grid grid-cols-[140px_repeat(7,1fr)] items-center border-b border-black/10 py-5 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">❤️</span>
+                      <span>Emotion</span>
+                    </div>
 
-              <div className="grid grid-cols-7 gap-2 py-3 border-b border-subtle text-secondary">
-                <span className="col-span-7 text-[10px] uppercase font-bold text-primary">Pain points</span>
-                <div>Unsure which specialist fits</div>
-                <div>No department structure</div>
-                <div>Missing qualifications, experience, fees</div>
-                <div>Too many steps; full slots shown</div>
-                <div>Unclear what happens next</div>
-                <div>Weak network interrupts video</div>
-                <div>No clear follow-up</div>
-              </div>
+                    <div className="col-span-7 relative h-28 w-full select-none">
+                      {/* SVG Line Graph */}
+                      <svg className="w-full h-full" viewBox="0 0 700 112" preserveAspectRatio="none">
+                        {/* Dotted Baseline */}
+                        <line x1="0" y1="56" x2="700" y2="56" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
+                        
+                        {/* Smooth Bezier Journey Curve */}
+                        <path
+                          d="M 0 56 L 50 56 C 100 56, 110 84, 150 84 L 250 84 C 290 84, 310 56, 350 56 L 450 56 C 490 56, 510 24, 550 24 L 650 24 L 700 24"
+                          fill="none"
+                          stroke="#ffffff"
+                          strokeWidth="2.5"
+                        />
+                      </svg>
 
-              <div className="grid grid-cols-7 gap-2 pt-3 text-[#92D0AB] font-semibold">
-                <span className="col-span-7 text-[10px] uppercase font-bold text-primary">Opportunities</span>
-                <div>Department-first entry on Home</div>
-                <div>Browse by department + search</div>
-                <div>Complete doctor profile</div>
-                <div>Date + time on one screen, free slots only</div>
-                <div>Clear confirmation with join details</div>
-                <div>Audio as a fallback to video</div>
-                <div>Future: e-prescriptions and follow-ups</div>
+                      {/* 7 Interactive Emotion Nodes */}
+                      {[
+                        { emoji: '😟', label: 'ANXIOUS', curveY: 56, borderColor: 'border-slate-300', pillText: 'text-slate-700' },
+                        { emoji: '😤', label: 'FRUSTRATED', curveY: 84, borderColor: 'border-rose-400', pillText: 'text-rose-600' },
+                        { emoji: '🤨', label: 'DOUBTFUL', curveY: 84, borderColor: 'border-rose-400', pillText: 'text-rose-600' },
+                        { emoji: '🥱', label: 'IMPATIENT', curveY: 56, borderColor: 'border-slate-300', pillText: 'text-slate-700' },
+                        { emoji: '😐', label: 'UNSURE', curveY: 56, borderColor: 'border-slate-300', pillText: 'text-slate-700' },
+                        { emoji: '😌', label: 'RELIEVED', curveY: 24, borderColor: 'border-emerald-500', pillText: 'text-emerald-700' },
+                        { emoji: '🥰', label: 'CARED FOR', curveY: 24, borderColor: 'border-emerald-500', pillText: 'text-emerald-700' },
+                      ].map((node, i) => (
+                        <div
+                          key={node.label}
+                          className="absolute -translate-x-1/2 -translate-y-4 flex flex-col items-center pointer-events-none"
+                          style={{
+                            left: `${((i + 0.5) / 7) * 100}%`,
+                            top: `${node.curveY}px`,
+                          }}
+                        >
+                          <div className={`w-8 h-8 rounded-full bg-white border-2 flex items-center justify-center text-sm shadow-md ${node.borderColor}`}>
+                            <span>{node.emoji}</span>
+                          </div>
+                          <span className={`text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded mt-1.5 whitespace-nowrap bg-white/95 shadow-xs ${node.pillText}`}>
+                            {node.label}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Row 4: Pain points */}
+                  <div className="grid grid-cols-[140px_repeat(7,1fr)] items-start border-b border-black/10 py-4 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">⚠️</span>
+                      <span>Pain points</span>
+                    </div>
+                    {[
+                      'Unsure which specialist fits',
+                      'No department structure',
+                      'Missing qualifications, experience, fees',
+                      'Too many steps; full slots shown',
+                      'Unclear what happens next',
+                      'Weak network interrupts video',
+                      'No clear follow-up',
+                    ].map((pain, i) => (
+                      <div key={i} className="text-xs sm:text-[13px] text-[#881337] font-semibold leading-relaxed font-sans pr-2">
+                        {pain}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Row 5: Opportunities (Our design) - Frosted Light Accent Banner */}
+                  <div className="grid grid-cols-[140px_repeat(7,1fr)] items-start py-4 px-5 bg-white/45 border-t border-white/40 backdrop-blur-xs">
+                    <div>
+                      <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-emerald-950">
+                        <span className="text-sm">💡</span>
+                        <span>Opportunities</span>
+                      </div>
+                      <span className="text-[10px] font-mono text-emerald-800 block mt-0.5 pl-6 font-semibold">(Our design)</span>
+                    </div>
+                    {[
+                      'Department-first entry on Home',
+                      'Browse by department + search',
+                      'Complete doctor profile',
+                      'Date + time on one screen, free slots only',
+                      'Clear confirmation with join details',
+                      'Audio as a fallback to video',
+                      'Future: e-prescriptions and follow-ups',
+                    ].map((opp, i) => (
+                      <div key={i} className="text-xs sm:text-[13px] text-emerald-950 font-bold leading-relaxed font-sans pr-2">
+                        {opp}
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
 
           {/* Doctor Journey Table */}
-          <div className="p-5 rounded-2xl border border-subtle bg-surface overflow-x-auto space-y-4">
-            <div className="flex items-center gap-2">
+          <div className="mb-12">
+            <div className="flex items-center gap-2 mb-4">
               <h3 className="text-base font-display font-bold text-primary">Doctor journey — Dr. Mehta</h3>
               <span className="text-[10px] font-mono text-[#10b981] bg-[#10b981]/10 px-2 py-0.5 rounded font-bold uppercase">Doctor</span>
             </div>
 
-            <div className="min-w-[700px] text-xs font-mono">
-              <div className="grid grid-cols-6 gap-2 pb-2 border-b border-subtle text-[10px] uppercase font-bold text-muted">
-                <div>01 Start day</div>
-                <div>02 Check appointments</div>
-                <div>03 Prepare</div>
-                <div>04 Start call</div>
-                <div>05 Consultation</div>
-                <div>06 Wrap up</div>
-              </div>
+            {/* Journey Map Container with Cover Image Background (#85a2bc) */}
+            <div className="rounded-3xl border border-[#728fa8] bg-[#85a2bc] shadow-2xl overflow-hidden text-neutral-900">
+              <div className="overflow-x-auto">
+                <div className="min-w-[880px]">
+                  
+                  {/* Header Row: STAGE + 6 Stages */}
+                  <div className="grid grid-cols-[140px_repeat(6,1fr)] items-center border-b border-black/10 bg-black/10 py-3.5 px-5">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0a1625]">STAGE</span>
+                    {[
+                      { num: '01', name: 'START DAY' },
+                      { num: '02', name: 'CHECK APPOINTMENTS' },
+                      { num: '03', name: 'PREPARE' },
+                      { num: '04', name: 'START CALL' },
+                      { num: '05', name: 'CONSULTATION' },
+                      { num: '06', name: 'WRAP UP' },
+                    ].map((st) => (
+                      <div key={st.num} className="text-[11px] font-mono font-bold tracking-wider text-[#0a1625] uppercase">
+                        <span className="text-[#0a1625]/60 font-normal mr-1">{st.num}</span>
+                        {st.name}
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="grid grid-cols-6 gap-2 py-3 border-b border-subtle text-secondary">
-                <span className="col-span-6 text-[10px] uppercase font-bold text-primary">Actions</span>
-                <div>Logs in between clinic hours</div>
-                <div>Scans upcoming and past appointments</div>
-                <div>Opens the next patient’s details</div>
-                <div>Chooses video or audio</div>
-                <div>Talks with the patient</div>
-                <div>Ends call, returns to the list</div>
-              </div>
+                  {/* Row 1: Actions */}
+                  <div className="grid grid-cols-[140px_repeat(6,1fr)] items-start border-b border-black/10 py-4 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">👆</span>
+                      <span>Actions</span>
+                    </div>
+                    {[
+                      'Logs in between clinic hours',
+                      'Scans upcoming and past appointments',
+                      'Opens the next patient’s details',
+                      'Chooses video or audio',
+                      'Talks with the patient',
+                      'Ends call, returns to the list',
+                    ].map((action, i) => (
+                      <div key={i} className="text-xs sm:text-[13px] text-[#0f2137] font-medium leading-relaxed font-sans pr-2">
+                        {action}
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="grid grid-cols-6 gap-2 py-3 border-b border-subtle text-secondary italic">
-                <span className="col-span-6 text-[10px] uppercase font-bold text-primary not-italic">Thoughts</span>
-                <div>“What does my day look like?”</div>
-                <div>“Who’s next?”</div>
-                <div>“What is this patient’s concern?”</div>
-                <div>“Let’s not waste time.”</div>
-                <div>“Can they hear me clearly?”</div>
-                <div>“On to the next one.”</div>
-              </div>
+                  {/* Row 2: Thoughts (Speech Bubble Cards) */}
+                  <div className="grid grid-cols-[140px_repeat(6,1fr)] items-center border-b border-black/10 py-4 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">💭</span>
+                      <span>Thoughts</span>
+                    </div>
+                    {[
+                      '“What does my day look like?”',
+                      '“Who’s next?”',
+                      '“What is this patient’s concern?”',
+                      '“Let’s not waste time.”',
+                      '“Can they hear me clearly?”',
+                      '“On to the next one.”',
+                    ].map((thought, i) => (
+                      <div key={i} className="pr-2">
+                        <div className="bg-white/90 backdrop-blur-xs rounded-xl p-2.5 border border-white/80 shadow-xs">
+                          <p className="text-[12px] text-neutral-800 italic font-sans leading-snug">
+                            {thought}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
 
-              <div className="grid grid-cols-6 gap-2 py-3 border-b border-subtle text-[11px] font-bold">
-                <span className="col-span-6 text-[10px] uppercase font-bold text-primary">Emotion</span>
-                <div className="text-muted">Neutral</div>
-                <div className="text-[#FDD02D]">Rushed</div>
-                <div className="text-[#ef4444]">Frustrated</div>
-                <div className="text-[#92D0AB]">Focused</div>
-                <div className="text-[#10b981]">Engaged</div>
-                <div className="text-[#10b981]">Satisfied</div>
-              </div>
+                  {/* Row 3: Emotion (Curved Bezier Graph & Emoji Markers) */}
+                  <div className="grid grid-cols-[140px_repeat(6,1fr)] items-center border-b border-black/10 py-5 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">❤️</span>
+                      <span>Emotion</span>
+                    </div>
 
-              <div className="grid grid-cols-6 gap-2 py-3 border-b border-subtle text-secondary">
-                <span className="col-span-6 text-[10px] uppercase font-bold text-primary">Pain points</span>
-                <div>No quick overview of the day</div>
-                <div>Hard to tell upcoming from past</div>
-                <div>Patient info spread across screens</div>
-                <div>Too many steps to start a call</div>
-                <div>Network drops break the call</div>
-                <div>Finding the next patient again</div>
-              </div>
+                    <div className="col-span-6 relative h-28 w-full select-none">
+                      {/* SVG Line Graph */}
+                      <svg className="w-full h-full" viewBox="0 0 600 112" preserveAspectRatio="none">
+                        {/* Dotted Baseline */}
+                        <line x1="0" y1="56" x2="600" y2="56" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
+                        
+                        {/* Smooth Bezier Journey Curve */}
+                        <path
+                          d="M 0 56 L 50 56 C 90 56, 110 74, 150 74 C 190 74, 210 88, 250 88 C 290 88, 310 56, 350 56 C 390 56, 410 24, 450 24 L 550 24 L 600 24"
+                          fill="none"
+                          stroke="#ffffff"
+                          strokeWidth="2.5"
+                        />
+                      </svg>
 
-              <div className="grid grid-cols-6 gap-2 pt-3 text-[#10b981] font-semibold">
-                <span className="col-span-6 text-[10px] uppercase font-bold text-primary">Opportunities</span>
-                <div>Dashboard with next appointment first</div>
-                <div>Upcoming / All tabs</div>
-                <div>Patient details before the call</div>
-                <div>Start video or audio from patient screen</div>
-                <div>Clear call controls; audio fallback</div>
-                <div>Return straight to the dashboard</div>
+                      {/* 6 Interactive Emotion Nodes */}
+                      {[
+                        { emoji: '😐', label: 'NEUTRAL', curveY: 56, borderColor: 'border-slate-300', pillText: 'text-slate-700' },
+                        { emoji: '⏱️', label: 'RUSHED', curveY: 74, borderColor: 'border-amber-400', pillText: 'text-amber-700' },
+                        { emoji: '😤', label: 'FRUSTRATED', curveY: 88, borderColor: 'border-rose-400', pillText: 'text-rose-600' },
+                        { emoji: '🎯', label: 'FOCUSED', curveY: 56, borderColor: 'border-[#92D0AB]', pillText: 'text-emerald-700' },
+                        { emoji: '🩺', label: 'ENGAGED', curveY: 24, borderColor: 'border-emerald-500', pillText: 'text-emerald-700' },
+                        { emoji: '😌', label: 'SATISFIED', curveY: 24, borderColor: 'border-emerald-500', pillText: 'text-emerald-700' },
+                      ].map((node, i) => (
+                        <div
+                          key={node.label}
+                          className="absolute -translate-x-1/2 -translate-y-4 flex flex-col items-center pointer-events-none"
+                          style={{
+                            left: `${((i + 0.5) / 6) * 100}%`,
+                            top: `${node.curveY}px`,
+                          }}
+                        >
+                          <div className={`w-8 h-8 rounded-full bg-white border-2 flex items-center justify-center text-sm shadow-md ${node.borderColor}`}>
+                            <span>{node.emoji}</span>
+                          </div>
+                          <span className={`text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded mt-1.5 whitespace-nowrap bg-white/95 shadow-xs ${node.pillText}`}>
+                            {node.label}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Row 4: Pain points */}
+                  <div className="grid grid-cols-[140px_repeat(6,1fr)] items-start border-b border-black/10 py-4 px-5">
+                    <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-[#0a1625]">
+                      <span className="text-sm">⚠️</span>
+                      <span>Pain points</span>
+                    </div>
+                    {[
+                      'No quick overview of the day',
+                      'Hard to tell upcoming from past',
+                      'Patient info spread across screens',
+                      'Too many steps to start a call',
+                      'Network drops break the call',
+                      'Finding the next patient again',
+                    ].map((pain, i) => (
+                      <div key={i} className="text-xs sm:text-[13px] text-[#881337] font-semibold leading-relaxed font-sans pr-2">
+                        {pain}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Row 5: Opportunities (Our design) - Frosted Light Accent Banner */}
+                  <div className="grid grid-cols-[140px_repeat(6,1fr)] items-start py-4 px-5 bg-white/45 border-t border-white/40 backdrop-blur-xs">
+                    <div>
+                      <div className="flex items-center gap-2 font-display font-bold text-xs sm:text-sm text-emerald-950">
+                        <span className="text-sm">💡</span>
+                        <span>Opportunities</span>
+                      </div>
+                      <span className="text-[10px] font-mono text-emerald-800 block mt-0.5 pl-6 font-semibold">(Our design)</span>
+                    </div>
+                    {[
+                      'Dashboard with next appointment first',
+                      'Upcoming / All tabs',
+                      'Patient details before the call',
+                      'Start video or audio from patient screen',
+                      'Clear call controls; audio fallback',
+                      'Return straight to the dashboard',
+                    ].map((opp, i) => (
+                      <div key={i} className="text-xs sm:text-[13px] text-emerald-950 font-bold leading-relaxed font-sans pr-2">
+                        {opp}
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
@@ -1541,7 +1579,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 07 · IDEATE & STRUCTURE */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">07 · IDEATE & STRUCTURE</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Structuring two apps around one appointment.
@@ -1557,7 +1595,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Patient App IA */}
-              <div className="rounded-2xl border border-subtle bg-surface overflow-hidden">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
                 <img
                   src="/images/projects/HIMS/IA-Patient.png"
                   alt="Information Architecture — Patient App"
@@ -1566,7 +1604,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </div>
 
               {/* Doctor App IA */}
-              <div className="rounded-2xl border border-subtle bg-surface overflow-hidden">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
                 <img
                   src="/images/projects/HIMS/IA-Doctor.png"
                   alt="Information Architecture — Doctor App"
@@ -1581,7 +1619,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold">User flows</h3>
 
             {/* Patient Flow */}
-            <div className="p-5 sm:p-6 rounded-2xl border border-subtle bg-surface space-y-4 font-mono text-xs">
+            <div className="process-gradient-border p-5 sm:p-6 space-y-4 font-mono text-xs">
               <div className="flex flex-wrap items-baseline gap-2">
                 <h4 className="text-base font-display font-bold text-primary">Patient flow</h4>
                 <span className="text-secondary text-xs font-mono">— Find a doctor → book → consult</span>
@@ -1589,27 +1627,27 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
               {/* Main Steps */}
               <div className="flex flex-wrap items-center gap-2 text-secondary">
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Log in</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Log in</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Home</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Home</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Choose department / Search</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Choose department / Search</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Doctor list</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Doctor list</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Doctor profile</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Doctor profile</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Select date &amp; time</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Select date &amp; time</span>
               </div>
 
               {/* Decision Branch */}
-              <div className="pt-3 border-t border-subtle space-y-2">
+              <div className="pt-3 space-y-2">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="px-2.5 py-1 rounded-lg bg-[#ffedd5]/10 text-[#fdba74] border border-[#f97316]/30 font-bold">Slot free?</span>
                   <span className="text-[#92D0AB] font-bold">YES →</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Confirm booking</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Confirm booking</span>
                   <span className="text-muted">→</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Confirmation</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Confirmation</span>
                   <span className="text-muted">→</span>
                   <span className="px-3 py-1.5 rounded-lg bg-[#92D0AB]/15 text-[#92D0AB] border border-[#92D0AB]/30 font-bold">Join video / audio call</span>
                 </div>
@@ -1621,7 +1659,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             </div>
 
             {/* Doctor Flow */}
-            <div className="p-5 sm:p-6 rounded-2xl border border-subtle bg-surface space-y-4 font-mono text-xs">
+            <div className="process-gradient-border p-5 sm:p-6 space-y-4 font-mono text-xs">
               <div className="flex flex-wrap items-baseline gap-2">
                 <h4 className="text-base font-display font-bold text-primary">Doctor flow</h4>
                 <span className="text-secondary text-xs font-mono">— See the day → prepare → start the call</span>
@@ -1629,27 +1667,27 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
               {/* Main Steps */}
               <div className="flex flex-wrap items-center gap-2 text-secondary">
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Log in</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Log in</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Dashboard</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Dashboard</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Upcoming / All appointments</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Upcoming / All appointments</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Select patient</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Select patient</span>
                 <span className="text-muted">→</span>
-                <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Patient details</span>
+                <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Patient details</span>
               </div>
 
               {/* Consultation Branch */}
-              <div className="pt-3 border-t border-subtle space-y-2">
+              <div className="pt-3 space-y-2">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="px-2.5 py-1 rounded-lg bg-[#ffedd5]/10 text-[#fdba74] border border-[#f97316]/30 font-bold">Video or audio?</span>
                   <span className="text-muted">→</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Video call</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Video call</span>
                   <span className="text-muted">or</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">Audio call</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">Audio call</span>
                   <span className="text-muted">→</span>
-                  <span className="px-3 py-1.5 rounded-lg bg-badge text-primary border border-subtle">End call</span>
+                  <span className="px-3 py-1.5 rounded-lg bg-white/[0.04] text-primary">End call</span>
                   <span className="text-muted">→</span>
                   <span className="px-3 py-1.5 rounded-lg bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30 font-bold">Back to dashboard — next patient</span>
                 </div>
@@ -1728,7 +1766,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 08 · TESTING & ITERATION */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">08 · TESTING & ITERATION</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Letting users choose between options.
@@ -1737,21 +1775,21 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             Instead of picking designs on instinct, I put two versions of a key screen in front of users and let their behaviour decide. The results shaped the final screens.
           </p>
 
-          {/* A/B Test Card */}
-          <div className="p-6 sm:p-8 rounded-3xl border border-subtle bg-surface mb-8">
-            <div className="flex items-center justify-between pb-4 mb-6 border-b border-subtle">
+          {/* A/B Test */}
+          <div className="process-gradient-border p-6 sm:p-8 mb-8">
+            <div className="flex items-center justify-between mb-8">
               <div>
-                <span className="text-[10px] font-mono text-[#92D0AB] font-bold uppercase block">A/B TEST</span>
-                <h3 className="text-lg font-display font-bold text-primary">
+                <span className="text-[10px] font-mono text-[#92D0AB] font-bold uppercase block mb-1">A/B TEST</span>
+                <h3 className="text-lg sm:text-xl font-display font-bold text-primary">
                   What I tested: <span className="text-[#92D0AB]">Patient Home Dashboard (Option 1 vs Option 2)</span>
                 </h3>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
               {/* Option A */}
               <div className="flex flex-col items-center">
-                <div className="text-center mb-3">
+                <div className="text-center mb-4">
                   <span className="text-xs font-mono font-bold text-muted uppercase tracking-wider block">Option A</span>
                 </div>
                 <div className="max-w-[240px] mx-auto w-full">
@@ -1775,10 +1813,10 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
               {/* Option B */}
               <div className="flex flex-col items-center">
-                <div className="text-center mb-3">
-                  <div className="inline-flex items-center gap-1.5">
+                <div className="text-center mb-4">
+                  <div className="inline-flex items-center gap-2">
                     <span className="text-xs font-mono font-bold text-[#10b981] uppercase tracking-wider">Option B</span>
-                    <span className="text-[10px] font-mono font-bold text-[#10b981] bg-[#10b981]/15 px-2 py-0.5 rounded border border-[#10b981]/30 uppercase">
+                    <span className="text-[10px] font-mono font-bold text-[#10b981] bg-[#10b981]/15 px-2 py-0.5 rounded-full border border-[#10b981]/30 uppercase">
                       Winner
                     </span>
                   </div>
@@ -1809,7 +1847,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 09 · FINAL DESIGN */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">09 · FINAL DESIGN</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             From insight to interface.
@@ -2048,64 +2086,151 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 11 · ACCESSIBILITY */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">11 · ACCESSIBILITY</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Designed for everyone who needs a doctor.
           </h2>
-          <p className="text-base text-secondary mt-2 mb-6 max-w-3xl leading-relaxed">
+          <p className="text-base text-secondary mt-2 mb-8 max-w-3xl leading-relaxed">
             Health apps are used by people who are unwell, stressed or less comfortable with technology. I designed against WCAG 2.1 AA from the start.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-4 rounded-xl border border-subtle bg-surface">
-              <h4 className="text-sm font-display font-bold text-primary mb-1">Colour contrast</h4>
-              <p className="text-xs text-secondary leading-relaxed">
-                Text meets at least 4.5:1 contrast so it stays readable in any light.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                code: 'WCAG 1.4.3',
+                color: '#92D0AB',
+                title: 'Colour contrast',
+                desc: 'Text meets at least 4.5:1 contrast so it stays readable in any light.',
+                footerLabel: 'Contrast ratio',
+                footerVal: '≥ 4.5:1 Pass ✓',
+                icon: (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor" />
+                  </svg>
+                )
+              },
+              {
+                code: 'WCAG 1.4.4',
+                color: '#FDD02D',
+                title: 'Readable text',
+                desc: 'Body text never drops below 16px, with clear, plain-language labels.',
+                footerLabel: 'Type baseline',
+                footerVal: '≥ 16px / 1.5 Leading',
+                icon: (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="4 7 4 4 20 4 20 7" />
+                    <line x1="9" y1="20" x2="15" y2="20" />
+                    <line x1="12" y1="4" x2="12" y2="20" />
+                  </svg>
+                )
+              },
+              {
+                code: 'WCAG 2.5.5',
+                color: '#38bdf8',
+                title: 'Large tap targets',
+                desc: 'Buttons and slot chips are at least 44 × 44 px, easy to tap for everyone.',
+                footerLabel: 'Min hit-area',
+                footerVal: '44 × 44 px target',
+                icon: (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="4" y="4" width="16" height="16" rx="3" strokeDasharray="2 2" />
+                    <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+                  </svg>
+                )
+              },
+              {
+                code: 'WCAG 4.1.2',
+                color: '#c084fc',
+                title: 'Screen-reader labels',
+                desc: 'Every icon button — mute, camera, end call — has a text label.',
+                footerLabel: 'Semantics',
+                footerVal: 'aria-label',
+                icon: (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  </svg>
+                )
+              },
+              {
+                code: 'WCAG 2.2.1',
+                color: '#10b981',
+                title: 'Simple call controls',
+                desc: 'Few, large and clearly labelled controls during video and audio calls.',
+                footerLabel: 'Affordance',
+                footerVal: 'Icon + Label paired',
+                icon: (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                )
+              },
+              {
+                code: 'WCAG 1.4.1',
+                color: '#f59e0b',
+                title: 'Not colour alone',
+                desc: 'Slot and appointment status use text and icons, not only colour.',
+                footerLabel: 'Signaling',
+                footerVal: '✓ Icon + Text',
+                icon: (
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                )
+              }
+            ].map((item) => (
+              <div
+                key={item.code}
+                className="process-gradient-border p-5 sm:p-6 flex flex-col justify-between"
+              >
+                {/* Card Content */}
+                <div>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <div
+                      className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border"
+                      style={{
+                        backgroundColor: `${item.color}15`,
+                        borderColor: `${item.color}40`,
+                        color: item.color
+                      }}
+                    >
+                      {item.icon}
+                    </div>
+                    <span className="text-[10px] font-mono text-muted">
+                      {item.code}
+                    </span>
+                  </div>
 
-            <div className="p-4 rounded-xl border border-subtle bg-surface">
-              <h4 className="text-sm font-display font-bold text-primary mb-1">Readable text</h4>
-              <p className="text-xs text-secondary leading-relaxed">
-                Body text never drops below 16px, with clear, plain-language labels.
-              </p>
-            </div>
+                  <h4 className="text-sm font-display font-bold text-primary mb-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-secondary leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
 
-            <div className="p-4 rounded-xl border border-subtle bg-surface">
-              <h4 className="text-sm font-display font-bold text-primary mb-1">Large tap targets</h4>
-              <p className="text-xs text-secondary leading-relaxed">
-                Buttons and slot chips are at least 44 × 44 px, easy to tap for everyone.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl border border-subtle bg-surface">
-              <h4 className="text-sm font-display font-bold text-primary mb-1">Screen-reader labels</h4>
-              <p className="text-xs text-secondary leading-relaxed">
-                Every icon button — mute, camera, end call — has a text label.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl border border-subtle bg-surface">
-              <h4 className="text-sm font-display font-bold text-primary mb-1">Simple call controls</h4>
-              <p className="text-xs text-secondary leading-relaxed">
-                Few, large and clearly labelled controls during video and audio calls.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl border border-subtle bg-surface">
-              <h4 className="text-sm font-display font-bold text-primary mb-1">Not colour alone</h4>
-              <p className="text-xs text-secondary leading-relaxed">
-                Slot and appointment status use text and icons, not only colour.
-              </p>
-            </div>
+                {/* Footer Metric Line */}
+                <div className="mt-3 pt-1 flex items-center justify-between text-[11px] font-mono">
+                  <span className="text-muted">{item.footerLabel}</span>
+                  <span
+                    className="font-medium"
+                    style={{ color: item.color }}
+                  >
+                    {item.footerVal}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* ==================================================================== */}
         {/* 12 · OUTCOME & RECOGNITION */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
             <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">
               12 · OUTCOME & RECOGNITION
@@ -2123,7 +2248,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           </p>
 
           {/* Heroic Prestigious Vega Award Card */}
-          <div className="relative rounded-3xl border border-[#FDD02D]/40 bg-gradient-to-br from-[#1c180e] via-[#141417] to-[#0c0d10] p-6 sm:p-10 mb-12 overflow-hidden shadow-[0_24px_64px_-16px_rgba(253,208,45,0.2)]">
+          <div id="vega-award" className="relative rounded-3xl border border-[#FDD02D]/40 bg-gradient-to-br from-[#1c180e] via-[#141417] to-[#0c0d10] p-6 sm:p-10 mb-12 overflow-hidden shadow-[0_24px_64px_-16px_rgba(253,208,45,0.2)]">
             {/* Top Right Ambient Glow Radial */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle_at_top_right,rgba(253,208,45,0.15),transparent_70%)] pointer-events-none" />
 
@@ -2184,9 +2309,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </div>
             </div>
 
-            {/* Impact Metric Cards Bar */}
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-[#FDD02D]/20">
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 backdrop-blur-xs flex flex-col justify-between">
+            {/* Impact Metrics Bar */}
+            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 pt-6 border-t border-[#FDD02D]/20">
+              <div className="pb-1 flex flex-col justify-between">
                 <span className="text-2xl sm:text-3xl font-display font-bold text-[#FDD02D] mb-1">
                   40% Faster
                 </span>
@@ -2196,7 +2321,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 backdrop-blur-xs flex flex-col justify-between">
+              <div className="pb-1 flex flex-col justify-between">
                 <span className="text-2xl sm:text-3xl font-display font-bold text-[#10b981] mb-1">
                   2 Taps
                 </span>
@@ -2206,7 +2331,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 backdrop-blur-xs flex flex-col justify-between">
+              <div className="pb-1 flex flex-col justify-between">
                 <span className="text-2xl sm:text-3xl font-display font-bold text-[#92D0AB] mb-1">
                   100% AA
                 </span>
@@ -2232,12 +2357,12 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#92D0AB]/40 transition-all flex flex-col justify-between group">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+              <div className="process-gradient-border p-5 sm:p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2.5">
                     <h4 className="text-base font-display font-bold text-primary">Find fast</h4>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
                       ✓ Validated
                     </span>
                   </div>
@@ -2245,17 +2370,17 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     Department-first dashboard and categorical icons guide patients directly to suitable specialists without guessing complex medical terms.
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                <div className="pt-2 flex items-center justify-between text-xs font-mono">
                   <span className="text-muted text-[11px]">Implemented in</span>
                   <span className="text-[#92D0AB] font-bold">Home · Department List</span>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#92D0AB]/40 transition-all flex flex-col justify-between group">
+              <div className="process-gradient-border p-5 sm:p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2.5">
                     <h4 className="text-base font-display font-bold text-primary">Decide in one place</h4>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
                       ✓ Validated
                     </span>
                   </div>
@@ -2263,17 +2388,17 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     Complete doctor credentials, clinical qualifications, experience badges, transparent consultation fees, and schedule on one view.
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                <div className="pt-2 flex items-center justify-between text-xs font-mono">
                   <span className="text-muted text-[11px]">Implemented in</span>
                   <span className="text-[#92D0AB] font-bold">Doctor Profile & List</span>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#92D0AB]/40 transition-all flex flex-col justify-between group">
+              <div className="process-gradient-border p-5 sm:p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2.5">
                     <h4 className="text-base font-display font-bold text-primary">Book on one screen</h4>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
                       ✓ Validated
                     </span>
                   </div>
@@ -2281,17 +2406,17 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     Integrated date picker and live time slot chips into a single unified step, displaying real-time availability and immediate summary confirmation.
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                <div className="pt-2 flex items-center justify-between text-xs font-mono">
                   <span className="text-muted text-[11px]">Implemented in</span>
                   <span className="text-[#92D0AB] font-bold">Slot Selection & Confirm</span>
                 </div>
               </div>
 
-              <div className="p-5 rounded-2xl border border-subtle bg-surface hover:border-[#10b981]/40 transition-all flex flex-col justify-between group">
+              <div className="process-gradient-border p-5 sm:p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-2.5">
                     <h4 className="text-base font-display font-bold text-primary">Start in 2 taps</h4>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#10b981]/15 text-[#10b981] border border-[#10b981]/30">
                       ✓ Validated
                     </span>
                   </div>
@@ -2299,7 +2424,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     Doctors review upcoming patient queue, inspect medical records, and trigger video or voice consultation with one primary action button.
                   </p>
                 </div>
-                <div className="pt-2.5 border-t border-subtle flex items-center justify-between text-xs font-mono">
+                <div className="pt-2 flex items-center justify-between text-xs font-mono">
                   <span className="text-muted text-[11px]">Implemented in</span>
                   <span className="text-[#10b981] font-bold">Dashboard · Patient Details</span>
                 </div>
@@ -2311,14 +2436,14 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* ==================================================================== */}
         {/* 13 · LEARNINGS */}
         {/* ==================================================================== */}
-        <section className="pt-8 border-t border-subtle">
+        <section className="pt-16 sm:pt-20">
           <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">13 · LEARNINGS</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
             What this project taught me.
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="pb-2 space-y-2">
               <span className="text-xs font-mono text-[#92D0AB] font-bold">01</span>
               <h4 className="text-base font-display font-bold text-primary">Small research, big direction</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
@@ -2326,7 +2451,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
+            <div className="pb-2 space-y-2">
               <span className="text-xs font-mono text-[#92D0AB] font-bold">02</span>
               <h4 className="text-base font-display font-bold text-primary">Two users means designing the handoff</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
@@ -2334,7 +2459,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
+            <div className="pb-2 space-y-2">
               <span className="text-xs font-mono text-[#92D0AB] font-bold">03</span>
               <h4 className="text-base font-display font-bold text-primary">Test options, not opinions</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
@@ -2342,7 +2467,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
+            <div className="pb-2 space-y-2">
               <span className="text-xs font-mono text-[#92D0AB] font-bold">04</span>
               <h4 className="text-base font-display font-bold text-primary">Trust is a UX feature</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
@@ -2381,7 +2506,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         )}
 
         {/* Footer CTA & Credits */}
-        <div className="pt-10 border-t border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="pt-16 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-display font-bold text-primary">Thanks for reading.</h3>
           </div>
@@ -2389,13 +2514,13 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div className="flex items-center gap-3">
             <button
               onClick={() => onSelectProject(prevProject.id)}
-              className="px-4 py-2 rounded-full border border-subtle bg-surface text-xs font-mono font-medium hover:border-strong transition-all cursor-pointer"
+              className="px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.04] text-xs font-mono font-medium hover:bg-white/[0.08] text-primary transition-all cursor-pointer"
             >
               ← Previous case study
             </button>
             <button
               onClick={() => onSelectProject(nextProject.id)}
-              className="px-4 py-2 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-semibold hover:scale-[1.02] transition-all cursor-pointer shadow-sm"
+              className="px-5 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-xs font-mono font-semibold hover:scale-[1.02] transition-all cursor-pointer shadow-sm"
             >
               Next case study →
             </button>
