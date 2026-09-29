@@ -502,8 +502,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     'Market analysis of the telehealth space',
                     'Competitor analysis of leading apps',
                     'Conversations with 3–5 patients and doctors'
-                  ],
-                  tools: ['Google Docs', 'Miro']
+                  ]
                 },
                 {
                   week: 'WEEK 2',
@@ -513,8 +512,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     'Proto-personas and journey maps',
                     'How Might We statements',
                     'Information architecture and user flows'
-                  ],
-                  tools: ['FigJam', 'Miro']
+                  ]
                 },
                 {
                   week: 'WEEK 3',
@@ -523,8 +521,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     'Low-fidelity wireframes',
                     'Visual design system',
                     'High-fidelity screens for both flows'
-                  ],
-                  tools: ['Figma', 'Illustrator']
+                  ]
                 },
                 {
                   week: 'WEEK 4',
@@ -534,8 +531,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     'A/B testing of key design options',
                     'Iterations from test results',
                     'Documentation and award submission'
-                  ],
-                  tools: ['Figma', 'Google Docs']
+                  ]
                 }
               ].map((w) => (
                 <div key={w.week} className="p-5 rounded-2xl border border-subtle bg-surface relative overflow-hidden flex flex-col justify-between">
@@ -543,7 +539,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   <div>
                     <span className="text-[10px] font-mono text-muted uppercase tracking-wider block mt-1">{w.week}</span>
                     <h4 className="text-base font-display font-bold text-primary mt-0.5 mb-3">{w.phase}</h4>
-                    <ul className="space-y-2 text-xs text-secondary mb-5">
+                    <ul className="space-y-2 text-xs text-secondary">
                       {w.items.map((it, i) => (
                         <li key={i} className="flex items-start gap-1.5">
                           <span className="text-muted">•</span>
@@ -551,11 +547,6 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                         </li>
                       ))}
                     </ul>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-subtle font-mono text-[10px] text-muted">
-                    {w.tools.map((t) => (
-                      <span key={t} className="px-2 py-0.5 rounded bg-badge border border-subtle">{t}</span>
-                    ))}
                   </div>
                 </div>
               ))}
