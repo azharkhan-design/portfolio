@@ -10,7 +10,104 @@ interface HimsCaseStudyViewProps {
   onBackToHome: () => void;
 }
 
-// Reusable Image Slot with fallback placeholder for Figma exports
+// Interactive Mobile Phone Mockup Frame for high-fidelity 390x844 screens
+interface MobilePhoneFrameProps {
+  src: string;
+  alt: string;
+  title: string;
+  flow: 'Patient Flow' | 'Doctor Flow';
+  stepNumber: string;
+  purpose: string;
+  findingSolved: string;
+  keyDecision: string;
+  onZoom: (src: string, title: string) => void;
+}
+
+const HimsMobilePhone: React.FC<MobilePhoneFrameProps> = ({
+  src,
+  alt,
+  title,
+  flow,
+  stepNumber,
+  purpose,
+  findingSolved,
+  keyDecision,
+  onZoom
+}) => {
+  const isDoctor = flow === 'Doctor Flow';
+  const accentColor = isDoctor ? '#10b981' : '#0891b2';
+
+  return (
+    <div className="p-5 rounded-3xl border border-subtle bg-surface flex flex-col justify-between group transition-all duration-300 hover:border-strong hover:shadow-xl">
+      <div>
+        {/* Step Badge & Flow Tag */}
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <span
+            className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider"
+            style={{
+              backgroundColor: isDoctor ? 'rgba(16, 185, 129, 0.12)' : 'rgba(8, 145, 178, 0.12)',
+              color: accentColor
+            }}
+          >
+            {flow} · {stepNumber}
+          </span>
+          <span className="text-[10px] font-mono text-muted uppercase">390 × 844 px</span>
+        </div>
+
+        <h4 className="text-base sm:text-lg font-display font-bold text-primary mb-3">
+          {title}
+        </h4>
+
+        {/* Mobile Device Frame */}
+        <div
+          onClick={() => onZoom(src, title)}
+          className="relative w-full max-w-[270px] sm:max-w-[285px] mx-auto rounded-[34px] p-2 bg-neutral-900 border-[3px] border-neutral-700/80 shadow-2xl overflow-hidden cursor-zoom-in group/phone transition-transform duration-300 hover:scale-[1.02] mb-5 select-none"
+        >
+          {/* Dynamic Island / Speaker Notch Pill */}
+          <div className="absolute top-3 inset-x-0 flex justify-center z-20 pointer-events-none">
+            <div className="w-20 h-4 rounded-full bg-black/90 border border-neutral-800 flex items-center justify-end px-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
+            </div>
+          </div>
+
+          {/* Screen Container */}
+          <div className="relative aspect-[390/844] w-full rounded-[26px] overflow-hidden bg-neutral-950 flex items-center justify-center">
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/phone:scale-105"
+            />
+            {/* Click to Expand Hover Pill */}
+            <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/phone:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+              <span className="px-3 py-1 rounded-full bg-black/80 text-white border border-white/20 text-xs font-mono font-medium flex items-center gap-1.5 shadow-lg">
+                <span>Click to Zoom</span>
+                <span>⊕</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Structured UX Annotations */}
+        <div className="space-y-2.5 pt-2 border-t border-subtle text-xs font-mono leading-relaxed">
+          <div>
+            <span className="text-muted uppercase text-[10px] block font-bold">Purpose:</span>
+            <p className="text-secondary mt-0.5">{purpose}</p>
+          </div>
+          <div>
+            <span className="text-muted uppercase text-[10px] block font-bold">Finding Solved:</span>
+            <p className="text-secondary mt-0.5">{findingSolved}</p>
+          </div>
+          <div>
+            <span className="text-muted uppercase text-[10px] block font-bold">Key Design Decision:</span>
+            <p className="text-primary mt-0.5 font-medium">{keyDecision}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Generic Image / Diagram Slot with fallback placeholder
 interface ImageSlotProps {
   src: string;
   alt: string;
@@ -19,6 +116,7 @@ interface ImageSlotProps {
   type?: 'screen' | 'mobile' | 'system' | 'flow' | 'wireframe' | 'sitemap' | 'journey';
   className?: string;
   aspect?: string;
+  onZoom?: (src: string, title: string) => void;
 }
 
 const HimsImageSlot: React.FC<ImageSlotProps> = ({
@@ -28,7 +126,8 @@ const HimsImageSlot: React.FC<ImageSlotProps> = ({
   caption,
   type = 'screen',
   className = '',
-  aspect = 'aspect-[16/10]'
+  aspect = 'aspect-[16/10]',
+  onZoom
 }) => {
   const [imageError, setImageError] = useState(false);
 
@@ -48,7 +147,12 @@ const HimsImageSlot: React.FC<ImageSlotProps> = ({
       </div>
 
       {/* Media or Fallback Container */}
-      <div className={`relative w-full ${aspect} bg-surface-elevated/40 flex items-center justify-center overflow-hidden`}>
+      <div
+        onClick={() => !imageError && onZoom && onZoom(src, label)}
+        className={`relative w-full ${aspect} bg-surface-elevated/40 flex items-center justify-center overflow-hidden ${
+          !imageError && onZoom ? 'cursor-zoom-in' : ''
+        }`}
+      >
         {!imageError ? (
           <img
             src={src}
@@ -59,7 +163,7 @@ const HimsImageSlot: React.FC<ImageSlotProps> = ({
         ) : (
           <div className="p-8 text-center max-w-lg flex flex-col items-center justify-center">
             <div className="w-12 h-12 rounded-xl border border-subtle bg-surface flex items-center justify-center text-muted mb-3 font-mono text-base">
-              {type === 'wireframe' ? '▦' : type === 'flow' ? '⇋' : type === 'sitemap' ? '❖' : type === 'journey' ? '⇄' : '▣'}
+              {type === 'wireframe' ? '▦' : type === 'flow' ? '⇋' : type === 'sitemap' ? '❖' : type === 'journey' ? '⇄' : type === 'mobile' ? '📱' : '▣'}
             </div>
             <p className="text-xs font-mono uppercase tracking-wider text-primary font-semibold">
               {label}
@@ -68,7 +172,7 @@ const HimsImageSlot: React.FC<ImageSlotProps> = ({
               Asset Path: <code className="text-[#0891b2] font-semibold">{src}</code>
             </p>
             <span className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono border border-dashed border-subtle text-muted bg-surface">
-              <span>Drop Figma export into</span>
+              <span>Drop export into</span>
               <span className="text-secondary font-medium">public{src}</span>
             </span>
           </div>
@@ -92,6 +196,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
   onBackToHome
 }) => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [zoomImage, setZoomImage] = useState<{ src: string; title: string } | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -151,8 +256,8 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
     { id: 'research', label: '05. Research & Findings' },
     { id: 'define', label: '06. Define (Personas & Journeys)' },
     { id: 'ideate', label: '07. Ideate & Structure (IA & Flows)' },
-    { id: 'testing', label: '08. Testing & Iteration' },
-    { id: 'final-ui', label: '09. Final UI Design' },
+    { id: 'testing', label: '08. Testing & Iteration (A/B Test)' },
+    { id: 'final-ui', label: '09. Final UI Screens (Patient & Doctor)' },
     { id: 'design-system', label: '10. Design System' },
     { id: 'accessibility', label: '11. Accessibility (WCAG 2.1 AA)' },
     { id: 'outcome', label: '12. Outcome & Recognition' },
@@ -161,6 +266,36 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
   return (
     <article className="min-h-screen pt-8 pb-20 text-primary">
+      {/* Zoom Modal Lightbox */}
+      {zoomImage && (
+        <div
+          onClick={() => setZoomImage(null)}
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-zoom-out animate-in fade-in duration-200"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl max-h-[92vh] flex flex-col items-center bg-surface border border-subtle rounded-3xl p-3 shadow-2xl overflow-hidden"
+          >
+            <div className="w-full flex items-center justify-between pb-2.5 px-3 border-b border-subtle text-xs font-mono">
+              <span className="font-bold text-primary truncate">{zoomImage.title}</span>
+              <button
+                onClick={() => setZoomImage(null)}
+                className="px-2.5 py-1 rounded-full bg-badge text-primary hover:bg-neutral-800 hover:text-white transition-colors cursor-pointer"
+              >
+                Close ✕
+              </button>
+            </div>
+            <div className="p-2 overflow-auto max-h-[82vh] flex items-center justify-center">
+              <img
+                src={zoomImage.src}
+                alt={zoomImage.title}
+                className="max-h-[78vh] w-auto object-contain rounded-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header Breadcrumb & Concept Badge */}
@@ -290,9 +425,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
                 <div>
                   <span className="text-muted uppercase tracking-wider text-[10px] block mb-1">Platform</span>
-                  <span className="font-semibold text-primary block">[Mobile / Web / Both]</span>
+                  <span className="font-semibold text-primary block">Mobile (iOS &amp; Android)</span>
                   <span className="text-[11px] text-secondary mt-0.5 block leading-tight">
-                    Responsive Patient &amp; Doctor portals
+                    [Mobile / Web / Both]
                   </span>
                 </div>
               </div>
@@ -302,7 +437,8 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 <img
                   src="/images/projects/HIMS/CoverImage.png"
                   alt="HIMS Medical Solution Cover - Dual Patient and Doctor Workflows"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover cursor-zoom-in"
+                  onClick={() => setZoomImage({ src: '/images/projects/HIMS/CoverImage.png', title: 'HIMS Medical Solution Cover' })}
                 />
                 <div className="p-4 border-t border-subtle bg-badge/40 flex items-center justify-between text-xs font-mono text-muted">
                   <span>FIGURE 1.0 — HIMS ECOSYSTEM OVERVIEW (COVER IMAGE)</span>
@@ -635,7 +771,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       </div>
                       <div>
                         <span className="text-muted block text-[10px] uppercase">Screen Solved:</span>
-                        <p className="text-[#0891b2] font-semibold mt-0.5">Patient Department List &amp; Doctor Directory</p>
+                        <p className="text-[#0891b2] font-semibold mt-0.5">Select Speciality &amp; Doctor List</p>
                       </div>
                     </div>
                   </div>
@@ -661,7 +797,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       </div>
                       <div>
                         <span className="text-muted block text-[10px] uppercase">Screen Solved:</span>
-                        <p className="text-[#0891b2] font-semibold mt-0.5">Comprehensive Doctor Profile Screen</p>
+                        <p className="text-[#0891b2] font-semibold mt-0.5">Doctor Details Screen</p>
                       </div>
                     </div>
                   </div>
@@ -687,7 +823,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       </div>
                       <div>
                         <span className="text-muted block text-[10px] uppercase">Screen Solved:</span>
-                        <p className="text-[#0891b2] font-semibold mt-0.5">Slot Selection &amp; Booking Confirmation</p>
+                        <p className="text-[#0891b2] font-semibold mt-0.5">Slot Selection &amp; Appointment Confirmed</p>
                       </div>
                     </div>
                   </div>
@@ -695,7 +831,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   {/* Finding 4 */}
                   <div className="p-5 rounded-2xl border border-subtle bg-surface">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0891b2]/10 text-[#0891b2] font-bold uppercase">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#10b981]/10 text-[#10b981] font-bold uppercase">
                         Finding 04 (Doctor-Side)
                       </span>
                       <h4 className="text-sm font-display font-bold text-primary">
@@ -705,15 +841,15 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3 pt-3 border-t border-subtle text-xs font-mono">
                       <div>
                         <span className="text-muted block text-[10px] uppercase">Why it matters:</span>
-                        <p className="text-secondary mt-0.5">Doctors lose time navigating complex EHR tabs and copying video links between tools.</p>
+                        <p className="text-secondary mt-0.5">Doctors lose time navigating complex EHR tabs and setting up daily availability.</p>
                       </div>
                       <div>
                         <span className="text-muted block text-[10px] uppercase">Design Opportunity:</span>
-                        <p className="text-secondary mt-0.5">Build a unified agenda separating Upcoming and All appointments with single-tap patient detail lookup and call launch.</p>
+                        <p className="text-secondary mt-0.5">Build a unified agenda separating Upcoming Patients with single-tap patient detail lookup and streamlined availability setup.</p>
                       </div>
                       <div>
                         <span className="text-muted block text-[10px] uppercase">Screen Solved:</span>
-                        <p className="text-[#0891b2] font-semibold mt-0.5">Doctor Dashboard &amp; Patient Detail Workspace</p>
+                        <p className="text-[#10b981] font-semibold mt-0.5">Doctor Dashboard, Upcoming Patients &amp; Doctor Availability</p>
                       </div>
                     </div>
                   </div>
@@ -807,7 +943,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <div>
                       <span className="text-[11px] font-mono uppercase text-muted block mb-1">Scenario</span>
                       <p className="text-xs text-secondary leading-relaxed">
-                        Dr. Julian conducts 14 remote consultations each Tuesday. He needs to review each patient's chief complaint, recent lab results, and medication list in under 30 seconds before launching the video call.
+                        Dr. Julian conducts 14 remote consultations each Tuesday. He needs to review each patient's chief complaint, recent lab results, and set his weekly availability easily from his mobile device.
                       </p>
                     </div>
 
@@ -815,9 +951,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
                         <span className="text-primary font-bold block mb-1">Goals &amp; Needs</span>
                         <ul className="list-disc list-inside text-secondary space-y-1 text-[11px]">
-                          <li>Upcoming vs All agenda</li>
+                          <li>Upcoming Patients queue</li>
                           <li>1-tap patient history review</li>
-                          <li>Instant video call launcher</li>
+                          <li>Easy availability scheduler</li>
                         </ul>
                       </div>
                       <div className="p-3 rounded-lg bg-badge/40 border border-subtle">
@@ -825,14 +961,14 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                         <ul className="list-disc list-inside text-secondary space-y-1 text-[11px]">
                           <li>Frequent session timeouts</li>
                           <li>Lost external video links</li>
-                          <li>Disjointed medical notes</li>
+                          <li>Rigid schedule setups</li>
                         </ul>
                       </div>
                     </div>
 
                     <div className="pt-2 text-[11px] font-mono text-muted flex items-center justify-between">
-                      <span>Tech Comfort: High (Values speed &amp; dense data)</span>
-                      <span>Platform: Web Portal / Tablet</span>
+                      <span>Tech Comfort: High (Values speed &amp; ergonomics)</span>
+                      <span>Platform: Mobile App</span>
                     </div>
                   </div>
                 </div>
@@ -871,9 +1007,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                           <td className="p-3">Selects "Cardiology" department</td>
                           <td className="p-3">Reviews doctor profile, languages &amp; fees</td>
                           <td className="p-3">Selects 6:30 PM slot; enters chief reason</td>
-                          <td className="p-3">Receives SMS with video link &amp; reminder</td>
+                          <td className="p-3">Receives confirmation with appointment details</td>
                           <td className="p-3">Joins call from home; discusses symptoms</td>
-                          <td className="p-3">Reviews prescription &amp; books follow-up</td>
+                          <td className="p-3">Reviews prescription &amp; sees call ended summary</td>
                         </tr>
                         <tr>
                           <td className="p-3 font-bold text-primary bg-badge/20">Thoughts</td>
@@ -925,6 +1061,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     label="[Image: Patient journey map]"
                     caption="Complete visual journey map synthesizing Maya's experience from initial symptoms through post-consultation."
                     type="journey"
+                    onZoom={(src, label) => setZoomImage({ src, title: label })}
                   />
                 </div>
 
@@ -950,18 +1087,18 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       <tbody className="divide-y divide-subtle text-secondary">
                         <tr>
                           <td className="p-3 font-bold text-primary bg-badge/20">Actions</td>
-                          <td className="p-3">Logs into HIMS clinical workstation</td>
-                          <td className="p-3">Reviews Upcoming vs All queue</td>
+                          <td className="p-3">Logs into HIMS clinical mobile app</td>
+                          <td className="p-3">Opens Dashboard &amp; Upcoming Patients queue</td>
                           <td className="p-3">Opens patient profile; checks chief complaint</td>
                           <td className="p-3">Clicks "Start Consultation"</td>
                           <td className="p-3">Interviews patient; notes symptoms</td>
-                          <td className="p-3">Signs prescription; marks as completed</td>
+                          <td className="p-3">Completes visit &amp; updates availability</td>
                         </tr>
                         <tr>
                           <td className="p-3 font-bold text-primary bg-badge/20">Thoughts</td>
                           <td className="p-3">"How many patients today?"</td>
                           <td className="p-3">"Who has checked in so far?"</td>
-                          <td className="p-3">"What was her last ECG reading?"</td>
+                          <td className="p-3">"What was her last reading?"</td>
                           <td className="p-3">"Hope the connection starts cleanly."</td>
                           <td className="p-3">"Good quality; notes taking is fast."</td>
                           <td className="p-3">"Next patient is already in queue."</td>
@@ -982,16 +1119,16 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                           <td className="p-3">Burying medical history in nested tabs</td>
                           <td className="p-3">Copy-pasting external links</td>
                           <td className="p-3">Distracting onscreen clutter</td>
-                          <td className="p-3">Lengthy manual closing forms</td>
+                          <td className="p-3">Complex availability setting</td>
                         </tr>
                         <tr>
                           <td className="p-3 font-bold text-primary bg-badge/20">Opportunities</td>
-                          <td className="p-3">Persistent secure biometrics</td>
-                          <td className="p-3">Upcoming &amp; All appointment tabs</td>
+                          <td className="p-3">Fast mobile login</td>
+                          <td className="p-3">Upcoming Patients queue tab</td>
                           <td className="p-3">1-screen glanceable patient summary</td>
                           <td className="p-3">In-app 1-tap call initiator</td>
-                          <td className="p-3">Clean overlay with active charting pad</td>
-                          <td className="p-3">Automated queue progression</td>
+                          <td className="p-3">Clean overlay with active consultation pad</td>
+                          <td className="p-3">Visual availability scheduler</td>
                         </tr>
                       </tbody>
                     </table>
@@ -1003,6 +1140,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     label="[Image: Doctor journey map]"
                     caption="Visual journey mapping Dr. Julian's clinical workflow from daily login to consultation wrap-up."
                     type="journey"
+                    onZoom={(src, label) => setZoomImage({ src, title: label })}
                   />
                 </div>
               </div>
@@ -1019,7 +1157,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     'HMW compress the appointment slot selection flow into an effortless 3-step action without scrolling dropdowns?',
                     'HMW give doctors an instant, chronological view of their daily schedule without cognitive clutter?',
                     'HMW enable physicians to review critical patient history and launch consultations in a single tap?',
-                    'HMW guarantee call continuity when either doctor or patient experiences low network bandwidth?'
+                    'HMW empower doctors to configure their availability easily from their mobile devices?'
                   ].map((hmw, idx) => (
                     <div key={idx} className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
                       <span className="w-6 h-6 rounded-md bg-[#0891b2]/10 text-[#0891b2] font-mono text-xs font-bold flex items-center justify-center shrink-0">
@@ -1041,7 +1179,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     { label: 'Patient Booking Flow', target: '3 Simple Steps', detail: 'Select department → view profile → reserve slot with 1 tap.' },
                     { label: 'Doctor Call Launcher', target: '2 Taps to Start', detail: 'View queue → inspect details → launch call directly.' },
                     { label: 'Upfront Transparency', target: '100% Doctor Data', detail: 'Credentials, fees, languages & ratings visible prior to booking.' },
-                    { label: 'Network Continuity', target: '1-Tap Audio Switch', detail: 'Smoothly fall back to voice call without ending the consultation.' }
+                    { label: 'Doctor Schedule Control', target: 'Effortless Availability', detail: 'Configure weekly slots & working hours in under 60 seconds.' }
                   ].map((sc, idx) => (
                     <div key={idx} className="p-4 rounded-xl border border-subtle bg-surface">
                       <span className="text-[10px] font-mono text-muted uppercase tracking-wider block mb-1">{sc.label}</span>
@@ -1079,26 +1217,32 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   <div className="p-5 rounded-xl border border-subtle bg-surface">
                     <span className="text-xs font-mono font-bold uppercase text-[#0891b2] block mb-2">Patient App Sitemap</span>
                     <ol className="list-decimal list-inside space-y-1 text-xs font-mono text-secondary">
-                      <li>Auth (Login / Register / Guest Browse)</li>
-                      <li>Home (Search bar, Department shortcuts, Urgent care banner)</li>
-                      <li>Department List (Cardiology, Dermatology, Pediatrics, etc.)</li>
-                      <li>Doctor Directory (Filters: Availability, Fee, Language, Rating)</li>
-                      <li>Doctor Profile (Credentials, Bio, Reviews, Working Hours)</li>
-                      <li>Slot Selection (Date picker + Morning/Evening slot chips)</li>
-                      <li>Booking Confirmation (Visit reason, Patient intake, Summary)</li>
-                      <li>Telehealth Room (Waiting lobby, Video/Audio consultation)</li>
+                      <li>Splash Screen</li>
+                      <li>Login / Register Screen</li>
+                      <li>Patient Home (Search, Department Shortcuts, Top Specialists)</li>
+                      <li>Select Speciality (Cardiology, Dermatology, Pediatrics, etc.)</li>
+                      <li>Doctor List (Filters: Availability, Fee, Language, Rating)</li>
+                      <li>Doctor Details (Credentials, Bio, Reviews, Working Hours)</li>
+                      <li>Slot Selection (Date picker + Time slot chips)</li>
+                      <li>Appointment Type (Video Call vs Audio Call)</li>
+                      <li>Payment Method &amp; Checkout</li>
+                      <li>Appointment Confirmed</li>
+                      <li>My Appointments (Upcoming &amp; Past)</li>
+                      <li>Live Telehealth Call (Video/Audio)</li>
+                      <li>Call Ended Summary</li>
                     </ol>
                   </div>
 
                   <div className="p-5 rounded-xl border border-subtle bg-surface">
-                    <span className="text-xs font-mono font-bold uppercase text-[#10b981] block mb-2">Doctor Portal Sitemap</span>
+                    <span className="text-xs font-mono font-bold uppercase text-[#10b981] block mb-2">Doctor App Sitemap</span>
                     <ol className="list-decimal list-inside space-y-1 text-xs font-mono text-secondary">
-                      <li>Clinical Auth (Doctor ID + 2FA Medical Verification)</li>
-                      <li>Dashboard Roster (Tab 1: Upcoming Appointments / Tab 2: All Appointments)</li>
-                      <li>Patient Record Drawer (Chief complaint, Past diagnoses, Prescriptions)</li>
-                      <li>Consultation Launcher (Video Call / Audio Call / Telemetry Feed)</li>
-                      <li>In-Call Documentation (Quick clinical notes, Prescription pad)</li>
-                      <li>Session Wrap-up (Mark complete, Schedule follow-up)</li>
+                      <li>Doctor Splash Screen</li>
+                      <li>Doctor Login &amp; Clinical Verification</li>
+                      <li>Doctor Dashboard (Weekly schedule &amp; appointment metrics)</li>
+                      <li>Upcoming Patients Queue (Patient arrival status &amp; times)</li>
+                      <li>Patient Profile (Chief complaints, past notes, EHR details)</li>
+                      <li>Doctor Availability Setup (Manage working days &amp; hours)</li>
+                      <li>Availability Confirmation (Set up status)</li>
                     </ol>
                   </div>
                 </div>
@@ -1109,6 +1253,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   label="[Image: IA / sitemap]"
                   caption="Dual sitemap detailing the synchronized architecture between patient discovery and clinician intake."
                   type="sitemap"
+                  onZoom={(src, label) => setZoomImage({ src, title: label })}
                 />
               </div>
 
@@ -1166,7 +1311,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <span className="text-[10px] font-mono text-[#10b981] font-bold uppercase block mb-1">Connected Sync</span>
                     <h5 className="text-xs font-display font-bold text-primary mb-1">How They Connect</h5>
                     <p className="text-xs text-secondary leading-relaxed">
-                      When a patient completes booking, the event is immediately pushed to the doctor's Upcoming Appointments tab with a patient check-in beacon.
+                      When a patient completes booking, the event is immediately pushed to the doctor's Upcoming Patients queue with real-time appointment details.
                     </p>
                   </div>
                 </div>
@@ -1178,13 +1323,15 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     label="[Image: Patient user flow]"
                     caption="Patient logic tree: Department discovery → Profile review → Slot booking → Video/Audio room."
                     type="flow"
+                    onZoom={(src, label) => setZoomImage({ src, title: label })}
                   />
                   <HimsImageSlot
                     src="/images/projects/HIMS/doctor-user-flow.png"
                     alt="Doctor Detailed User Flow Diagram"
                     label="[Image: Doctor user flow]"
-                    caption="Doctor logic tree: Login → Upcoming roster check → Patient details review → Call initiation."
+                    caption="Doctor logic tree: Login → Dashboard → Upcoming Patients check → Patient details review → Call initiation."
                     type="flow"
+                    onZoom={(src, label) => setZoomImage({ src, title: label })}
                   />
                 </div>
               </div>
@@ -1202,14 +1349,15 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   src="/images/projects/HIMS/low-fidelity-wireframes.png"
                   alt="Low-Fidelity Wireframe Explorations"
                   label="[Image: Wireframes]"
-                  caption="Wireframe iterations showing the transition from dropdown pickers to visual slot chips and split-pane clinical queue drawers."
+                  caption="Wireframe iterations exploring patient booking wizards and doctor upcoming appointment queues."
                   type="wireframe"
+                  onZoom={(src, label) => setZoomImage({ src, title: label })}
                 />
               </div>
             </section>
 
             {/* ==================================================================== */}
-            {/* 8. TESTING & ITERATION */}
+            {/* 8. TESTING & ITERATION (A/B TESTING) */}
             {/* ==================================================================== */}
             <section id="testing" className="scroll-mt-28 py-8 border-t border-subtle">
               <div className="mb-4">
@@ -1223,9 +1371,75 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
               <div className="p-4 rounded-xl border border-subtle bg-surface mb-8 font-mono text-xs text-secondary leading-relaxed">
                 <span className="text-[#0891b2] font-bold block mb-1">A/B Testing Framework:</span>
-                Testing was conducted on interactive Figma prototype variants: <code className="text-primary font-bold">[add what was compared, version A vs version B, which version won and why, number of participants]</code>. Below are the key design iterations derived directly from user feedback:
+                Testing was conducted on interactive prototype variants: <code className="text-primary font-bold">[add what was compared, version A vs version B, which version won and why, number of participants]</code>. In particular, the <strong>Patient Home Dashboard</strong> was evaluated across two visual layouts:
               </div>
 
+              {/* Direct Visual A/B Comparison: Option 1 vs Option 2 */}
+              <div className="p-6 sm:p-8 rounded-3xl border border-subtle bg-surface mb-10">
+                <div className="flex items-center justify-between pb-4 mb-6 border-b border-subtle">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase text-[#0891b2] font-bold">Featured A/B Prototype Test</span>
+                    <h3 className="text-lg font-display font-bold text-primary">
+                      Patient Home Dashboard: Option 1 vs. Option 2
+                    </h3>
+                  </div>
+                  <span className="text-xs font-mono text-muted uppercase">390 × 844 Mobile Layouts</span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                  {/* Option 1 */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold uppercase text-muted">Version A (Option 1)</span>
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-badge text-muted">Initial Layout</span>
+                    </div>
+                    <div
+                      onClick={() => setZoomImage({ src: '/images/projects/HIMS/Patient/Patient Home-Option1.png', title: 'Patient Home - Option 1' })}
+                      className="relative w-full max-w-[270px] mx-auto rounded-[32px] p-2 bg-neutral-900 border-[3px] border-neutral-700 shadow-xl cursor-zoom-in group/ab"
+                    >
+                      <div className="aspect-[390/844] rounded-[24px] overflow-hidden bg-neutral-950">
+                        <img
+                          src="/images/projects/HIMS/Patient/Patient Home-Option1.png"
+                          alt="Patient Home Option 1"
+                          className="w-full h-full object-cover object-top transition-transform duration-300 group-hover/ab:scale-105"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-xs text-secondary font-mono leading-relaxed">
+                      <strong>Option 1 Characteristics:</strong> Emphasized promotional health banners and horizontal specialty chips. User feedback noted that the primary search input felt overshadowed by top banners.
+                    </p>
+                  </div>
+
+                  {/* Option 2 */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold uppercase text-[#10b981]">Version B (Option 2 — Winner)</span>
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#10b981]/10 text-[#10b981] font-bold">Selected Iteration</span>
+                    </div>
+                    <div
+                      onClick={() => setZoomImage({ src: '/images/projects/HIMS/Patient/Patient Home-Option2.png', title: 'Patient Home - Option 2' })}
+                      className="relative w-full max-w-[270px] mx-auto rounded-[32px] p-2 bg-neutral-900 border-[3px] border-[#10b981]/60 shadow-xl cursor-zoom-in group/ab"
+                    >
+                      <div className="aspect-[390/844] rounded-[24px] overflow-hidden bg-neutral-950">
+                        <img
+                          src="/images/projects/HIMS/Patient/Patient Home-Option2.png"
+                          alt="Patient Home Option 2"
+                          className="w-full h-full object-cover object-top transition-transform duration-300 group-hover/ab:scale-105"
+                        />
+                      </div>
+                    </div>
+                    <p className="text-xs text-secondary font-mono leading-relaxed">
+                      <strong>Option 2 Improvements:</strong> Elevated the specialist search bar, organized medical departments into a clean 2x2 scannable grid, and surfaced upcoming appointment cards directly above doctor recommendations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-subtle text-xs font-mono text-secondary">
+                  <strong>Outcome of A/B Test:</strong> Option 2 was selected for the final design suite because participants located specialists and initiated bookings faster with lower cognitive distraction.
+                </div>
+              </div>
+
+              {/* Additional Before -> After Comparisons */}
               <div className="space-y-6">
                 {/* Comparison 1 */}
                 <div className="p-6 rounded-2xl border border-subtle bg-surface">
@@ -1276,36 +1490,11 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <strong>Design Rationale:</strong> Solves Research Finding 2 ("Users do not trust booking without enough information"). Eliminates tab fatigue and displays all credentials upfront.
                   </p>
                 </div>
-
-                {/* Comparison 3 */}
-                <div className="p-6 rounded-2xl border border-subtle bg-surface">
-                  <div className="flex items-center justify-between pb-3 border-b border-subtle mb-4">
-                    <span className="text-xs font-mono font-bold uppercase text-[#0891b2]">Iteration 03 · Doctor Call Launch &amp; Patient Records</span>
-                    <span className="text-[10px] font-mono text-muted uppercase">Doctor Interface</span>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-                    <div className="p-4 rounded-xl border border-dashed border-subtle bg-badge/20">
-                      <span className="text-muted uppercase text-[10px] block mb-1">Before (Version A)</span>
-                      <p className="text-secondary leading-relaxed">
-                        The agenda only displayed patient names and times. Doctors had to navigate away to a separate EHR sub-page to view medical history, then return to launch a call via a third-party link.
-                      </p>
-                    </div>
-                    <div className="p-4 rounded-xl border border-subtle bg-[#10b981]/5">
-                      <span className="text-[#10b981] uppercase text-[10px] font-bold block mb-1">After (Version B — Winner)</span>
-                      <p className="text-primary leading-relaxed">
-                        An integrated slide-over patient drawer displaying chief complaints, allergies, and vitals right beside a prominent "Start Video Call" button, keeping doctors inside their main daily queue.
-                      </p>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-xs text-secondary font-mono">
-                    <strong>Design Rationale:</strong> Solves Research Finding 4 (Doctor-side workflow friction). Doctors can absorb patient context in 10 seconds and start calls with zero context switching.
-                  </p>
-                </div>
               </div>
             </section>
 
             {/* ==================================================================== */}
-            {/* 9. FINAL DESIGN (UI) */}
+            {/* 9. FINAL DESIGN (UI) - REAL USER SCREENS */}
             {/* ==================================================================== */}
             <section id="final-ui" className="scroll-mt-28 py-8 border-t border-subtle">
               <div className="mb-4">
@@ -1322,327 +1511,292 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </p>
 
               {/* Group 1: Patient Screens */}
-              <div className="space-y-10 mb-16">
-                <div className="flex items-center gap-3 pb-3 border-b border-subtle">
-                  <span className="w-3 h-3 rounded-full bg-[#0891b2]" />
-                  <h3 className="text-xl font-display font-bold text-primary">
-                    Part A: Patient Experience Screens
-                  </h3>
-                  <span className="text-xs font-mono text-muted uppercase">8 Core Screens</span>
+              <div className="space-y-8 mb-20">
+                <div className="flex items-center justify-between pb-3 border-b border-subtle">
+                  <div className="flex items-center gap-3">
+                    <span className="w-3 h-3 rounded-full bg-[#0891b2]" />
+                    <h3 className="text-xl font-display font-bold text-primary">
+                      Part A: Patient Experience Screens
+                    </h3>
+                  </div>
+                  <span className="text-xs font-mono text-muted uppercase">13 Screens · Complete End-to-End Flow</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Screen 1: Login */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 01 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Login &amp; Secure Access</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Fast, accessible authentication supporting mobile OTP and biometric face/touch unlock.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Eliminates complicated password recovery barriers for sick patients seeking immediate care.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Large 48px tap targets with 1-tap guest specialist preview before forced login.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-login.png"
-                      alt="Patient Login Screen"
-                      label="[Image: Patient Login - patient-login.png]"
-                      type="mobile"
-                    />
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Screen 1: Splash */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Splash.png"
+                    alt="Patient Splash Screen"
+                    title="Splash &amp; Brand Identity"
+                    flow="Patient Flow"
+                    stepNumber="01"
+                    purpose="Calming visual entrance introducing HIMS medical identity and establishing user trust."
+                    findingSolved="First-time patients seek reassurance and clinical credibility when opening a digital health platform."
+                    keyDecision="Clean cyan brand emblem on soft background minimizing healthcare intimidation."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 2: Home */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 02 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Home &amp; Quick Discovery</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Central hub showcasing urgent doctor availability, medical departments, and upcoming appointments.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Finding 1 — Disorganized healthcare apps make emergency specialist search stressful.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Top search bar with auto-suggesting specialties and top-rated medical departments.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-home.png"
-                      alt="Patient Home Screen"
-                      label="[Image: Patient Home - patient-home.png]"
-                      type="mobile"
-                    />
-                  </div>
+                  {/* Screen 2: Login */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Login Screen.png"
+                    alt="Patient Login Screen"
+                    title="Login &amp; Authentication"
+                    flow="Patient Flow"
+                    stepNumber="02"
+                    purpose="Fast mobile sign-in supporting phone OTP and password login with social auth shortcuts."
+                    findingSolved="Eliminates complicated password recovery barriers for sick patients seeking immediate care."
+                    keyDecision="High-contrast input fields with prominent numeric keypad for rapid mobile entry."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 3: Department List */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 03 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Department Directory</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Comprehensive list of all hospital specialties (Cardiology, Pediatrics, Neurology, etc.).
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Finding 1 — Users explicitly requested doctors categorized department-wise.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Custom linear iconography for each department with specialist counts per department.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-department-list.png"
-                      alt="Patient Department Directory Screen"
-                      label="[Image: Department List - patient-department-list.png]"
-                      type="mobile"
-                    />
-                  </div>
+                  {/* Screen 3: Patient Home */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Patient Home-Option2.png"
+                    alt="Patient Home Screen"
+                    title="Home &amp; Quick Discovery"
+                    flow="Patient Flow"
+                    stepNumber="03"
+                    purpose="Central hub with prominent specialist search, department shortcuts, and upcoming appointment cards."
+                    findingSolved="Finding 1 — Disorganized healthcare apps make emergency specialist search stressful."
+                    keyDecision="Elevated search bar with 2x2 department grid and instant specialist recommendations."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 4: Doctor List */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 04 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Doctor Directory &amp; Filters</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Filterable roster of verified doctors within the selected medical department.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Patients struggle to find doctors matching their budget and spoken language.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Quick-filter chips for "Next Available Today", "Languages", and "Consultation Fee".
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-doctor-list.png"
-                      alt="Patient Doctor List Screen"
-                      label="[Image: Doctor List - patient-doctor-list.png]"
-                      type="mobile"
-                    />
-                  </div>
+                  {/* Screen 4: Select Speciality */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Select Speciality.png"
+                    alt="Select Speciality Screen"
+                    title="Select Medical Speciality"
+                    flow="Patient Flow"
+                    stepNumber="04"
+                    purpose="Visual directory of medical departments (Cardiology, Dental, Eye Care, etc.) with specialist counts."
+                    findingSolved="Finding 1 — Users explicitly requested doctors categorized department-wise."
+                    keyDecision="Intuitive iconography for each medical discipline reducing search ambiguity."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 5: Doctor Profile */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 05 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Full Doctor Profile</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> In-depth view of qualifications, certifications, patient testimonials, and hospital affiliation.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Finding 2 — Users do not trust booking without complete upfront details.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Transparent consultation fee highlighted in the sticky bottom action container.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-doctor-profile.png"
-                      alt="Patient Doctor Profile Screen"
-                      label="[Image: Doctor Profile - patient-doctor-profile.png]"
-                      type="mobile"
-                    />
-                  </div>
+                  {/* Screen 5: Doctor List */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Doctor List.png"
+                    alt="Doctor List Screen"
+                    title="Doctor Directory &amp; Filters"
+                    flow="Patient Flow"
+                    stepNumber="05"
+                    purpose="Roster of verified doctors within the selected department showing ratings, fees, and next availability."
+                    findingSolved="Patients struggle to compare specialists without leaving the search screen."
+                    keyDecision="Glanceable doctor summary cards with consultation fees and star ratings."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 6: Slot Selection */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 06 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Date &amp; Slot Selection</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Seamless calendar interface for reserving morning or afternoon consultation slots.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Finding 3 — Booking takes too many clicks with traditional scrolling date pickers.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Horizontal date calendar with morning/evening time chips updating in real-time.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-slot-selection.png"
-                      alt="Patient Slot Selection Screen"
-                      label="[Image: Slot Selection - patient-slot-selection.png]"
-                      type="mobile"
-                    />
-                  </div>
+                  {/* Screen 6: Doctor Details */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Doctor Details.png"
+                    alt="Doctor Details Screen"
+                    title="Doctor Profile &amp; Credentials"
+                    flow="Patient Flow"
+                    stepNumber="06"
+                    purpose="Comprehensive profile detailing qualifications, years of experience, patient reviews, and hospital location."
+                    findingSolved="Finding 2 — Users do not trust booking without complete upfront details."
+                    keyDecision="Single unified scroll layout with sticky bottom booking trigger."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 7: Booking Confirmation */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 07 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Booking Confirmation &amp; Intake</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Verified appointment summary with pre-consultation reason and calendar sync link.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Uncertainty over whether booking succeeded and missing appointment instructions.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Green verified badge with automated Apple/Google Calendar export button.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-booking-confirmation.png"
-                      alt="Patient Booking Confirmation Screen"
-                      label="[Image: Booking Confirmation - patient-booking-confirmation.png]"
-                      type="mobile"
-                    />
-                  </div>
+                  {/* Screen 7: Slot Selection */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Slot Selection.png"
+                    alt="Slot Selection Screen"
+                    title="Date &amp; Time Slot Selection"
+                    flow="Patient Flow"
+                    stepNumber="07"
+                    purpose="Interactive calendar for selecting appointment date and morning or afternoon time-slot chips."
+                    findingSolved="Finding 3 — Booking takes too many clicks with traditional scrolling date pickers."
+                    keyDecision="Horizontal 7-day calendar strip with prominent available vs booked slot indicators."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 8: Consultation */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block mb-1">Screen 08 · Patient</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Consultation Room (Video &amp; Audio)</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> High-clarity encrypted telehealth call room with picture-in-picture doctor stream.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Edge cases around poor connectivity and confusion with complex call controls.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Prominent 1-tap "Switch to Audio" fallback button preventing call dropouts.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/patient-consultation.png"
-                      alt="Patient Consultation Room Screen"
-                      label="[Image: Consultation Room - patient-consultation.png]"
-                      type="mobile"
-                    />
-                  </div>
+                  {/* Screen 8: Consultation Mode */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/AppointmentType-Video-Audio.png"
+                    alt="Appointment Type Screen"
+                    title="Consultation Mode Selection"
+                    flow="Patient Flow"
+                    stepNumber="08"
+                    purpose="Choose consultation format: High-Definition Video Call or Audio-Only Consultation."
+                    findingSolved="Patients in low-bandwidth or private settings prefer audio options without video pressure."
+                    keyDecision="Clear two-card selection cards highlighting price and camera requirement."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
+
+                  {/* Screen 9: Payment Method */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Payment Method.png"
+                    alt="Payment Method Screen"
+                    title="Payment Method &amp; Checkout"
+                    flow="Patient Flow"
+                    stepNumber="09"
+                    purpose="Secure checkout supporting credit cards, digital wallets, and health insurance co-pay."
+                    findingSolved="Unexpected charges at checkout trigger immediate booking cancellation."
+                    keyDecision="Transparent cost breakdown showing consultation fee, taxes, and total payable."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
+
+                  {/* Screen 10: Appointment Confirmed */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Appointment Confirned.png"
+                    alt="Appointment Confirmed Screen"
+                    title="Appointment Confirmation"
+                    flow="Patient Flow"
+                    stepNumber="10"
+                    purpose="Verified booking receipt displaying doctor name, scheduled time, and calendar export shortcut."
+                    findingSolved="Patients worry whether their booking reached the hospital doctor roster."
+                    keyDecision="Vibrant green confirmation checkmark with direct 'Add to Calendar' button."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
+
+                  {/* Screen 11: My Appointment */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/My Appointment.png"
+                    alt="My Appointments Screen"
+                    title="My Appointments &amp; Telehealth Lobby"
+                    flow="Patient Flow"
+                    stepNumber="11"
+                    purpose="Patient's active schedule showing upcoming and completed appointments with countdown timers."
+                    findingSolved="Forgetting appointment times or losing consultation room links."
+                    keyDecision="Direct 'Join Call' button activating 10 minutes prior to scheduled start."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
+
+                  {/* Screen 12: Live Call */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Live Call.png"
+                    alt="Live Call Screen"
+                    title="Live Telehealth Call Room"
+                    flow="Patient Flow"
+                    stepNumber="12"
+                    purpose="Full-screen encrypted consultation room with picture-in-picture stream and call controls."
+                    findingSolved="Edge Case 4 &amp; 5 — Video freezes should not cause call dropouts."
+                    keyDecision="High-contrast microphone, camera toggle, and 1-tap audio switch controls."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
+
+                  {/* Screen 13: Call Ended */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Patient/Call Ended.png"
+                    alt="Call Ended Screen"
+                    title="Call Summary &amp; Wrap Up"
+                    flow="Patient Flow"
+                    stepNumber="13"
+                    purpose="Post-call feedback, consultation duration summary, and digital prescription access."
+                    findingSolved="Patients left unsure of next medical steps once video call terminates."
+                    keyDecision="Rating slider for doctor review and link to book follow-up consultation."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
                 </div>
               </div>
 
               {/* Group 2: Doctor Screens */}
-              <div className="space-y-10">
-                <div className="flex items-center gap-3 pb-3 border-b border-subtle">
-                  <span className="w-3 h-3 rounded-full bg-[#10b981]" />
-                  <h3 className="text-xl font-display font-bold text-primary">
-                    Part B: Doctor Clinical Workstation Screens
-                  </h3>
-                  <span className="text-xs font-mono text-muted uppercase">5 Core Screens</span>
+              <div className="space-y-8">
+                <div className="flex items-center justify-between pb-3 border-b border-subtle">
+                  <div className="flex items-center gap-3">
+                    <span className="w-3 h-3 rounded-full bg-[#10b981]" />
+                    <h3 className="text-xl font-display font-bold text-primary">
+                      Part B: Doctor Clinical Mobile Flow
+                    </h3>
+                  </div>
+                  <span className="text-xs font-mono text-muted uppercase">7 Screens · Clinician Roster &amp; Queue</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Screen 9: Doctor Login */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#10b981] font-bold uppercase block mb-1">Screen 09 · Doctor</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Clinical Portal Login</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> HIPAA-compliant secure clinician login with hospital department selector.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Doctors hate slow, multi-factor logins that log them out every 15 minutes.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Fast biometric badge-in for hospital tablets and clean 2FA integration.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/doctor-login.png"
-                      alt="Doctor Login Screen"
-                      label="[Image: Doctor Login - doctor-login.png]"
-                      type="screen"
-                    />
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Screen 1: Doctor Splash */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Doctor/Splash.png"
+                    alt="Doctor Splash Screen"
+                    title="Doctor Portal Splash"
+                    flow="Doctor Flow"
+                    stepNumber="01"
+                    purpose="Clinician portal identity introducing dedicated medical provider tools."
+                    findingSolved="Doctors need dedicated, secure clinical entry distinct from patient portals."
+                    keyDecision="High-contrast clinical green beacon signaling doctor portal mode."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 10: Doctor Dashboard */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#10b981] font-bold uppercase block mb-1">Screen 10 · Doctor</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Dashboard: Upcoming &amp; All Appointments</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Chronological daily queue displaying verified patient names, visit times, and check-in statuses.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Finding 4 — Doctors struggle to see who has arrived versus who is upcoming.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Segmented tabs ("Upcoming Appointments" vs "All Appointments") with live status badges.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/doctor-dashboard.png"
-                      alt="Doctor Dashboard Screen"
-                      label="[Image: Doctor Dashboard - doctor-dashboard.png]"
-                      type="screen"
-                    />
-                  </div>
+                  {/* Screen 2: Doctor Login */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Doctor/Login.png"
+                    alt="Doctor Login Screen"
+                    title="Doctor Login &amp; Security"
+                    flow="Doctor Flow"
+                    stepNumber="02"
+                    purpose="HIPAA-compliant clinician authentication with medical license and credential validation."
+                    findingSolved="Physicians require fast, friction-free login without recurring timeout interruptions."
+                    keyDecision="Clean biometric authentication with quick medical ID login fallback."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 11: Patient Details */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#10b981] font-bold uppercase block mb-1">Screen 11 · Doctor</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Patient Details &amp; Pre-Visit Intake</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Slide-over EHR preview containing chief complaints, current medications, allergies, and past lab notes.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Doctors waste minutes hunting for medical history across fragmented hospital systems.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Integrated "Start Consultation" CTA positioned directly below vital summary tags.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/doctor-patient-details.png"
-                      alt="Doctor Patient Details Screen"
-                      label="[Image: Patient Details - doctor-patient-details.png]"
-                      type="screen"
-                    />
-                  </div>
+                  {/* Screen 3: Doctor Dashboard */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Doctor/Doctor Dashboard.png"
+                    alt="Doctor Dashboard Screen"
+                    title="Doctor Command Dashboard"
+                    flow="Doctor Flow"
+                    stepNumber="03"
+                    purpose="Central physician workstation showing today's appointments, completed visits, and active queue."
+                    findingSolved="Finding 4 — Doctors struggle to see daily patient counts and upcoming visits at a glance."
+                    keyDecision="Summary metric cards paired with upcoming appointment timeline cards."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 12: Doctor Video Call */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#10b981] font-bold uppercase block mb-1">Screen 12 · Doctor</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Doctor Video Consultation Console</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Split-screen clinical video console allowing the doctor to observe the patient while charting notes.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Clunky third-party video apps cover the doctor's screen and block clinical note-taking.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Integrated digital prescription pad and consultation countdown timer.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/doctor-video-call.png"
-                      alt="Doctor Video Call Screen"
-                      label="[Image: Doctor Video Call - doctor-video-call.png]"
-                      type="screen"
-                    />
-                  </div>
+                  {/* Screen 4: Upcoming Patients */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Doctor/Upcoming Patients.png"
+                    alt="Upcoming Patients Screen"
+                    title="Upcoming Patients Queue"
+                    flow="Doctor Flow"
+                    stepNumber="04"
+                    purpose="Chronological patient appointment roster with arrival status badges (Checked-In, Waiting)."
+                    findingSolved="Connected Flow: Patient bookings directly populate this doctor list in real-time."
+                    keyDecision="Glanceable patient cards with visit times and 1-tap 'View Profile' access."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
 
-                  {/* Screen 13: Doctor Audio Call */}
-                  <div className="p-5 rounded-2xl border border-subtle bg-surface flex flex-col justify-between md:col-span-2">
-                    <div>
-                      <span className="text-[10px] font-mono text-[#10b981] font-bold uppercase block mb-1">Screen 13 · Doctor</span>
-                      <h4 className="text-base font-display font-bold text-primary mb-2">Doctor Audio Consultation Mode</h4>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Purpose:</strong> Audio-optimized interface when patient has low cellular reception or prefers voice consultations.
-                      </p>
-                      <p className="text-xs text-secondary leading-relaxed mb-3">
-                        <strong>Finding Solved:</strong> Edge Case 4 &amp; 5 — Video freezes should not cause doctor or patient to cancel care.
-                      </p>
-                      <p className="text-xs font-mono text-muted">
-                        <strong>Key Decision:</strong> Prominent waveform visualizer with full-width patient diagnostic summary.
-                      </p>
-                    </div>
-                    <HimsImageSlot
-                      src="/images/projects/HIMS/doctor-audio-call.png"
-                      alt="Doctor Audio Call Screen"
-                      label="[Image: Doctor Audio Call - doctor-audio-call.png]"
-                      type="screen"
-                    />
-                  </div>
+                  {/* Screen 5: Patient Profile */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Doctor/Patient Profile.png"
+                    alt="Patient Profile Screen"
+                    title="Patient Profile &amp; Medical Intake"
+                    flow="Doctor Flow"
+                    stepNumber="05"
+                    purpose="Glanceable medical summary featuring chief complaint, vital signs, and past appointment history."
+                    findingSolved="Doctors waste minutes hunting for medical background across disjointed EHR tabs."
+                    keyDecision="Prominent 'Start Consultation' button directly under patient chief complaints."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
+
+                  {/* Screen 6: Doctor Availability */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Doctor/Doctor Availability.png"
+                    alt="Doctor Availability Screen"
+                    title="Doctor Availability Setup"
+                    flow="Doctor Flow"
+                    stepNumber="06"
+                    purpose="Configurable calendar scheduler enabling doctors to set available consultation days and time windows."
+                    findingSolved="Rigid hospital scheduling tools make it difficult for doctors to manage telehealth slots."
+                    keyDecision="Visual day-of-week toggles with custom morning and evening time ranges."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
+
+                  {/* Screen 7: Availability Settedup */}
+                  <HimsMobilePhone
+                    src="/images/projects/HIMS/Doctor/Availability Settedup.png"
+                    alt="Availability Set Up Screen"
+                    title="Availability Confirmed State"
+                    flow="Doctor Flow"
+                    stepNumber="07"
+                    purpose="Confirmation state showing active working slots published to the patient discovery engine."
+                    findingSolved="Doctors need certainty that their published hours are actively open for booking."
+                    keyDecision="Visual summary list of active consultation days with quick-edit pencil controls."
+                    onZoom={(src, title) => setZoomImage({ src, title })}
+                  />
                 </div>
               </div>
             </section>
@@ -1681,7 +1835,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <div className="w-full h-10 rounded-lg bg-[#10b981] mb-2" />
                     <span className="font-bold text-primary block">Health Emerald</span>
                     <span className="text-[11px] text-muted">#10b981</span>
-                    <span className="text-[10px] text-secondary mt-1 block">Confirmed / Good</span>
+                    <span className="text-[10px] text-secondary mt-1 block">Confirmed / Doctor Flow</span>
                   </div>
 
                   <div className="p-3.5 rounded-xl border border-subtle bg-surface">
@@ -1736,7 +1890,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     </div>
                     <div>
                       <span className="text-muted text-[10px] uppercase block">Corner Radii</span>
-                      <p className="text-secondary mt-0.5">Rounded corners (12px to 20px) creating a gentle, friendly atmosphere.</p>
+                      <p className="text-secondary mt-0.5">Rounded corners (12px to 24px) creating a gentle, friendly atmosphere.</p>
                     </div>
                     <div>
                       <span className="text-muted text-[10px] uppercase block">Iconography</span>
@@ -1752,6 +1906,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 label="[Image: Style guide]"
                 caption="HIMS Design System: Typography tokens, accessible healthcare color palettes, time chips, and clinical badge components."
                 type="system"
+                onZoom={(src, label) => setZoomImage({ src, title: label })}
               />
             </section>
 
@@ -1897,9 +2052,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
                   <span className="text-[#10b981] font-bold text-sm">✓</span>
                   <div>
-                    <span className="text-xs font-mono font-bold text-primary block">Goal: Smooth Video/Audio Fallback</span>
+                    <span className="text-xs font-mono font-bold text-primary block">Goal: Doctor Schedule &amp; Availability Control</span>
                     <p className="text-xs text-secondary mt-0.5 font-mono">
-                      Achieved: Automatic bandwidth warning with 1-tap audio transition without breaking ongoing consultation sessions.
+                      Achieved: Doctor Availability and Availability Setup screens enabling physicians to publish working hours with zero friction.
                     </p>
                   </div>
                 </div>
