@@ -163,7 +163,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             <span>🏆</span>
             <span className="font-semibold text-primary">Silver Winner — Best Design, Healthcare</span>
             <span className="text-muted">·</span>
-            <span>Vega Design Award [Year]</span>
+            <span>Vega Design Award [June - 2023]</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-primary tracking-tight leading-[1.08] mb-6">
@@ -1507,7 +1507,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               </div>
               <div className="space-y-2">
                 <span className="text-[10px] font-mono text-[#FDD02D] font-bold uppercase tracking-wider block">
-                  VEGA DESIGN AWARD · [YEAR]
+                  VEGA DESIGN AWARD · [JUNE - 2023]
                 </span>
                 <h3 className="text-xl sm:text-2xl font-display font-bold text-primary">
                   Silver — Best Design, Healthcare
