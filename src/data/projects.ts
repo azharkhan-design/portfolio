@@ -907,5 +907,187 @@ export const PROJECTS: Project[] = [
         'Giving consumers transparency on local merchant locations creates strong emotional trust and community retail support.'
       ]
     }
+  },
+  {
+    id: 'hims-medical-solution',
+    number: '07',
+    title: 'HIMS - Medical Solution',
+    client: 'HIMS · Healthcare Solutions',
+    location: 'Global · US & MENA',
+    category: 'Healthcare / Hospital Management / Telehealth & EHR',
+    year: '2023 – 2024',
+    platform: 'Doctor Clinical Web Portal, Patient Mobile App, Hospital Management Suite',
+    role: 'Lead UI/UX & Healthcare Product Designer',
+    description:
+      'A dual-sided Hospital Information Management System (HIMS) streamlining critical healthcare encounters: a seamless Patient Flow for specialist search and appointment booking, and a high-velocity Doctor Flow for schedule review, patient EHR lookups, and one-click consultation launches.',
+    tags: [
+      'Healthcare',
+      'UX Strategy',
+      'Patient Flow',
+      'Doctor Flow',
+      'Telehealth',
+      'Appointment Booking',
+      'EHR System',
+      'Design System'
+    ],
+    layoutSize: 'featured',
+    mockupType: 'healthcare',
+    shortCategory: 'Healthcare-HIMS',
+    backdropColor: 'from-[#0e7490] via-[#0891b2] to-[#155e75]',
+    imageUrl: '/images/projects/HIMS/CoverImage.png',
+    metrics: [
+      { label: 'Booking Speed', value: '< 90s Flow' },
+      { label: 'Doctor Intake Efficiency', value: '3x Faster Intake' },
+      { label: 'Patient Adoption', value: '94% Satisfaction' }
+    ],
+    caseStudy: {
+      overview:
+        'HIMS (Hospital Information Management System) is an enterprise medical software platform engineered to eliminate friction between patients and healthcare providers. It unifies hospital operations into two synchronized, purpose-built journeys: an intuitive, accessible patient portal for specialist discovery and instant appointment booking; and a robust clinical command center for doctors to track daily appointments, review medical records and vitals, and initiate consultations without administrative friction.',
+      industry: 'Healthcare / Clinical Workflows, Telehealth & HealthTech',
+      role: 'Lead Healthcare Product & UX Designer',
+      platform: 'Cross-Platform Physician Web Dashboard & Native iOS/Android Patient App',
+      challenge:
+        'Healthcare software is traditionally fragmented, burdening patients with complicated specialist discovery and clumsy booking steps, while forcing clinicians through labyrinthine EHR screens just to review patient history before appointments. The challenge was to architect a unified ecosystem featuring an effortless, reassuring patient experience alongside an information-dense, distraction-free clinical interface tailored for busy medical practices.',
+      approach:
+        'Conducted workflow mapping across healthcare providers and patients to establish two dedicated operational flows: 1) A 3-step Patient Flow with predictive specialty filtering, real-time doctor availability calendars, and instant SMS/app confirmations; and 2) A streamlined Doctor Flow featuring an intelligent chronological daily agenda, instant patient EHR search, pre-visit vital summaries, and a one-click consultation launcher.',
+      informationArchitecture: {
+        title: 'Dual-Engine Clinical & Patient Experience Architecture',
+        description:
+          'A bi-directionally synchronized data architecture connecting patient booking requests directly to clinical scheduling engines.',
+        pillars: [
+          {
+            title: 'Patient Discovery & Booking Hub',
+            points: [
+              'Intelligent search by specialty, symptoms, doctor name, and clinic proximity.',
+              'Interactive time-slot selector with instant slot locking to prevent double-booking.',
+              'Multi-channel appointment confirmation with pre-visit digital intake forms.'
+            ]
+          },
+          {
+            title: 'Physician Clinical Console',
+            points: [
+              'Chronological daily appointment agenda with patient check-in status indicators.',
+              'Instant patient profile lookup displaying medical history, allergies, and past prescriptions.',
+              'One-click telehealth and in-clinic consultation launcher with quick documentation pads.'
+            ]
+          },
+          {
+            title: 'Enterprise Hospital Engine',
+            points: [
+              'Real-time bi-directional schedule sync between patient apps and doctor consoles.',
+              'HIPAA-compliant encrypted data transfer for all electronic health records.',
+              'Automated post-consultation prescription dispatch and follow-up scheduling.'
+            ]
+          }
+        ]
+      },
+      userFlows: {
+        title: 'Dual-Sided User Journeys: Patient Booking & Doctor Consultation',
+        description:
+          'End-to-end user flows illustrating how patient booking actions directly populate and drive the doctor daily clinical queue.',
+        steps: [
+          {
+            stage: '01 · Patient Search & Specialist Discovery',
+            action: 'Patient enters symptoms, specialty, or physician name with location filters.',
+            outcome: 'Curated doctor cards show credentials, experience, patient reviews, and next available opening.'
+          },
+          {
+            stage: '02 · Time Slot Selection & Instant Booking',
+            action: 'Patient selects consultation mode (in-person or telehealth), chooses a date/time slot, and provides visit reason.',
+            outcome: 'Appointment is locked and confirmed; automated calendar invites and pre-visit intake questionnaires dispatched.'
+          },
+          {
+            stage: '03 · Doctor Login & Daily Queue Overview',
+            action: 'Doctor logs into HIMS dashboard to review upcoming appointments for the day.',
+            outcome: 'Chronological timeline highlights verified patients, arrival status (Checked-In, In-Queue), and chief complaints.'
+          },
+          {
+            stage: '04 · Patient Lookup & Consultation Launch',
+            action: 'Doctor searches or selects patient profile to inspect past clinical notes, medication history, and recent lab results.',
+            outcome: 'Doctor clicks "Start Appointment" with complete contextual patient data ready for real-time charting.'
+          }
+        ]
+      },
+      wireframes: {
+        description:
+          'Developed modular low-fidelity wireframes balancing patient-facing simplicity with clinician-facing data density.',
+        highlights: [
+          'Frictionless 3-step progressive appointment reservation sheet for mobile patients.',
+          'Split-screen doctor workstation with agenda queue on the left and patient EHR records on the right.',
+          'Glanceable color-coded status pills indicating patient arrival and consultation progress.',
+          'Optimized touch targets for tablet use in hospital exam rooms.'
+        ]
+      },
+      designSystem: {
+        summary:
+          'Crafted "HIMS Medical Design System" adhering to WCAG 2.1 AAA accessibility guidelines, high-contrast healthcare palettes, and clear clinical iconography.',
+        components: [
+          'Doctor Specialist Cards',
+          'Interactive Time-Slot Chips',
+          'Clinical Queue Timeline Items',
+          'Patient Health Record Badges',
+          'Consultation Action Bar',
+          'Chief Complaint Summary Pills'
+        ],
+        tokens: [
+          { category: 'Color · Clinical Cyan', value: '#0891b2 (Reassuring Medical Brand)' },
+          { category: 'Color · Confirmed Status', value: '#10b981 (Patient Checked In)' },
+          { category: 'Color · Urgent Notice', value: '#ef4444 (Critical Allergy Alert)' },
+          { category: 'Typography · Display', value: 'Plus Jakarta Sans & Inter' },
+          { category: 'Elevation · Card Surface', value: 'Soft 1px borders with subtle shadow' }
+        ]
+      },
+      visualDesign: {
+        philosophy:
+          'Calming, transparent visual language for patients reducing healthcare anxiety, paired with high-clarity, distraction-free operational density for healthcare providers.',
+        keyDecisions: [
+          'Used soothing medical teal and slate neutrals to instill trust and clarity during booking.',
+          'High-density dashboard layout for physicians allowing glanceable intake in under 5 seconds.',
+          'Prominent "Start Appointment" CTA enabling rapid transition from record review to active consultation.',
+          'Accessible typography with generous line heights preventing errors in medical dosage and time-slot selection.'
+        ]
+      },
+      keyScreens: {
+        title: 'Core Dual-Flow Platform Modules',
+        description:
+          'Production screens illustrating the synchronized Patient and Doctor experiences across mobile and desktop devices.',
+        screens: [
+          {
+            title: 'Patient Flow: Specialist Search & Doctor Profile',
+            description:
+              'Filterable directory displaying doctor expertise, hospital affiliations, patient ratings, and next open appointment slots.',
+            type: 'mobile'
+          },
+          {
+            title: 'Patient Flow: Instant Slot Selection & Confirmation',
+            description:
+              'Streamlined booking wizard with morning/afternoon slot selectors, consultation mode toggle, and instant SMS confirmation.',
+            type: 'mobile'
+          },
+          {
+            title: 'Doctor Flow: Daily Appointment Queue & Schedule',
+            description:
+              'Chronological physician agenda displaying scheduled patients, arrival status, appointment types, and time countdowns.',
+            type: 'dashboard'
+          },
+          {
+            title: 'Doctor Flow: Patient Record Lookup & Consultation Launcher',
+            description:
+              'Comprehensive patient profile lookup with historical diagnoses, vital signs, active medications, and single-click appointment start.',
+            type: 'workflow'
+          }
+        ]
+      },
+      outcomeImpact: [
+        'Reduced patient appointment booking time from an industry average of 7 minutes to under 90 seconds.',
+        'Accelerated physician pre-consultation patient record lookup by 3x with unified EHR summary panels.',
+        'Achieved 94% patient adoption rate with zero double-booking scheduling conflicts.',
+        'Decreased clinical administrative overhead and late-start delays by 32% across participating healthcare practices.'
+      ],
+      learnings: [
+        'Designing dual-sided healthcare platforms requires respecting distinct cognitive states: reassuring simplicity for patients and dense, keyboard-accessible efficiency for physicians.',
+        'Embedding vital signs and past consultation notes directly in the appointment launcher prevents physicians from context-switching across multiple tabs.'
+      ]
+    }
   }
 ];
