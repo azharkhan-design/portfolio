@@ -319,7 +319,6 @@ export const PROJECTS: Project[] = [
     shortCategory: 'Agriculture-Mobile',
     backdropColor: 'from-[#15803d] via-[#166534] to-[#052e16]',
     imageUrl: '/images/projects/growers/GrowersCover.png',
-    hideCaseStudy: true,
     metrics: [
       { label: 'Farm Acreage', value: '4M+ Acres Managed' },
       { label: 'Retail Orders', value: '$120M+ GMV' },
