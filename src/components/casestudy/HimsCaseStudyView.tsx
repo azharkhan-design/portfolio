@@ -228,7 +228,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 01 · OVERVIEW */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">01 · OVERVIEW</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">01 · OVERVIEW</span>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-2">
             <div className="lg:col-span-7 space-y-4">
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight">
@@ -269,7 +269,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 02 · THE PROBLEM */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">02 · THE PROBLEM</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">02 · THE PROBLEM</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
             Booking a doctor online shouldn’t feel like solving a puzzle.
           </h2>
@@ -278,7 +278,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             {/* For patients */}
             <div className="p-6 sm:p-7 rounded-2xl border border-subtle bg-surface flex flex-col justify-between">
               <div>
-                <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#0891b2]/10 text-[#0891b2] mb-3">
+                <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#92D0AB]/10 text-[#92D0AB] mb-3">
                   For patients
                 </span>
                 <p className="text-sm sm:text-base text-secondary leading-relaxed">
@@ -310,7 +310,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 03 · DESIGN PROCESS */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">03 · DESIGN PROCESS</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">03 · DESIGN PROCESS</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             A research-led process in four weeks.
           </h2>
@@ -417,7 +417,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 04 · RESEARCH */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">04 · RESEARCH</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">04 · RESEARCH</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Listening before designing.
           </h2>
@@ -430,19 +430,19 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-bold mb-3">Research goals</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
               <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#0891b2]">Q1</span>
+                <span className="font-bold text-[#92D0AB]">Q1</span>
                 <p className="text-secondary">How do patients currently find and choose a doctor online?</p>
               </div>
               <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#0891b2]">Q2</span>
+                <span className="font-bold text-[#92D0AB]">Q2</span>
                 <p className="text-secondary">What information do patients need before they trust a booking?</p>
               </div>
               <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#0891b2]">Q3</span>
+                <span className="font-bold text-[#92D0AB]">Q3</span>
                 <p className="text-secondary">Where does the booking flow slow people down or make them give up?</p>
               </div>
               <div className="p-4 rounded-xl border border-subtle bg-surface flex items-start gap-3">
-                <span className="font-bold text-[#0891b2]">Q4</span>
+                <span className="font-bold text-[#92D0AB]">Q4</span>
                 <p className="text-secondary">What do doctors need to see before starting a consultation?</p>
               </div>
             </div>
@@ -464,7 +464,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 <span className="text-lg mb-2 block">📱</span>
                 <h4 className="text-sm font-display font-bold text-primary mb-1">Competitor analysis</h4>
                 <p className="text-xs text-secondary leading-relaxed">
-                  Compared leading apps on doctor search, doctor details, booking and calls: <code className="text-[#0891b2]">[add app names]</code>.
+                  Compared leading apps on doctor search, doctor details, booking and calls: <code className="text-[#92D0AB]">[add app names]</code>.
                 </p>
               </div>
 
@@ -480,7 +480,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 <span className="text-lg mb-2 block">⚖️</span>
                 <h4 className="text-sm font-display font-bold text-primary mb-1">A/B testing</h4>
                 <p className="text-xs text-secondary leading-relaxed">
-                  Tested two design options with users to decide with evidence: <code className="text-[#0891b2]">[add what you tested]</code>.
+                  Tested two design options with users to decide with evidence: <code className="text-[#92D0AB]">[add what you tested]</code>.
                 </p>
               </div>
             </div>
@@ -531,8 +531,8 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                     <td className="p-3 text-muted">[Add]</td>
                     <td className="p-3 text-muted">[Add]</td>
                   </tr>
-                  <tr className="bg-[#0891b2]/5">
-                    <td className="p-3 font-bold text-[#0891b2]">HIMS (my approach)</td>
+                  <tr className="bg-[#92D0AB]/5">
+                    <td className="p-3 font-bold text-[#92D0AB]">HIMS (my approach)</td>
                     <td className="p-3 font-medium text-primary">Department-first, with search as a shortcut</td>
                     <td className="p-3 font-medium text-primary">Complete profile before booking</td>
                     <td className="p-3 font-medium text-primary">Date and time on one screen</td>
@@ -551,7 +551,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               {/* Finding 01 */}
               <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#0891b2] font-bold">Finding 01</span>
+                  <span className="text-xs font-mono text-[#92D0AB] font-bold">Finding 01</span>
                   <span className="text-[10px] font-mono text-muted uppercase">Patients</span>
                 </div>
                 <h4 className="text-base font-display font-bold text-primary">Search should start with the department.</h4>
@@ -563,7 +563,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   <span className="text-[10px] font-mono text-muted uppercase block">Design opportunity</span>
                   <p className="text-xs text-secondary mt-0.5">Department-wise browsing up front, with search as a shortcut.</p>
                 </div>
-                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#0891b2]">
+                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#92D0AB]">
                   Solved in → Home, Department list
                 </div>
               </div>
@@ -571,7 +571,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               {/* Finding 02 */}
               <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#0891b2] font-bold">Finding 02</span>
+                  <span className="text-xs font-mono text-[#92D0AB] font-bold">Finding 02</span>
                   <span className="text-[10px] font-mono text-muted uppercase">Patients</span>
                 </div>
                 <h4 className="text-base font-display font-bold text-primary">No details, no trust.</h4>
@@ -583,7 +583,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   <span className="text-[10px] font-mono text-muted uppercase block">Design opportunity</span>
                   <p className="text-xs text-secondary mt-0.5">A complete doctor profile — qualifications, experience, specialisation, fees and availability — in one place.</p>
                 </div>
-                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#0891b2]">
+                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#92D0AB]">
                   Solved in → Doctor profile
                 </div>
               </div>
@@ -591,7 +591,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               {/* Finding 03 */}
               <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#0891b2] font-bold">Finding 03</span>
+                  <span className="text-xs font-mono text-[#92D0AB] font-bold">Finding 03</span>
                   <span className="text-[10px] font-mono text-muted uppercase">Patients</span>
                 </div>
                 <h4 className="text-base font-display font-bold text-primary">Picking a slot takes too long.</h4>
@@ -603,7 +603,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   <span className="text-[10px] font-mono text-muted uppercase block">Design opportunity</span>
                   <p className="text-xs text-secondary mt-0.5">A simple slot selection flow: pick a date and time on one screen, seeing only available slots.</p>
                 </div>
-                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#0891b2]">
+                <div className="pt-2 border-t border-subtle text-[11px] font-mono text-[#92D0AB]">
                   Solved in → Slot selection, Confirmation
                 </div>
               </div>
@@ -635,7 +635,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 05 · DEFINE */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">05 · DEFINE</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">05 · DEFINE</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Who I designed for.
           </h2>
@@ -648,19 +648,19 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             {/* Ananya, 29 */}
             <div className="p-6 rounded-2xl border border-subtle bg-surface space-y-4">
               <div className="flex items-center gap-3 pb-3 border-b border-subtle">
-                <div className="w-12 h-12 rounded-xl bg-[#0891b2]/10 border border-[#0891b2]/30 flex items-center justify-center font-mono text-xs text-[#0891b2] font-bold">
+                <div className="w-12 h-12 rounded-xl bg-[#92D0AB]/10 border border-[#92D0AB]/30 flex items-center justify-center font-mono text-xs text-[#92D0AB] font-bold">
                   [Photo]
                 </div>
                 <div>
                   <h3 className="text-lg font-display font-bold text-primary">Ananya, 29</h3>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-[10px] font-mono uppercase text-[#0891b2] font-bold">Patient</span>
+                    <span className="text-[10px] font-mono uppercase text-[#92D0AB] font-bold">Patient</span>
                     <span className="text-[10px] font-mono text-muted">Proto-persona</span>
                   </div>
                 </div>
               </div>
 
-              <blockquote className="text-xs italic text-secondary border-l-2 border-[#0891b2] pl-3 py-0.5 leading-relaxed">
+              <blockquote className="text-xs italic text-secondary border-l-2 border-[#92D0AB] pl-3 py-0.5 leading-relaxed">
                 “I’ve had a skin rash for a week. I just want to see the right specialist today — without visiting a clinic.”
               </blockquote>
 
@@ -748,7 +748,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
               ].map((hmw, i) => (
                 <div key={i} className="p-4 rounded-xl border border-subtle bg-surface">
                   <span className={`text-[10px] font-mono uppercase font-bold block mb-1.5 ${
-                    hmw.tag === 'Doctor' ? 'text-[#10b981]' : hmw.tag === 'Both' ? 'text-[#FDD02D]' : 'text-[#0891b2]'
+                    hmw.tag === 'Doctor' ? 'text-[#10b981]' : hmw.tag === 'Both' ? 'text-[#FDD02D]' : 'text-[#92D0AB]'
                   }`}>
                     {hmw.tag}
                   </span>
@@ -791,7 +791,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 06 · JOURNEY MAPS */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">06 · JOURNEY MAPS</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">06 · JOURNEY MAPS</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Where the experience breaks today.
           </h2>
@@ -803,7 +803,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div className="mb-10 p-5 rounded-2xl border border-subtle bg-surface overflow-x-auto space-y-4">
             <div className="flex items-center gap-2">
               <h3 className="text-base font-display font-bold text-primary">Patient journey — Ananya</h3>
-              <span className="text-[10px] font-mono text-[#0891b2] bg-[#0891b2]/10 px-2 py-0.5 rounded font-bold uppercase">Patient</span>
+              <span className="text-[10px] font-mono text-[#92D0AB] bg-[#92D0AB]/10 px-2 py-0.5 rounded font-bold uppercase">Patient</span>
             </div>
 
             <div className="min-w-[700px] text-xs font-mono">
@@ -861,7 +861,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 <div>No clear follow-up</div>
               </div>
 
-              <div className="grid grid-cols-7 gap-2 pt-3 text-[#0891b2] font-semibold">
+              <div className="grid grid-cols-7 gap-2 pt-3 text-[#92D0AB] font-semibold">
                 <span className="col-span-7 text-[10px] uppercase font-bold text-primary">Opportunities</span>
                 <div>Department-first entry on Home</div>
                 <div>Browse by department + search</div>
@@ -916,7 +916,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                 <div className="text-muted">Neutral</div>
                 <div className="text-[#FDD02D]">Rushed</div>
                 <div className="text-[#ef4444]">Frustrated</div>
-                <div className="text-[#0891b2]">Focused</div>
+                <div className="text-[#92D0AB]">Focused</div>
                 <div className="text-[#10b981]">Engaged</div>
                 <div className="text-[#10b981]">Satisfied</div>
               </div>
@@ -948,7 +948,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 07 · IDEATE & STRUCTURE */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">07 · IDEATE & STRUCTURE</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">07 · IDEATE & STRUCTURE</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Structuring two apps around one appointment.
           </h2>
@@ -967,7 +967,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Patient App IA */}
               <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-4">
-                <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#0891b2]/10 text-[#0891b2]">
+                <span className="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-[#92D0AB]/10 text-[#92D0AB]">
                   Patient app
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
@@ -1053,7 +1053,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             {/* Patient Flow Diagram */}
             <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-3 font-mono text-xs">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0891b2]/10 text-[#0891b2]">Patient flow</span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#92D0AB]/10 text-[#92D0AB]">Patient flow</span>
                 <span className="text-muted text-[11px]">Find a doctor → book → consult</span>
               </div>
               <div className="flex flex-wrap items-center gap-2 text-secondary">
@@ -1119,7 +1119,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             <h3 className="text-xs font-mono uppercase tracking-wider text-primary font-bold mb-4">How the two flows connect</h3>
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 font-mono text-xs">
               <div className="p-3.5 rounded-xl border border-subtle bg-badge/30">
-                <span className="text-[10px] text-[#0891b2] font-bold uppercase block mb-1">PATIENT</span>
+                <span className="text-[10px] text-[#92D0AB] font-bold uppercase block mb-1">PATIENT</span>
                 <h5 className="font-bold text-primary mb-1">Books a slot</h5>
                 <p className="text-[11px] text-secondary">Chooses doctor, date and time</p>
               </div>
@@ -1181,7 +1181,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 08 · TESTING & ITERATION */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">08 · TESTING & ITERATION</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">08 · TESTING & ITERATION</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Letting users choose between options.
           </h2>
@@ -1193,9 +1193,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div className="p-6 sm:p-8 rounded-3xl border border-subtle bg-surface mb-8">
             <div className="flex items-center justify-between pb-4 mb-6 border-b border-subtle">
               <div>
-                <span className="text-[10px] font-mono text-[#0891b2] font-bold uppercase block">A/B TEST</span>
+                <span className="text-[10px] font-mono text-[#92D0AB] font-bold uppercase block">A/B TEST</span>
                 <h3 className="text-lg font-display font-bold text-primary">
-                  What I tested: <span className="text-[#0891b2]">Patient Home Dashboard (Option 1 vs Option 2)</span>
+                  What I tested: <span className="text-[#92D0AB]">Patient Home Dashboard (Option 1 vs Option 2)</span>
                 </h3>
               </div>
               <span className="text-[10px] font-mono text-muted bg-badge px-2 py-0.5 rounded border border-subtle">
@@ -1262,7 +1262,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 09 · FINAL DESIGN */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">09 · FINAL DESIGN</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">09 · FINAL DESIGN</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             From insight to interface.
           </h2>
@@ -1274,7 +1274,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
           <div className="mb-14 space-y-4">
             <div className="flex items-center justify-between pb-2 border-b border-subtle">
               <h3 className="text-lg font-display font-bold text-primary">Patient flow</h3>
-              <span className="text-[10px] font-mono text-[#0891b2] bg-[#0891b2]/10 px-2 py-0.5 rounded font-bold uppercase">
+              <span className="text-[10px] font-mono text-[#92D0AB] bg-[#92D0AB]/10 px-2 py-0.5 rounded font-bold uppercase">
                 8 screens
               </span>
             </div>
@@ -1294,7 +1294,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                       />
                     </div>
                     <h4 className="text-sm font-display font-bold text-primary mb-0.5">{s.name}</h4>
-                    <span className="text-[10px] font-mono text-[#0891b2] font-bold block mb-1.5">{s.tag}</span>
+                    <span className="text-[10px] font-mono text-[#92D0AB] font-bold block mb-1.5">{s.tag}</span>
                     <p className="text-xs text-secondary leading-relaxed font-sans">{s.desc}</p>
                   </div>
                 </div>
@@ -1339,7 +1339,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 10 · VISUAL DESIGN */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">10 · VISUAL DESIGN</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">10 · VISUAL DESIGN</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Calm, clear and trustworthy.
           </h2>
@@ -1357,9 +1357,9 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 font-mono text-xs">
               <div className="p-3.5 rounded-xl border border-subtle bg-surface">
-                <div className="w-full h-12 rounded-lg bg-[#0891b2] mb-2" />
+                <div className="w-full h-12 rounded-lg bg-[#92D0AB] mb-2" />
                 <span className="font-bold text-primary block">Primary</span>
-                <span className="text-[11px] text-muted">#0891b2</span>
+                <span className="text-[11px] text-muted">#92D0AB</span>
               </div>
               <div className="p-3.5 rounded-xl border border-subtle bg-surface">
                 <div className="w-full h-12 rounded-lg bg-[#141417] border border-subtle mb-2" />
@@ -1437,7 +1437,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 11 · ACCESSIBILITY */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">11 · ACCESSIBILITY</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">11 · ACCESSIBILITY</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2">
             Designed for everyone who needs a doctor.
           </h2>
@@ -1494,7 +1494,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 12 · OUTCOME & RECOGNITION */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">12 · OUTCOME & RECOGNITION</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">12 · OUTCOME & RECOGNITION</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
             Recognised for design in healthcare.
           </h2>
@@ -1516,7 +1516,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   The award validates a research-led process and a clear, trustworthy interface that serves two very different users — patients and doctors — around one shared appointment.
                 </p>
                 <p className="text-xs font-mono text-muted pt-2">
-                  Jury feedback: <code className="text-[#0891b2]">[Add a line from the jury, if you received one]</code>
+                  Jury feedback: <code className="text-[#92D0AB]">[Add a line from the jury, if you received one]</code>
                 </p>
               </div>
             </div>
@@ -1540,17 +1540,17 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   <tr>
                     <td className="p-3 font-semibold text-primary">Find fast</td>
                     <td className="p-3">Department-first home and list take patients straight to the right specialists.</td>
-                    <td className="p-3 text-[#0891b2]">Home, Department list</td>
+                    <td className="p-3 text-[#92D0AB]">Home, Department list</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-semibold text-primary">Decide in one place</td>
                     <td className="p-3">The doctor profile brings qualifications, experience, fees and availability together.</td>
-                    <td className="p-3 text-[#0891b2]">Doctor profile</td>
+                    <td className="p-3 text-[#92D0AB]">Doctor profile</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-semibold text-primary">Book on one screen</td>
                     <td className="p-3">Date and time are picked together, with only free slots shown.</td>
-                    <td className="p-3 text-[#0891b2]">Slot selection</td>
+                    <td className="p-3 text-[#92D0AB]">Slot selection</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-semibold text-primary">Start in 2 taps</td>
@@ -1567,14 +1567,14 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 13 · LEARNINGS */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">13 · LEARNINGS</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">13 · LEARNINGS</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
             What this project taught me.
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
-              <span className="text-xs font-mono text-[#0891b2] font-bold">01</span>
+              <span className="text-xs font-mono text-[#92D0AB] font-bold">01</span>
               <h4 className="text-base font-display font-bold text-primary">Small research, big direction</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
                 Three simple insights from a handful of conversations shaped the entire structure of the app.
@@ -1582,7 +1582,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             </div>
 
             <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
-              <span className="text-xs font-mono text-[#0891b2] font-bold">02</span>
+              <span className="text-xs font-mono text-[#92D0AB] font-bold">02</span>
               <h4 className="text-base font-display font-bold text-primary">Two users means designing the handoff</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
                 The moment a patient’s booking reaches the doctor matters as much as either flow on its own.
@@ -1590,7 +1590,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             </div>
 
             <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
-              <span className="text-xs font-mono text-[#0891b2] font-bold">03</span>
+              <span className="text-xs font-mono text-[#92D0AB] font-bold">03</span>
               <h4 className="text-base font-display font-bold text-primary">Test options, not opinions</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
                 A/B testing gave me evidence to choose between designs instead of relying on my own preference.
@@ -1598,7 +1598,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             </div>
 
             <div className="p-5 rounded-2xl border border-subtle bg-surface space-y-2">
-              <span className="text-xs font-mono text-[#0891b2] font-bold">04</span>
+              <span className="text-xs font-mono text-[#92D0AB] font-bold">04</span>
               <h4 className="text-base font-display font-bold text-primary">Trust is a UX feature</h4>
               <p className="text-xs sm:text-sm text-secondary leading-relaxed">
                 In healthcare, complete information and clear next steps matter more than visual flair.
@@ -1611,7 +1611,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
         {/* 14 · NEXT STEPS */}
         {/* ==================================================================== */}
         <section className="pt-8 border-t border-subtle">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#0891b2] font-semibold">14 · NEXT STEPS</span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#92D0AB] font-semibold">14 · NEXT STEPS</span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-tight mt-2 mb-6">
             If HIMS became a real product.
           </h2>
@@ -1637,7 +1637,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             <div>
               <h3 className="text-2xl font-display font-bold text-primary">Thanks for reading.</h3>
               <p className="text-xs font-mono text-muted mt-1">
-                Azhar Khan · UX/UI Designer · <span className="text-[#0891b2]">[email / portfolio link]</span>
+                Azhar Khan · UX/UI Designer · <span className="text-[#92D0AB]">[email / portfolio link]</span>
               </p>
             </div>
 

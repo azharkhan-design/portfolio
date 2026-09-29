@@ -933,7 +933,7 @@ export const PROJECTS: Project[] = [
     layoutSize: 'featured',
     mockupType: 'healthcare',
     shortCategory: 'Healthcare-HIMS',
-    backdropColor: 'from-[#0e7490] via-[#0891b2] to-[#155e75]',
+    backdropColor: 'from-[#0e7490] via-[#92D0AB] to-[#155e75]',
     imageUrl: '/images/projects/HIMS/CoverImage.png',
     metrics: [
       { label: 'Booking Speed', value: '< 90s Flow' },
@@ -1030,7 +1030,7 @@ export const PROJECTS: Project[] = [
           'Chief Complaint Summary Pills'
         ],
         tokens: [
-          { category: 'Color · Clinical Cyan', value: '#0891b2 (Reassuring Medical Brand)' },
+          { category: 'Color · Clinical Cyan', value: '#92D0AB (Reassuring Medical Brand)' },
           { category: 'Color · Confirmed Status', value: '#10b981 (Patient Checked In)' },
           { category: 'Color · Urgent Notice', value: '#ef4444 (Critical Allergy Alert)' },
           { category: 'Typography · Display', value: 'Plus Jakarta Sans & Inter' },
