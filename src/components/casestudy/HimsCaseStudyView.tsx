@@ -8,6 +8,59 @@ interface HimsCaseStudyViewProps {
   onBackToHome: () => void;
 }
 
+// 01: Discover - Telescope / Search inquiry
+const IconDiscover = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="7" />
+    <path d="M21 21l-4.35-4.35" stroke={color} strokeWidth="2.2" />
+    <circle cx="11" cy="11" r="2.5" fill={color} fillOpacity="0.3" stroke={color} />
+  </svg>
+);
+
+// 02: Define - Clean diamond star of clarity
+const IconDefine = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2.5l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z" fill={color} fillOpacity="0.25" stroke={color} strokeWidth="1.8" />
+  </svg>
+);
+
+// 03: Ideate - Connected nodes & branch architecture
+const IconIdeate = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="6" cy="6" r="3" />
+    <circle cx="18" cy="6" r="3" />
+    <circle cx="12" cy="18" r="3" fill={color} fillOpacity="0.3" stroke={color} />
+    <path d="M6 9v3a3 3 0 003 3h6a3 3 0 003-3V9" stroke={color} strokeWidth="1.8" />
+  </svg>
+);
+
+// 04: Design - Modular blocks building system
+const IconDesign = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="7" height="7" rx="2" />
+    <rect x="14" y="3" width="7" height="7" rx="2" stroke={color} fill={color} fillOpacity="0.3" />
+    <rect x="14" y="14" width="7" height="7" rx="2" />
+    <rect x="3" y="14" width="7" height="7" rx="2" />
+  </svg>
+);
+
+// 05: Test - Directional compass & target
+const IconTest = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="8.5" />
+    <polygon points="12 6.5 15 12 12 10.5 9 12 12 6.5" fill={color} stroke={color} strokeWidth="1.2" />
+    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+  </svg>
+);
+
+// 06: Iterate - Diamond of quality craft & refinement
+const IconIterate = (color: string) => (
+  <svg className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 3.5h12l4 5.5-10 11.5L2 9z" fill={color} fillOpacity="0.25" stroke={color} strokeWidth="1.8" />
+    <path d="M2 9h20" stroke="currentColor" opacity="0.5" />
+  </svg>
+);
+
 export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
   project,
   allProjects,
@@ -15,6 +68,17 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
   onBackToHome
 }) => {
   const [zoomImage, setZoomImage] = useState<{ src: string; title: string } | null>(null);
+  const [hoveredStepIdx, setHoveredStepIdx] = useState<number | null>(null);
+  const [stepMousePos, setStepMousePos] = useState<{ x: number; y: number } | null>(null);
+
+  const handleStepMouseMove = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setStepMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+    setHoveredStepIdx(index);
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -318,26 +382,112 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
             I followed a simple double-diamond style process — understand first, then design, then test — and planned the month so each step fed the next.
           </p>
 
-          {/* 6 Step Cards */}
+          {/* 6 Step Cards with Philosophy-style SVG icons and interactive hover */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
             {[
-              { num: '1', title: 'Discover', desc: 'Studied the market and asked patients and doctors what current apps are missing.' },
-              { num: '2', title: 'Define', desc: 'Turned findings into personas, journey maps and clear problem statements.' },
-              { num: '3', title: 'Ideate', desc: 'Structured the app and mapped both user flows, including edge cases.' },
-              { num: '4', title: 'Design', desc: 'Wireframes first, then a design system and high-fidelity screens.' },
-              { num: '5', title: 'Test', desc: 'A/B tested key design options with users to choose with evidence.' },
-              { num: '6', title: 'Iterate', desc: 'Refined screens from test results and prepared the award submission.' }
-            ].map((s) => (
-              <div key={s.num} className="p-4 rounded-xl border border-subtle bg-surface flex flex-col justify-between">
-                <div>
-                  <span className="w-6 h-6 rounded-full bg-badge text-primary flex items-center justify-center font-mono text-xs font-bold mb-2">
-                    {s.num}
-                  </span>
-                  <h4 className="text-sm font-display font-bold text-primary mb-1">{s.title}</h4>
+              {
+                title: 'Discover',
+                desc: 'Studied the market and asked patients and doctors what current apps are missing.',
+                color: '#92D0AB', // Mint
+                icon: IconDiscover
+              },
+              {
+                title: 'Define',
+                desc: 'Turned findings into personas, journey maps and clear problem statements.',
+                color: '#FDD02D', // Gold
+                icon: IconDefine
+              },
+              {
+                title: 'Ideate',
+                desc: 'Structured the app and mapped both user flows, including edge cases.',
+                color: '#92D0AB', // Mint
+                icon: IconIdeate
+              },
+              {
+                title: 'Design',
+                desc: 'Wireframes first, then a design system and high-fidelity screens.',
+                color: '#DD1251', // Crimson
+                icon: IconDesign
+              },
+              {
+                title: 'Test',
+                desc: 'A/B tested key design options with users to choose with evidence.',
+                color: '#92D0AB', // Mint
+                icon: IconTest
+              },
+              {
+                title: 'Iterate',
+                desc: 'Refined screens from test results and prepared the award submission.',
+                color: '#FDD02D', // Gold
+                icon: IconIterate
+              }
+            ].map((s, idx) => {
+              const isHovered = hoveredStepIdx === idx;
+              return (
+                <div
+                  key={s.title}
+                  onMouseEnter={(e) => handleStepMouseMove(e, idx)}
+                  onMouseMove={(e) => handleStepMouseMove(e, idx)}
+                  onMouseLeave={() => setHoveredStepIdx(null)}
+                  className={`group relative p-4 rounded-2xl border transition-all duration-300 transform-gpu cursor-default select-none flex flex-col justify-between overflow-hidden ${
+                    isHovered
+                      ? 'scale-[1.03] -translate-y-1 shadow-lg'
+                      : 'border-subtle bg-surface hover:border-strong'
+                  }`}
+                  style={{
+                    borderColor: isHovered ? `${s.color}70` : undefined,
+                  }}
+                >
+                  {/* Dynamic Cursor Spotlight Glow within Card */}
+                  {isHovered && stepMousePos && (
+                    <div
+                      className="absolute pointer-events-none rounded-full blur-2xl transition-opacity duration-200"
+                      style={{
+                        width: '180px',
+                        height: '180px',
+                        left: `${stepMousePos.x - 90}px`,
+                        top: `${stepMousePos.y - 90}px`,
+                        background: `radial-gradient(circle, ${s.color}30 0%, ${s.color}10 45%, transparent 75%)`,
+                      }}
+                    />
+                  )}
+
+                  {/* Top Active Color Accent Line on Hover */}
+                  <div
+                    className={`absolute top-0 inset-x-3 h-0.5 rounded-full transition-all duration-300 ${
+                      isHovered ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-50'
+                    }`}
+                    style={{ backgroundColor: s.color }}
+                  />
+
+                  {/* Icon Container matching Philosophy card style */}
+                  <div>
+                    <div
+                      className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 relative z-10 mb-3.5 ${
+                        isHovered
+                          ? 'scale-105 shadow-sm'
+                          : 'bg-surface/80 border-subtle/60 text-muted'
+                      }`}
+                      style={{
+                        backgroundColor: isHovered ? `${s.color}20` : undefined,
+                        borderColor: isHovered ? `${s.color}60` : undefined,
+                        color: isHovered ? s.color : undefined
+                      }}
+                    >
+                      {s.icon(s.color)}
+                    </div>
+
+                    <h4 className="text-sm font-display font-bold text-primary mb-1 relative z-10 transition-colors">
+                      {s.title}
+                    </h4>
+                  </div>
+
+                  <p className="text-[11px] text-secondary font-mono leading-relaxed mt-2 relative z-10">
+                    {s.desc}
+                  </p>
                 </div>
-                <p className="text-[11px] text-secondary font-mono leading-relaxed mt-2">{s.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Project Timeline */}
