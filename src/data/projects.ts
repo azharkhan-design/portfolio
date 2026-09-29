@@ -916,7 +916,7 @@ export const PROJECTS: Project[] = [
     location: 'Global · US & MENA',
     category: 'Healthcare / Hospital Management / Telehealth & EHR',
     year: '2023 – 2024',
-    platform: 'Doctor Clinical Web Portal, Patient Mobile App, Hospital Management Suite',
+    platform: 'Mobile only (Patient and Doctor Apps)',
     role: 'Lead UI/UX & Healthcare Product Designer',
     description:
       'A dual-sided Hospital Information Management System (HIMS) streamlining critical healthcare encounters: a seamless Patient Flow for specialist search and appointment booking, and a high-velocity Doctor Flow for schedule review, patient EHR lookups, and one-click consultation launches.',

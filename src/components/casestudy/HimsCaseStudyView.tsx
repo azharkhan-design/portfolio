@@ -202,7 +202,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
 
             <div>
               <span className="text-muted uppercase tracking-wider text-[10px] block mb-1">Platform</span>
-              <span className="font-semibold text-[#0891b2] block">[Mobile / Web]</span>
+              <span className="font-semibold text-primary block">Mobile only</span>
               <span className="text-secondary text-[11px] mt-0.5 block leading-tight">
                 Two flows: Patient and Doctor
               </span>
