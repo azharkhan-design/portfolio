@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { AWARDS, type AwardItem } from '../../data/awards';
 import { SectionHeader } from '../ui/SectionHeader';
 
-const AWARD_ACCENT_COLORS = ['#92D0AB', '#DD1251', '#FDD02D'];
+interface AwardsSectionProps {
+  onSelectProject?: (projectId: string) => void;
+}
 
-export const AwardsSection: React.FC = () => {
+const AWARD_ACCENT_COLORS = ['#FDD02D', '#92D0AB', '#DD1251', '#38bdf8'];
+
+export const AwardsSection: React.FC<AwardsSectionProps> = ({ onSelectProject }) => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cardMousePos, setCardMousePos] = useState<{ x: number; y: number } | null>(null);
@@ -12,6 +16,15 @@ export const AwardsSection: React.FC = () => {
   const [isStageHovered, setIsStageHovered] = useState<boolean>(false);
 
   const activeAward: AwardItem = AWARDS[activeIdx] || AWARDS[0];
+
+  const handleNavigateCaseStudy = (projectId: string) => {
+    if (onSelectProject) {
+      onSelectProject(projectId);
+    } else {
+      window.location.hash = `project/${projectId}`;
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
 
   const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -34,7 +47,7 @@ export const AwardsSection: React.FC = () => {
   return (
     <section id="awards" className="py-20 md:py-32 relative overflow-hidden">
       {/* Subtle background ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#92D0AB]/5 blur-[160px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#FDD02D]/5 blur-[160px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -50,7 +63,7 @@ export const AwardsSection: React.FC = () => {
                 </span>
               </>
             }
-            subtitle="Industry recognitions celebrating excellence in fintech UX and product design leadership."
+            subtitle="International and national honors celebrating excellence in healthcare innovation, enterprise fintech UX, and design leadership."
             className="mb-0"
           />
         </div>
@@ -59,8 +72,8 @@ export const AwardsSection: React.FC = () => {
         <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch relative z-10">
             
-            {/* Left Column: 3 Interactive Equal-Height Award Tiles (5 Cols) */}
-            <div className="lg:col-span-5 flex flex-col gap-3.5 h-full justify-between">
+            {/* Left Column: Interactive Equal-Height Award Tiles (6 Cols) */}
+            <div className="lg:col-span-6 flex flex-col gap-3 sm:gap-3.5 h-full justify-between">
               {AWARDS.map((award, idx) => {
                 const isSelected = activeIdx === idx;
                 const isCardHovered = hoveredIdx === idx;
@@ -78,7 +91,7 @@ export const AwardsSection: React.FC = () => {
                       setHoveredIdx(null);
                       setCardMousePos(null);
                     }}
-                    className={`group relative flex-1 rounded-2xl border border-subtle p-4 sm:p-5 transition-all duration-300 transform-gpu cursor-pointer select-none flex items-start gap-3.5 sm:gap-4 overflow-hidden ${
+                    className={`group relative flex-1 rounded-2xl border border-subtle p-3.5 sm:p-4 transition-all duration-300 transform-gpu cursor-pointer select-none flex items-start gap-3.5 sm:gap-4 overflow-hidden ${
                       isActive
                         ? 'scale-[1.01] -translate-y-0.5'
                         : isAnyHovered
@@ -146,13 +159,13 @@ export const AwardsSection: React.FC = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-sm sm:text-base font-display font-bold text-primary tracking-tight transition-colors line-clamp-2">
+                        <h3 className="text-sm sm:text-[13.5px] xl:text-[15px] font-display font-bold text-primary tracking-tight transition-colors lg:whitespace-nowrap truncate">
                           {award.title}
                         </h3>
                       </div>
 
-                      {/* Issuer & Arrow */}
-                      <div className="text-xs font-mono text-muted mt-2.5 flex items-center justify-between gap-2">
+                      {/* Issuer & Arrow / Case Study Link */}
+                      <div className="text-xs font-mono text-muted mt-2 flex items-center justify-between gap-2">
                         <span className="truncate flex items-center gap-1.5">
                           {award.id === 'unlocked-award' ? (
                             <>
@@ -160,13 +173,32 @@ export const AwardsSection: React.FC = () => {
                               <span className="w-1.5 h-1.5 rounded-full bg-[#DD1251] shrink-0" />
                               <span>Inkspell Media</span>
                             </>
+                          ) : award.id === 'vega-digital-awards' ? (
+                            <>
+                              <span>Vega Digital Awards</span>
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#FDD02D] shrink-0" />
+                              <span>IAA</span>
+                            </>
                           ) : (
                             <span>{award.issuer}</span>
                           )}
                         </span>
-                        <span className={`shrink-0 transition-transform duration-300 ${isActive ? 'translate-x-1 text-primary' : 'opacity-40'}`}>
-                          →
-                        </span>
+                        {award.caseStudyId ? (
+                          <span
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleNavigateCaseStudy(award.caseStudyId!);
+                            }}
+                            className="inline-flex items-center gap-1 text-[11px] font-mono text-[#FDD02D] font-bold shrink-0 hover:underline cursor-pointer"
+                          >
+                            <span>Case Study</span>
+                            <span>→</span>
+                          </span>
+                        ) : (
+                          <span className={`shrink-0 transition-transform duration-300 ${isActive ? 'translate-x-1 text-primary' : 'opacity-40'}`}>
+                            →
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -174,8 +206,8 @@ export const AwardsSection: React.FC = () => {
               })}
             </div>
 
-            {/* Right Column: Full-Bleed Visual Stage Matching Left Height (7 Cols) */}
-            <div className="lg:col-span-7 flex flex-col h-full">
+            {/* Right Column: Full-Bleed Visual Stage Matching Left Height (6 Cols) */}
+            <div className="lg:col-span-6 flex flex-col h-full">
               <div
                 onMouseMove={handleStageMouseMove}
                 onMouseEnter={() => setIsStageHovered(true)}
@@ -183,7 +215,7 @@ export const AwardsSection: React.FC = () => {
                   setIsStageHovered(false);
                   setStageMousePos(null);
                 }}
-                className="relative rounded-2xl overflow-hidden border border-subtle bg-black shadow-2xl flex-1 flex flex-col justify-end transition-all duration-500 transform-gpu min-h-[380px] sm:min-h-[420px]"
+                className="relative rounded-2xl overflow-hidden border border-subtle bg-black shadow-2xl flex-1 flex flex-col justify-end transition-all duration-500 transform-gpu min-h-[440px] sm:min-h-[500px]"
               >
                 {/* Dynamic Cursor Spotlight Glow within Photo Stage */}
                 {isStageHovered && stageMousePos && (
@@ -194,28 +226,74 @@ export const AwardsSection: React.FC = () => {
                       height: '340px',
                       left: `${stageMousePos.x - 170}px`,
                       top: `${stageMousePos.y - 170}px`,
-                      background: 'radial-gradient(circle, rgba(146, 208, 171, 0.20) 0%, rgba(253, 208, 45, 0.12) 40%, transparent 75%)',
+                      background: 'radial-gradient(circle, rgba(253, 208, 45, 0.20) 0%, rgba(146, 208, 171, 0.12) 40%, transparent 75%)',
                     }}
                   />
                 )}
+
+                {/* Top-Right Pill to Open Case Study Directly */}
+                {activeAward.caseStudyId && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNavigateCaseStudy(activeAward.caseStudyId!);
+                    }}
+                    className="absolute top-4 right-4 z-30 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-950/80 hover:bg-neutral-950 text-[#FDD02D] hover:text-[#FFE885] border border-[#FDD02D]/40 backdrop-blur-md font-mono text-xs font-bold transition-all duration-200 hover:scale-105 shadow-xl cursor-pointer"
+                    title="View HIMS Medical Solution Case Study"
+                  >
+                    <span>Read Case Study</span>
+                    <span className="text-sm">↗</span>
+                  </button>
+                )}
                 
-                {/* Full-Bleed High-Res Image Filling 100% Height & Width */}
-                <img
-                  key={activeAward.id}
-                  src={activeAward.image}
-                  alt={activeAward.title}
-                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out"
-                />
+                {/* Visual Media (Video or Image) */}
+                {activeAward.video ? (
+                  <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-black">
+                    {/* Atmospheric Glow / Blurred Backdrop from the Poster Image */}
+                    {activeAward.image && (
+                      <img
+                        src={activeAward.image}
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110 pointer-events-none"
+                        aria-hidden="true"
+                      />
+                    )}
+                    {/* High-Definition Autoplaying Looping Video */}
+                    <video
+                      key={activeAward.id}
+                      src={activeAward.video}
+                      poster={activeAward.image}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="relative z-10 max-h-full max-w-full h-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    key={activeAward.id}
+                    src={activeAward.image}
+                    alt={activeAward.title}
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out"
+                  />
+                )}
 
                 {/* Cinematic Gradient Overlay for Crisp Text Legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-transparent pointer-events-none z-10" />
 
                 {/* Bottom Content Layer */}
                 <div className="relative z-20 p-5 sm:p-6 bg-gradient-to-t from-neutral-950 via-neutral-950/90 to-transparent">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center justify-between gap-3 mb-2">
                     <span className="text-[11px] font-mono font-semibold text-[#FDD02D] bg-[#FDD02D]/20 px-2.5 py-0.5 rounded-full border border-[#FDD02D]/30 backdrop-blur-sm">
                       {activeAward.badge}
                     </span>
+                    {activeAward.year && (
+                      <span className="text-[11px] font-mono text-muted">
+                        Year {activeAward.year}
+                      </span>
+                    )}
                   </div>
 
                   <h4 className="text-base sm:text-xl font-display font-bold text-white tracking-tight leading-snug mb-2">
@@ -225,6 +303,20 @@ export const AwardsSection: React.FC = () => {
                   <p className="text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed">
                     {activeAward.citation}
                   </p>
+
+
+                  {activeAward.link && !activeAward.caseStudyId && (
+                    <div className="mt-3">
+                      <a
+                        href={activeAward.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono text-[#FDD02D] hover:underline"
+                      >
+                        <span>{activeAward.linkText || 'Visit official website ↗'}</span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

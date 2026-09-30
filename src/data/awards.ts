@@ -7,12 +7,29 @@ export interface AwardItem {
   category: string;
   citation: string;
   image: string;
+  video?: string;
   logo: string;
   link?: string;
   linkText?: string;
+  caseStudyId?: string;
 }
 
 export const AWARDS: AwardItem[] = [
+  {
+    id: 'vega-digital-awards',
+    year: '2023',
+    badge: '🏆 International Award · Silver Winner',
+    title: 'Vega Digital Awards — Silver Winner (Healthcare)',
+    issuer: 'Vega Digital Awards · IAA',
+    category: 'Healthcare UX & Telehealth',
+    citation: 'Honored for designing an accessible, dual-sided hospital management system (HIMS) connecting patient booking empathy with high-velocity clinical dashboards.',
+    image: '/images/awards/VegaAward.webp',
+    video: '/images/awards/VegaAward.mp4',
+    logo: '/images/Logo/VegaLogo.svg',
+    caseStudyId: 'hims-medical-solution',
+    link: '#project/hims-medical-solution',
+    linkText: 'View Case Study →'
+  },
   {
     id: 'unlocked-award',
     badge: '🏆 National Industry Award',

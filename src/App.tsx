@@ -263,7 +263,7 @@ export const PortfolioApp: React.FC = () => {
               onSelectProject={handleSelectProject}
             />
             <ExperienceSection />
-            <AwardsSection />
+            <AwardsSection onSelectProject={handleSelectProject} />
             <ExpertiseSection />
             <LeadershipSection />
             {/* <TestimonialsSection /> */}

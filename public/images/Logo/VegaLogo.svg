@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#14130f"/>
+  <rect width="64" height="64" rx="14" stroke="#FDD02D" stroke-opacity="0.3" stroke-width="1.5"/>
+  <defs>
+    <linearGradient id="vegaGold" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE885"/>
+      <stop offset="0.45" stop-color="#FDD02D"/>
+      <stop offset="1" stop-color="#D49A00"/>
+    </linearGradient>
+    <linearGradient id="vegaStar" x1="32" y1="12" x2="32" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FDD02D"/>
+    </linearGradient>
+  </defs>
+  <!-- Stylized Vega "V" Wings -->
+  <path d="M16 20L32 48L48 20L40 20L32 37L24 20H16Z" fill="url(#vegaGold)"/>
+  <!-- Top Center Polaris Star -->
+  <path d="M32 12L34 18L40 20L34 22L32 28L30 22L24 20L30 18L32 12Z" fill="url(#vegaStar)"/>
+</svg>
