@@ -2043,7 +2043,7 @@ export const HimsCaseStudyView: React.FC<HimsCaseStudyViewProps> = ({
                   </span>
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-muted block mb-1">HEADINGS · [Filson Pro / Plus Jakarta Sans]</span>
+                  <span className="text-[10px] font-mono uppercase text-muted block mb-1">HEADINGS · [Poppins]</span>
                   <h4 className="text-2xl font-display font-bold text-primary">Book your consultation</h4>
                 </div>
                 <div>

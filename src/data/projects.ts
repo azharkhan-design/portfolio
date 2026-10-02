@@ -104,7 +104,7 @@ export const PROJECTS: Project[] = [
           'Document Vault with encrypted lease storage'
         ],
         tokens: [
-          { category: 'Typography', value: 'Filson Pro & Inter' },
+          { category: 'Typography', value: 'Poppins & Inter' },
           { category: 'Palette', value: 'Warm Sand Gray, Deep Charcoal, Gold Accent, Clean White' }
         ]
       },
@@ -250,7 +250,7 @@ export const PROJECTS: Project[] = [
           'Live Classroom Video Integration Toolbar'
         ],
         tokens: [
-          { category: 'Typography', value: 'Inter & Filson Pro' },
+          { category: 'Typography', value: 'Inter & Poppins' },
           { category: 'Palette', value: 'Clean Slate, Electric Blue Accent, Mastered Green, In-Progress Amber' }
         ]
       },
@@ -695,7 +695,7 @@ export const PROJECTS: Project[] = [
         ],
         tokens: [
           { category: 'Brand Palette', value: 'Racing Charcoal (#0F172A), Hazard Gold (#F59E0B), Reaction Cyan (#06B6D4)' },
-          { category: 'Typography', value: 'Filson Pro & Monospace Chronometer Numerals' }
+          { category: 'Typography', value: 'Poppins & Monospace Chronometer Numerals' }
         ]
       },
       visualDesign: {
@@ -859,7 +859,7 @@ export const PROJECTS: Project[] = [
         tokens: [
           { category: 'Brand Accent', value: 'Electric Violet (#7C3AED) & Solar Gold (#FDD02D)' },
           { category: 'Semantic States', value: 'Delivered Emerald (#10B981), In-Transit Sky (#0284C7)' },
-          { category: 'Typography', value: 'Filson Pro & Inter Tabular Figures' }
+          { category: 'Typography', value: 'Poppins & Inter Tabular Figures' }
         ]
       },
       visualDesign: {
